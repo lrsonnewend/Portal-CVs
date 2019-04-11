@@ -25,12 +25,20 @@ raDS = []
 decRK = []
 decDS = []
 
+#vetores para armazenar dados complementares
+t1 = []
+t2 = []
+mag = []
+orbPer = []
+dist = []
+perc1 = []
+perc2 = []
+
 #vetores auxiliares
-meuRA = []
-meuVet = []
 auxRK = []
 auxDS = []
 aux = []
+resultados = []
 #abrindo arquivos CSV's
 leituraRK = open('RitKb.csv')
 leituraDS = open('Downes.csv')
@@ -58,6 +66,27 @@ for i in readerRK:
     i[2] = i[2].strip()
     i[2] = i[2].split()
     decRK.append(i[2])
+
+    i[3] = i[3].strip()
+    t1.append(i[3])
+
+    i[4] = i[4].strip()
+    t2.append(i[4])
+
+    i[5] = i[5].strip()
+    mag.append(i[5])
+
+    i[6] = i[6].strip()
+    orbPer.append(i[6])
+
+    i[7] = i[7].strip()
+    dist.append(i[7])
+
+    i[8] = i[8].strip()
+    perc1.append(i[8])
+
+    i[9] = i[9].strip()
+    perc2.append(i[9])
     
 
 for k in readerDS:
@@ -96,9 +125,20 @@ for i in range(len(nomesDS)):
                             if(temporDS[0] == temporRK[0] and temporDS[1] == temporDS[1]):
                                 if abs(float(temporDS[2]) - float(temporRK[2])) < 5.00:
                                     r+=1
-                                    print(f'nomeRK: {nomesRK[j]}   RA: {raRK[j]}   DEC: {decRK[j]}')
-                                    print(f'nomeDS: {nomesDS[i]}   RA: {raDS[i]}   DEC: {decDS[i]}\n')
+                                    #print(f'nomeRK: {nomesRK[j]}   RA: {raRK[j]}   DEC: {decRK[j]}')
+                                    #print(f'nomeDS: {nomesDS[i]}   RA: {raDS[i]}   DEC: {decDS[i]}\n')
+                                    results = (str(nomesRK[j])+',  '+str(raRK[j])+',  '+str(decRK[j])+',  '+str(t1[j])+',  '+str(t2[j])+',  '+str(mag[j])+',  '+str(orbPer[j])+',  '
+                                               +str(dist[j])+',  '+str(perc1[j])+',  '+str(perc2[j]))
+                                                        
+                                    resultados.append(results)
 
+                                    
+print(len(nomesRK))
+print(len(raRK))
+print(len(decRK))
+                                    
+for k in resultados:
+    print (k)
 
 print(f'\nquantidade de objetos em comum: {r}')
                                     
