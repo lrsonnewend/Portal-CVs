@@ -7,8 +7,7 @@ INFORMAÇÕES GERAIS DOS CATÁLOGOS:
     Número de objetos:
        Downes & Shara: 1361
        Ritter & Kolb: 1831
-'''
-        
+'''   
         
 import pandas as pd
 import numpy as np 
@@ -42,14 +41,14 @@ readerDS = csv.reader(leituraDS)
 readerRK = csv.reader(leituraRK)
 
 #deixando as tabelas ordenadas em ordem alfabética
-readerRK = sorted(readerRK)
-readerDS = sorted(readerDS)
+#readerRK = sorted(readerRK)
+#readerDS = sorted(readerDS)
 
 
 #adicionando os dados em seus determinados vetores
 for i in readerRK:
     i[0] = i[0].strip()
-    i[0] = i[0].replace(' ', '')
+    #i[0] = i[0].replace(' ', '')
     nomesRK.append(i[0])
 
     i[1] = i[1].strip()
@@ -63,7 +62,7 @@ for i in readerRK:
 
 for k in readerDS:
     k[0] = k[0].strip()
-    k[0] = k[0].replace(' ', '')
+    #k[0] = k[0].replace(' ', '')
     nomesDS.append(k[0])
 
     k[1] = k[1].strip()
@@ -76,32 +75,60 @@ for k in readerDS:
     k[2] = k[2].split()
     decDS.append(k[2])
 
+
     
 r = 0
-d = 0                                                                                        
 
-#fazendeo comparação de RA's dos catálogos                                
+for i in range(len(nomesDS)):
+    for j in range(len(nomesRK)):
+        if(nomesDS[i] == nomesRK[j] or nomesDS[i] != nomesRK[j]):
+            if len(raDS[i]) == 3:
+                tempDS = raDS[i]
+                tempRK = raRK[j]
+                
+                if(tempDS[0] == tempRK[0] and tempDS[1] == tempRK[1]):
+                    if abs(float(tempDS[2]) - float(tempRK[2])) < 0.40:
+                        
+                        if(len(decDS[i]) == 3):
+                            temporDS = decDS[i]
+                            temporRK = decRK[j]
+                            
+                            if(temporDS[0] == temporRK[0] and temporDS[1] == temporDS[1]):
+                                if abs(float(temporDS[2]) - float(temporRK[2])) < 5.00:
+                                    r+=1
+                                    print(f'nomeRK: {nomesRK[j]}   RA: {raRK[j]}   DEC: {decRK[j]}')
+                                    print(f'nomeDS: {nomesDS[i]}   RA: {raDS[i]}   DEC: {decDS[i]}\n')
+
+
+print(f'\nquantidade de objetos em comum: {r}')
+                                    
+                       
+                          
+'''
+#fazendo comparação de RA's dos catálogos
 for i in raDS:
+    d+=1
     for k in raRK:
+        r+=1
         if len(i) == 3:
             if(i[0] == k[0] and i[1] == k[1]):
                 if abs(float(i[2]) - float(k[2])) < 0.40:
-                    r+=1
-                    print(f'rk {k}')
-                    print(f'ds {i}')
+                    print(f'rk {k} posicao: {r}')
+                    print(f'ds {i} posicao: {d}')'''
 
-#fazendo comparação de DEC's dos catálogos
-for i in decDS:
-    for k in decRK:
-        if len(i) == 3:
+'''#fazendo comparação de DEC's dos catálogos
+for i in decRK:
+    r+=1
+    for k in decDS:
+        d+=1
+        if len(k) == 3:
             if(i[0] == k[0] and i[1] == k[1]):
                 if abs(float(i[2]) - float(k[2])) < 5.0:
-                    d+=1
-                    print(f'rk {k}')
-                    print(f'ds {i}')
+                    print(f'rk {k} posição: {r}')
+                    print(f'ds {i} posição: {d}')'''
             
 
-#total de dados em cada vetor
+'''#total de dados em cada vetor
 print(len(nomesRK))
 print(len(raRK))
 print('\n')
@@ -109,7 +136,7 @@ print(len(nomesDS))
 print(len(raDS))
 print('\n')
 print(f"RA's iguais identificados: {r}")
-print(f"DEC's iguais identificados: {d}")
+print(f"DEC's iguais identificados: {d}")'''
 
 
 
@@ -117,7 +144,12 @@ print(f"DEC's iguais identificados: {d}")
 
 
 
-      
+
+
+
+
+
+
 #outros métodos para o merger
 
 '''for linhaRK in readerRK:
