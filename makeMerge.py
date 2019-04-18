@@ -6,12 +6,13 @@ INFORMAÇÕES GERAIS DOS CATÁLOGOS:
 
     Número de objetos:
        Downes & Shara: 1361
-       Ritter & Kolb: 1831
+       Ritter & Kolb: 1830
 '''   
         
 import pandas as pd
 import numpy as np 
 import csv
+import tabulator
 
 #vetores para armazenar nomes dos objetos
 nomesRK = []
@@ -25,22 +26,18 @@ raDS = []
 decRK = []
 decDS = []
 
-#vetores para armazenar dados complementares
-#Ritter & Kolb
-t1 = []
-t2 = []
-mag = []
-orbPer = []
-dist = []
-perc1 = []
-perc2 = []
-
 
 #vetores auxiliares
 auxRK = []
 auxDS = []
-aux = []
+difRK = []
+difDS = []
+equalsRK = []
+equalsDS = []
+noEqualsRK = []
+noEqualsDS = []
 resultados = []
+
 #abrindo arquivos CSV's
 leituraRK = open('RitKb.csv')
 leituraDS = open('Downes.csv')
@@ -89,10 +86,11 @@ for k in readerDS:
 
     auxDS.append(k[3:])
 
-    
-r = 0
-c = 0
 
+
+
+
+r = 0
 for j in range(len(nomesRK)):
     for i in range(len(nomesDS)):
         if(nomesDS[i] == nomesRK[j] or nomesDS[i] != nomesRK[j]):
@@ -101,59 +99,91 @@ for j in range(len(nomesRK)):
                 tempRK = raRK[j]
                 
                 if(tempDS[0] == tempRK[0] and tempDS[1] == tempRK[1]):
-                    if abs(float(tempDS[2]) - float(tempRK[2])) < 0.40:
+                    if len(raDS[i]) == 3:
+                        if abs(float(tempDS[2]) - float(tempRK[2])) < 0.40:
                         
-                        if(len(decDS[i]) == 3):
-                            temporDS = decDS[i]
-                            temporRK = decRK[j]
+                            if(len(decDS[i]) == 3):
+                                temporDS = decDS[i]
+                                temporRK = decRK[j]
                             
-                            if(temporDS[0] == temporRK[0] and temporDS[1] == temporDS[1]):
-                                if abs(float(temporDS[2]) - float(temporRK[2])) < 5.00:
-                                    r+=1
-                                    raRK[j] = ' '.join(raRK[j])
-                                    decRK[j] = ' '.join(decRK[j])
-                                    auxRK[j] = ',  '.join(auxRK[j])
-                                    raDS[i] = ' '.join(raDS[i])
-                                    decDS[i]= ' '.join(decDS[i])
-                                    auxDS[i] = ',  '.join(auxDS[i])
+                                if(temporDS[0] == temporRK[0] and temporDS[1] == temporDS[1]):
+                                    if abs(float(temporDS[2]) - float(temporRK[2])) < 5.00:
+                                        r+=1
+                                        raRK[j] = ' '.join(raRK[j])
+                                        decRK[j] = ' '.join(decRK[j])
+                                        auxRK[j] = ',  '.join(auxRK[j])
+                                        raDS[i] = ' '.join(raDS[i])
+                                        decDS[i]= ' '.join(decDS[i])
+                                        auxDS[i] = ',  '.join(auxDS[i])
                                     
-                                    print('{:<}{:<2}{:>10}{:>2}'.format('nomeRK:',f'{nomesRK[j]}','RA: ',f'{raRK[j]}','DEC:',f'{decRK[j]}'))
-                                    print('{:<}{:<2}{:>10}{:>5}'.format('nomeDS:',f'{nomesDS[i]}','RA: ',f'{raDS[i]}','DEC:',f'{decDS[i]}'))
-                                    print('\n')
+                                        '''print('nomeRK: ' +str(nomesRK[j])+'  nomeDS: '+str(nomesDS[i]))
+                                        print('RArk: '+str(raRK[j])+'   DECrk: '+str(decRK[j]))
+                                        print('RAds: '+str(raDS[i])+'  DECds: '+str(decDS[i]))
+                                    
+                                        print('\n')'''                                    
 
+                                        #print(f'Objeto RK- pos {j} Objeto DS - pos {i}')
                                     
-                                    
-                                    results = (str(nomesRK[j])+',  '+str(raRK[j])+',  '+str(decRK[j])+',  '+str(auxRK[j])
+                                        results = (str(nomesRK[j])+',  '+str(raRK[j])+',  '+str(decRK[j])+',  '+str(auxRK[j])
                                                +',  '+str(nomesDS[i])+',  '+str(raDS[i])+',  '+str(decDS[i])+',  '+str(auxDS[i]))
+                                                                        
                                     
-                                    
-                                    
-                                    resultados.append(results)
+                                        resultados.append(results)
 
-                                '''else:
-                                    c+=1
-                                    raRK[j] = ' '.join(raRK[j])
-                                    decRK[j] = ' '.join(decRK[j])
-                                    raDS[i] = ' '.join(raDS[i])
-                                    decDS[i]= ' '.join(decDS[i])
-                                    auxDS[i] = ',  '.join(auxDS[i])
-                                    
-                                    results = (str(nomesRK[j])+',  '+str(raRK[j])+',  '+str(decRK[j])+',  '+str(t1[j])+',  '+str(t2[j])+',  '+str(mag[j])+',  '+str(orbPer[j])+',  '
-                                               +str(dist[j])+',  '+str(perc1[j])+',  '+str(perc2[j])+',  '+str(nomesDS[i])+',  '+str(raDS[i])+',  '+str(decDS[i])+',  '+str(auxDS[i]))
-                                    
-                                    
-                                    auxRK.append(results)'''
+
+        
                                     
         
+equalsCatalog = open('Lucas.csv')
 
-                                    
-#print(len(nomesRK))
-#print(len(raRK))
-#print(len(decRK))
-                                    
-'''for k in resultados:
-    print (k+'\n')'''
+readerCat = csv.reader(equalsCatalog)
+
+raRK.remove(raRK[0])
+raDS.remove(raDS[0])
+
+for k in readerCat:
+    equalsRK.append(k[1].strip())
+    equalsDS.append(k[11].strip())    
+
+
+rk = 0
+ds = 0
+
+
+cont = 0
+    
+for i in range(len(raRK)):
+    if not raRK[i] in equalsRK:
+        raRK[i] = ' '.join(raRK[i])
+        decRK[i] = ' '.join(decRK[i])
+        auxRK[i] = ',  '.join(auxRK[i])
+
+        results = (str(nomesRK[i])+',  '+str(raRK[i])+',  '+str(decRK[i])+',  '+str(auxRK[i]))
+
+        noEqualsRK.append(results)
+        #print(f'{raRK[i]} não tem par')
+        rk+=1
+        
+for j in range(len(raDS)):
+    cont +=1
+    if cont >= 2:
+        if not raDS[j] in equalsDS:
+            
+            raDS[j] = ' '.join(raDS[j])
+            decDS[j]= ' '.join(decDS[j])
+            auxDS[j] = ',  '.join(auxDS[j])
+
+            results = (str(nomesDS[j])+',  '+str(raDS[j])+',  '+str(decDS[j])+',  '+str(auxDS[j]))
+
+            noEqualsDS.append(results)
+            #print(f'{j} não tem par')
+            ds+=1
 
 
 print(f'\nquantidade de objetos em comum: {r}')
-print(f'\nobjetos incomuns: {c}')
+
+print(f'\nobjetos incomuns de Ritter & Kolb: {rk}')
+
+print(f'\nobjetos incomuns de Downes & Shara: {ds}')
+
+
