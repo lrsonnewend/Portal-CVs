@@ -3,7 +3,6 @@ INFORMAÇÕES GERAIS DOS CATÁLOGOS:
     Versões:
        Downes & Shara: 02/2006 -> https://archive.stsci.edu/prepds/cvcat/
        Ritter & Kolb: 12/2015 (7.24) -> https://wwwmpa.mpa-garching.mpg.de/RKcat/
-
     Número de objetos:
        Downes & Shara: 1361
        Ritter & Kolb: 1830
@@ -109,12 +108,12 @@ for j in range(len(nomesRK)):
                                 if(temporDS[0] == temporRK[0] and temporDS[1] == temporDS[1]):
                                     if abs(float(temporDS[2]) - float(temporRK[2])) < 5.00:
                                         r+=1
-                                        raRK[j] = ' '.join(raRK[j])
-                                        decRK[j] = ' '.join(decRK[j])
-                                        auxRK[j] = ',  '.join(auxRK[j])
-                                        raDS[i] = ' '.join(raDS[i])
-                                        decDS[i]= ' '.join(decDS[i])
-                                        auxDS[i] = ',  '.join(auxDS[i])
+                                        tempoRArk = ' '.join(raRK[j])
+                                        tempoDECrk = ' '.join(decRK[j])
+                                        tempoAuxRK = ',  '.join(auxRK[j])
+                                        tempoRAds = ' '.join(raDS[i])
+                                        tempoDECds = ' '.join(decDS[i])
+                                        tempoAuxDS = ',  '.join(auxDS[i])
                                     
                                         '''print('nomeRK: ' +str(nomesRK[j])+'  nomeDS: '+str(nomesDS[i]))
                                         print('RArk: '+str(raRK[j])+'   DECrk: '+str(decRK[j]))
@@ -124,17 +123,18 @@ for j in range(len(nomesRK)):
 
                                         #print(f'Objeto RK- pos {j} Objeto DS - pos {i}')
                                     
-                                        results = (str(nomesRK[j])+',  '+str(raRK[j])+',  '+str(decRK[j])+',  '+str(auxRK[j])
-                                               +',  '+str(nomesDS[i])+',  '+str(raDS[i])+',  '+str(decDS[i])+',  '+str(auxDS[i]))
+                                        results = (str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '+str(tempoAuxRK)
+                                               +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds)+',  '+str(tempoAuxDS))
                                                                         
                                     
                                         resultados.append(results)
 
+                                        break                                        
 
         
                                     
         
-equalsCatalog = open('Lucas.csv')
+equalsCatalog = open('Lucas.csv')   
 
 readerCat = csv.reader(equalsCatalog)
 
@@ -153,8 +153,8 @@ ds = 0
 cont = 0
     
 for i in range(len(raRK)):
+    raRK[i] = ' '.join(raRK[i])
     if not raRK[i] in equalsRK:
-        raRK[i] = ' '.join(raRK[i])
         decRK[i] = ' '.join(decRK[i])
         auxRK[i] = ',  '.join(auxRK[i])
 
@@ -165,11 +165,10 @@ for i in range(len(raRK)):
         rk+=1
         
 for j in range(len(raDS)):
+    raDS[j] = ' '.join(raDS[j])
     cont +=1
     if cont >= 2:
         if not raDS[j] in equalsDS:
-            
-            raDS[j] = ' '.join(raDS[j])
             decDS[j]= ' '.join(decDS[j])
             auxDS[j] = ',  '.join(auxDS[j])
 
@@ -180,10 +179,9 @@ for j in range(len(raDS)):
             ds+=1
 
 
+
 print(f'\nquantidade de objetos em comum: {r}')
 
 print(f'\nobjetos incomuns de Ritter & Kolb: {rk}')
 
 print(f'\nobjetos incomuns de Downes & Shara: {ds}')
-
-
