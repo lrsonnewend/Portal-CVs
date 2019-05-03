@@ -124,7 +124,7 @@ for j in range(len(nomesRK)):
                                         #print(f'Objeto RK- pos {j} Objeto DS - pos {i}')
                                     
                                         results = (str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '+str(tempoAuxRK)
-                                               +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds)+',  '+str(tempoAuxDS))
+                                               +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds)+',  '+str(tempoAuxDS)+'  ,http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[j]))
                                                                         
                                     
                                         resultados.append(results)
@@ -133,8 +133,10 @@ for j in range(len(nomesRK)):
 
         
                                     
-        
-equalsCatalog = open('Lucas.csv')   
+for k in resultados:
+    print(k)
+    
+'''equalsCatalog = open('Lucas.csv')   
 
 readerCat = csv.reader(equalsCatalog)
 
@@ -143,7 +145,9 @@ raDS.remove(raDS[0])
 
 for k in readerCat:
     equalsRK.append(k[1].strip())
-    equalsDS.append(k[11].strip())    
+    equalsDS.append(k[11].strip())
+    
+    
 
 
 rk = 0
@@ -179,9 +183,23 @@ for j in range(len(raDS)):
             ds+=1
 
 
+for k in resultados:
+    print(k)
+
+print('\n')
+
+for i in noEqualsRK:
+    print(i+', , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ')
+
+print('\n')
+
+for j in noEqualsDS:
+    print(' , , , , , , , , , ,'+j)
+
+
 
 print(f'\nquantidade de objetos em comum: {r}')
 
 print(f'\nobjetos incomuns de Ritter & Kolb: {rk}')
 
-print(f'\nobjetos incomuns de Downes & Shara: {ds}')
+print(f'\nobjetos incomuns de Downes & Shara: {ds}')'''
