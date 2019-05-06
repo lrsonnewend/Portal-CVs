@@ -11,7 +11,6 @@ INFORMAÇÕES GERAIS DOS CATÁLOGOS:
 import pandas as pd
 import numpy as np 
 import csv
-import tabulator
 
 #vetores para armazenar nomes dos objetos
 nomesRK = []
@@ -124,24 +123,28 @@ for j in range(len(nomesRK)):
                                         #print(f'Objeto RK- pos {j} Objeto DS - pos {i}')
                                     
                                         results = (str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '+str(tempoAuxRK)
-                                               +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds)+',  '+str(tempoAuxDS)+'  ,http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[j]))
+                                               +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds)+',  '+str(tempoAuxDS)+'  ,  http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[j]))
                                                                         
                                     
                                         resultados.append(results)
 
                                         break                                        
 
+
         
                                     
-for k in resultados:
-    print(k)
+
     
-'''equalsCatalog = open('Lucas.csv')   
+equalsCatalog = open('Lucas.csv')   
 
 readerCat = csv.reader(equalsCatalog)
 
 raRK.remove(raRK[0])
 raDS.remove(raDS[0])
+nomesRK.remove(nomesRK[0])
+nomesDS.remove(nomesDS[0])
+decRK.remove(decRK[0])
+decDS.remove(decDS[0])
 
 for k in readerCat:
     equalsRK.append(k[1].strip())
@@ -154,7 +157,6 @@ rk = 0
 ds = 0
 
 
-cont = 0
     
 for i in range(len(raRK)):
     raRK[i] = ' '.join(raRK[i])
@@ -162,39 +164,37 @@ for i in range(len(raRK)):
         decRK[i] = ' '.join(decRK[i])
         auxRK[i] = ',  '.join(auxRK[i])
 
-        results = (str(nomesRK[i])+',  '+str(raRK[i])+',  '+str(decRK[i])+',  '+str(auxRK[i]))
+        results = (str(nomesRK[i])+',  '+str(raRK[i])+',  '+str(decRK[i])+',  '+str(auxRK[i])+' , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , '+
+                   '  ,http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[i]))
 
         noEqualsRK.append(results)
-        #print(f'{raRK[i]} não tem par')
         rk+=1
-        
+
+
+cont = 0       
 for j in range(len(raDS)):
     raDS[j] = ' '.join(raDS[j])
     cont +=1
-    if cont >= 2:
+    if cont > 1:
         if not raDS[j] in equalsDS:
             decDS[j]= ' '.join(decDS[j])
             auxDS[j] = ',  '.join(auxDS[j])
 
-            results = (str(nomesDS[j])+',  '+str(raDS[j])+',  '+str(decDS[j])+',  '+str(auxDS[j]))
+            results = (' , , , , , , , , , '+str(nomesDS[j])+',  '+str(raDS[j])+',  '+str(decDS[j])+',  '+str(auxDS[j])+'  ,http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesDS[j]))
 
             noEqualsDS.append(results)
-            #print(f'{j} não tem par')
             ds+=1
 
 
 for k in resultados:
     print(k)
 
-print('\n')
 
 for i in noEqualsRK:
-    print(i+', , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ')
-
-print('\n')
+    print(i)
 
 for j in noEqualsDS:
-    print(' , , , , , , , , , ,'+j)
+    print(j)
 
 
 
@@ -202,4 +202,4 @@ print(f'\nquantidade de objetos em comum: {r}')
 
 print(f'\nobjetos incomuns de Ritter & Kolb: {rk}')
 
-print(f'\nobjetos incomuns de Downes & Shara: {ds}')'''
+print(f'\nobjetos incomuns de Downes & Shara: {ds}')
