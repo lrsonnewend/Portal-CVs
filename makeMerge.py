@@ -180,7 +180,7 @@ for j in range(len(raDS)):
             decDS[j]= ' '.join(decDS[j])
             auxDS[j] = ',  '.join(auxDS[j])
 
-            results = (' , , , , , , , , , '+str(nomesDS[j])+',  '+str(raDS[j])+',  '+str(decDS[j])+',  '+str(auxDS[j])+'  ,http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesDS[j]))
+            results = (' , , , , , , , , , , '+str(nomesDS[j])+',  '+str(raDS[j])+',  '+str(decDS[j])+',  '+str(auxDS[j])+'  ,http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesDS[j]))
 
             noEqualsDS.append(results)
             ds+=1
