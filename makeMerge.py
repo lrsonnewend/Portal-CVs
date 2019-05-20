@@ -123,7 +123,9 @@ for j in range(len(nomesRK)):
                                         #print(f'Objeto RK- pos {j} Objeto DS - pos {i}')
                                     
                                         results = (str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '+str(tempoAuxRK)
-                                               +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds)+',  '+str(tempoAuxDS)+'  ,  http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[j]))
+                                               +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds)+',  '+str(tempoAuxDS)+'  ,  http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[j])
+                                                +',  http://simbad.u-strasbg.fr/simbad/sim-coo?Coord='+str(tempoRArk)+'++'+str(tempoDECrk)
+                                               +'&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
                                                                         
                                     
                                         resultados.append(results)
@@ -164,8 +166,9 @@ for i in range(len(raRK)):
         decRK[i] = ' '.join(decRK[i])
         auxRK[i] = ',  '.join(auxRK[i])
 
-        results = (str(nomesRK[i])+',  '+str(raRK[i])+',  '+str(decRK[i])+',  '+str(auxRK[i])+' , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , '+
-                   '  ,http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[i]))
+        results = (str(nomesRK[i])+',  '+str(raRK[i])+',  '+str(decRK[i])+',  '+str(auxRK[i])+' , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,'+
+                   ',  http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[i])+',  http://simbad.u-strasbg.fr/simbad/sim-coo?Coord='+str(raRK[i])+'++'+str(decRK[i])
+                       +'&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
 
         noEqualsRK.append(results)
         rk+=1
@@ -180,7 +183,8 @@ for j in range(len(raDS)):
             decDS[j]= ' '.join(decDS[j])
             auxDS[j] = ',  '.join(auxDS[j])
 
-            results = (' , , , , , , , , , , '+str(nomesDS[j])+',  '+str(raDS[j])+',  '+str(decDS[j])+',  '+str(auxDS[j])+'  ,http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesDS[j]))
+            results = (' , , , , , , , , , , '+str(nomesDS[j])+',  '+str(raDS[j])+',  '+str(decDS[j])+',  '+str(auxDS[j])+',  http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesDS[j])+',  http://simbad.u-strasbg.fr/simbad/sim-coo?Coord='+str(raDS[j])+'++'+str(decDS[j])
+                       +'&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
 
             noEqualsDS.append(results)
             ds+=1
