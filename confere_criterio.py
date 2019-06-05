@@ -11,6 +11,7 @@ INFORMAÇÕES GERAIS DOS CATÁLOGOS:
 import pandas as pd
 import numpy as np 
 import csv
+import math
 
 #vetores para armazenar nomes dos objetos
 nomesRK = []
@@ -88,13 +89,13 @@ for k in readerDS:
 #removendo headers e colunas sem informações
 raRK.remove(raRK[0])
 raDS.remove(raDS[0])
-raDS.remove(raDS[1])
+#raDS.remove(raDS[1])
 nomesRK.remove(nomesRK[0])
 nomesDS.remove(nomesDS[0])
-nomesDS.remove(nomesDS[1])
+#nomesDS.remove(nomesDS[1])
 decRK.remove(decRK[0])
 decDS.remove(decDS[0])
-decDS.remove(decDS[1])
+#decDS.remove(decDS[1])
 
 
 
@@ -113,18 +114,12 @@ for j in range(len(nomesRK)):
             tempoRAds = ' '.join(raDS[i])#recebe o valor do RA formatado em espaço e sem ponto e vírgula (;)
             tempoDECds = ' '.join(decDS[i])#recebe o valor do DEC formatado em espaço e sem ponto e vírgula (;)
             tempoAuxDS = ',  '.join(auxDS[i])#junta as informações adicionais do objeto separando-as em vírgula (,)
-                                        
-            '''print('nomeRK: ' +str(nomesRK[j])+'  nomeDS: '+str(nomesDS[i]))
-            print('RArk: '+str(raRK[j])+'   DECrk: '+str(decRK[j]))
-            print('RAds: '+str(raDS[i])+'  DECds: '+str(decDS[i]))
-                                        
-            print('\n')'''                                    
-
+                                                              
             #print(f'Objeto RK- pos {j} Objeto DS - pos {i}')
 
             #armazena em uma variável os dados necessários para montar o arquivo csv (catálogo)
-            results = (str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '+str(tempoAuxRK)
-                    +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds))
+            '''print(str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)
+                    +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds))'''
             
             '''results = (str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '+str(tempoAuxRK)
                     +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds)+',  '+str(tempoAuxDS)+'  ,  http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[j])
@@ -133,10 +128,11 @@ for j in range(len(nomesRK)):
                                                                             
             #print(results)
 
-            resultados.append(results)#adicionando variável ao vetor resultados
+            #resultados.append(results) #adicionando variável ao vetor resultados
+
+            #passa para o próximo objeto
+            #break
             
-            break #passa para o próximo objeto
-        
 
         elif nomesDS[i] != nomesRK[j]:
             #caso os objetos tenham nomes diferentes:
@@ -145,13 +141,16 @@ for j in range(len(nomesRK)):
                 tempDS = raDS[i] #variável temporária recebe RA do objeto
                 tempRK = raRK[j] #variável temporária recebe RA do objeto
 
-                ra_arcsecRK = 15*((3600*float(tempRK[0]))+(60*float(tempRK[1]))+(float(tempRK[2]))) #transformando coordenada RA em segundos de arco (arcsec)
-                ra_arcsecDS = 15*((3600*float(tempDS[0]))+(60*float(tempDS[1]))+(float(tempDS[2]))) #transformando coordenada RA em segundos de arco (arcsec)
+                ra_arcsecRK = 15*(3600.0*int(tempRK[0]))+(60.0*int(tempRK[1]))+(float(tempRK[2])) #transformando coordenada RA em segundos de arco (arcsec)
+                ra_arcsecDS = 15*(3600.0*int(tempDS[0]))+(60.0*int(tempDS[1]))+(float(tempDS[2])) #transformando coordenada RA em segundos de arco (arcsec)
 
-                dec_arcsecRK = (3600*float(tempRK[0]))+(60*float(tempRK[1]))+(float(tempRK[2])) #transformando coordenada DEC em segundos de arco (arcsec)
-                dec_arcsecDS = (3600*float(tempDS[0]))+(60*float(tempDS[1]))+(float(tempDS[2])) #transformando coordenada DEC em segundos de arco (arcsec)
+                dec_arcsecRK = (3600.0*int(tempRK[0]))+(60.0*int(tempRK[1]))+(float(tempRK[2])) #transformando coordenada DEC em segundos de arco (arcsec)
+                dec_arcsecDS = (3600.0*int(tempDS[0]))+(60.0*int(tempDS[1]))+(float(tempDS[2])) #transformando coordenada DEC em segundos de arco (arcsec)
                 
-                if abs(ra_arcsecRK - ra_arcsecDS) < 5.0 and abs(dec_arcsecRK - dec_arcsecDS) < 5.0: #caso a diferença seja menor do que 5 segundos de arco:
+                #subRA = float(ra_arcsecDS) - float(ra_arcsecRK)
+                #subDEC = float(dec_arcsecDS) - float(dec_arcsecRK)
+
+                if abs(float(ra_arcsecRK)- float(ra_arcsecDS)) < 5.0 and abs(float(dec_arcsecRK) - float(dec_arcsecRK)) < 5.0: #caso a diferença seja menor do que 5 segundos de arco:
                     
                     rC+=1 #contador de objetos
                     tempoRArk = ' '.join(raRK[j]) #recebe o valor do RA formatado em espaço e sem ponto e vírgula (;)
@@ -160,19 +159,13 @@ for j in range(len(nomesRK)):
                     
                     tempoRAds = ' '.join(raDS[i]) #recebe o valor do RA formatado em espaço e sem ponto e vírgula (;)
                     tempoDECds = ' '.join(decDS[i]) #recebe o valor do DEC formatado em espaço e sem ponto e vírgula (;)
-                    tempoAuxDS = ',  '.join(auxDS[i]) #junta as informações adicionais do objeto separando-as em vírgula (,)
-                                        
-                    '''print('nomeRK: ' +str(nomesRK[j])+'  nomeDS: '+str(nomesDS[i]))
-                    print('RArk: '+str(raRK[j])+'   DECrk: '+str(decRK[j]))
-                    print('RAds: '+str(raDS[i])+'  DECds: '+str(decDS[i]))
-                                        
-                    print('\n')'''                                    
+                    tempoAuxDS = ',  '.join(auxDS[i]) #junta as informações adicionais do objeto separando-as em vírgula (,)                                    
 
                     #print(f'Objeto RK- pos {j} Objeto DS - pos {i}')
                     
                     #armazena em uma variável os dados necessários para montar o arquivo csv (catálogo)
-                    results = (str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '+str(tempoAuxRK)
-                        +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds))
+                    results = (str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '
+                        +str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds))
             
                     '''results = (str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '+str(tempoAuxRK)
                     +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds)+',  '+str(tempoAuxDS)+'  ,  http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[j])
@@ -181,9 +174,11 @@ for j in range(len(nomesRK)):
                                                                             
                     #print(results)
                     
-                    resultados.append(results)  #adicionando variável ao vetor resultados
-                    break #passa para o próximo objeto
+                    resultados.append(results) #adicionando variável ao vetor resultados
 
+                    #passa para o próximo objeto
+                    #break
+                    
                     
 
                    
