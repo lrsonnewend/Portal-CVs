@@ -11,8 +11,8 @@ INFORMAÇÕES GERAIS DOS CATÁLOGOS:
 import pandas as pd
 import numpy as np 
 import csv
-import math
 
+        
 #vetores para armazenar nomes dos objetos
 nomesRK = []
 nomesDS = []
@@ -33,8 +33,6 @@ difRK = []
 difDS = []
 equalsRK = []
 equalsDS = []
-noEqualsRK = []
-noEqualsDS = []
 resultados = []
 
 #abrindo arquivos CSV's
@@ -127,14 +125,14 @@ for i in range(len(nomesRK)):
     tempRA1 = equalsRArk[i].split()
     tempRA2 = equalsRAds[i].split()
     
-    ra_arcsecRK = 15*(3600.0*int(tempRA1[0]))+(60.0*int(tempRA1[1]))+(float(tempRA1[2])) #transformando coordenada RA em segundos de arco (arcsec)
-    ra_arcsecDS = 15*(3600.0*int(tempRA2[0]))+(60.0*int(tempRA2[1]))+(float(tempRA2[2])) #transformando coordenada RA em segundos de arco (arcsec)
+    ra_arcsecRK = 15*(3600.0*int(tempRA1[0])+60.0*int(tempRA1[1])+float(tempRA1[2])) #transformando coordenada RA em segundos de arco (arcsec)
+    ra_arcsecDS = 15*(3600.0*int(tempRA2[0])+60.0*int(tempRA2[1])+float(tempRA2[2])) #transformando coordenada RA em segundos de arco (arcsec)
 
     valorRA = abs(float(ra_arcsecRK) - float(ra_arcsecDS))
 
     if valorRA > maiorRA:
         maiorRA = valorRA
-        print(f'Maior diferença em RA encontrado: {maiorRA}\n{nomesRK[i]}\nraRK: {equalsRArk[i]}\t\nraDS: {equalsRAds[i]}\n')
+        print(f'Maior diferença em RA encontrado: {maiorRA}\n{nomesRK[i]}\n\traRK: {equalsRArk[i]}\n\traDS: {equalsRAds[i]}\n')
 
 print('\n\n') 
         
@@ -143,58 +141,15 @@ for i in range(len(nomesRK)):
     tempRA1 = equalsDECrk[i].split()
     tempRA2 = equalsDECds[i].split()
     
-    dec_arcsecRK = (3600.0*int(tempRA1[0]))+(60.0*int(tempRA1[1]))+(float(tempRA1[2])) #transformando coordenada RA em segundos de arco (arcsec)
-    dec_arcsecDS = (3600.0*int(tempRA2[0]))+(60.0*int(tempRA2[1]))+(float(tempRA2[2])) #transformando coordenada RA em segundos de arco (arcsec)
+    dec_arcsecRK = 3600.0*int(tempRA1[0])+60.0*int(tempRA1[1])+float(tempRA1[2]) #transformando coordenada RA em segundos de arco (arcsec)
+    dec_arcsecDS = 3600.0*int(tempRA2[0])+60.0*int(tempRA2[1])+float(tempRA2[2]) #transformando coordenada RA em segundos de arco (arcsec)
 
     valorDEC = abs(float(dec_arcsecRK) - float(dec_arcsecDS))
 
     if valorDEC > maiorDEC:
         maiorDEC = valorDEC
-        print(f'Maior diferença em DEC encontrado: {maiorDEC}\n{nomesRK[i]}\ndecRK: {equalsDECrk[i]}\t\ndecDS: {equalsDECds[i]}\n')
+        print(f'Maior diferença em DEC encontrado: {maiorDEC}\n{nomesRK[i]}\n\tdecRK: {equalsDECrk[i]}\n\tdecDS: {equalsDECds[i]}\n')
         
     
-    '''raRK[i] = ' '.join(raRK[i])
-    if not raRK[i] in equalsRK:
-        decRK[i] = ' '.join(decRK[i])
-        auxRK[i] = ',  '.join(auxRK[i])
 
-        results = (str(nomesRK[i])+',  '+str(raRK[i])+',  '+str(decRK[i])+',  '+str(auxRK[i])+' , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , ,'+
-                   ',  http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[i])+',  http://simbad.u-strasbg.fr/simbad/sim-coo?Coord='+str(raRK[i])+'++'+str(decRK[i])
-                       +'&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
-
-        noEqualsRK.append(results)
-        rk+=1
-
-
-cont = 0       
-for j in range(len(raDS)):
-    raDS[j] = ' '.join(raDS[j])
-    cont +=1
-    if cont > 1:
-        if not raDS[j] in equalsDS:
-            decDS[j]= ' '.join(decDS[j])
-            auxDS[j] = ',  '.join(auxDS[j])
-
-            results = (' , , , , , , , , , , '+str(nomesDS[j])+',  '+str(raDS[j])+',  '+str(decDS[j])+',  '+str(auxDS[j])+',  http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesDS[j])+',  http://simbad.u-strasbg.fr/simbad/sim-coo?Coord='+str(raDS[j])+'++'+str(decDS[j])
-                       +'&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
-
-            noEqualsDS.append(results)
-            ds+=1
-
-
-for k in resultados:
-    print(k)
-
-
-for i in noEqualsRK:
-    print(i)
-
-for j in noEqualsDS:
-    print(j)
-
-
-
-
-print(f'\nobjetos incomuns de Ritter & Kolb: {rk}')
-
-print(f'\nobjetos incomuns de Downes & Shara: {ds}')'''
+    
