@@ -1,0 +1,80 @@
+COMPARAÇÃO DE CRITÉRIO DE COORDENADAS COM OBJETOS DE NOMES IGUAIS
+
+Maior diferença em RA encontrado: 0.44999999995343387
+V1017 Sgr
+	raRK: 18 32 04.5
+	raDS: 18 32 04.47
+
+Maior diferença em RA encontrado: 1.9499999999534339
+MR Vel
+	raRK: 09 25 45.9
+	raDS: 09 25 46.03
+
+Maior diferença em RA encontrado: 1.9500000000007276
+QR And
+	raRK: 00 19 49.8
+	raDS: 00 19 49.93
+
+Maior diferença em RA encontrado: 4.349999999976717
+QU Car
+	raRK: 11 05 42.8
+	raDS: 11 05 42.51
+
+Maior diferença em RA encontrado: 9.0
+U  Leo
+	raRK: 10 24 03.9
+	raDS: 10 24 03.3
+
+Maior diferença em RA encontrado: 100.5
+V728 Sco
+	raRK: 17 39 05.6
+	raDS: 17 39 12.3
+
+
+
+
+Maior diferença em DEC encontrado: 0.3000000000029104
+V1017 Sgr
+	decRK: -29 23 12
+	decDS: -29 23 12.3
+
+Maior diferença em DEC encontrado: 0.39999999999417923
+V630 Cas
+	decRK: +51 27 39
+	decDS: +51 27 39.4
+
+Maior diferença em DEC encontrado: 0.6000000000058208
+GK Per
+	decRK: +43 54 16
+	decDS: +43 54 15.4
+
+Maior diferença em DEC encontrado: 0.7999999999883585
+V731 Cas
+	decRK: +56 45 08
+	decDS: +56 45 08.8
+
+Maior diferença em DEC encontrado: 0.8999999999941792
+QR And
+	decRK: +21 56 53
+	decDS: +21 56 52.1
+
+Maior diferença em DEC encontrado: 3.1999999999970896
+V478 Her
+	decRK: +23 39 40
+	decDS: +23 39 36.8
+
+Maior diferença em DEC encontrado: 7.0
+V1174 Sgr
+	decRK: -28 44 19
+	decDS: -28 44 26.
+
+Maior diferença em DEC encontrado: 15.0
+U  Leo
+	decRK: +14 00 26
+	decDS: +14 00 11.
+
+Maior diferença em DEC encontrado: 91.0
+V728 Sco
+	decRK: -45 27 14
+	decDS: -45 28 45.
+

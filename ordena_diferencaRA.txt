@@ -1,0 +1,1583 @@
+ORDENAÇÃO POR DIFERENÇA EM ASCENÇÃO RETA
+
+V478 Her, raRK: 17 21 05.6, raDS: 17 21 05.60
+diferença: 0.0
+
+DI Lac, raRK: 22 35 48.6, raDS: 22 35 48.60
+diferença: 0.0
+
+RZ Gru, raRK: 22 47 12.0, raDS: 22 47 12.00
+diferença: 0.0
+
+V2275 Cyg, raRK: 21 03 02.0, raDS: 21 03 02.00
+diferença: 0.0
+
+V1174 Sgr, raRK: 18 01 37.0, raDS: 18 01 37.
+diferença: 0.0
+
+HS Pup, raRK: 07 53 24.9, raDS: 07 53 24.90
+diferença: 0.0
+
+V513 Cas, raRK: 00 18 14.9, raDS: 00 18 14.90
+diferença: 0.0
+
+V825 Her, raRK: 17 18 37.0, raDS: 17 18 37.00
+diferença: 0.0
+
+HX Peg, raRK: 23 40 23.7, raDS: 23 40 23.70
+diferença: 0.0
+
+CZ Aql, raRK: 19 19 58.2, raDS: 19 19 58.20
+diferença: 0.0
+
+AI Tri, raRK: 02 03 48.6, raDS: 02 03 48.60
+diferença: 0.0
+
+GI Mon, raRK: 07 26 47.1, raDS: 07 26 47.10
+diferença: 0.0
+
+BD Pav, raRK: 18 43 11.9, raDS: 18 43 11.90
+diferença: 0.0
+
+V504 Cen, raRK: 14 12 49.1, raDS: 14 12 49.10
+diferença: 0.0
+
+V382 Vel, raRK: 10 44 48.4, raDS: 10 44 48.40
+diferença: 0.0
+
+V811 Cyg, raRK: 19 48 23.3, raDS: 19 48 23.30
+diferença: 0.0
+
+SV CMi, raRK: 07 31 08.4, raDS: 07 31 08.40
+diferença: 0.0
+
+BZ Cam, raRK: 06 29 34.0, raDS: 06 29 34.00
+diferença: 0.0
+
+V909 Sgr, raRK: 18 25 52.3, raDS: 18 25 52.3
+diferença: 0.0
+
+V849 Her, raRK: 16 35 45.7, raDS: 16 35 45.70
+diferença: 0.0
+
+SW Sex, raRK: 10 15 09.4, raDS: 10 15 09.40
+diferença: 0.0
+
+BG CMi, raRK: 07 31 29.0, raDS: 07 31 29.00
+diferença: 0.0
+
+V348 Pup, raRK: 07 12 32.9, raDS: 07 12 32.90
+diferença: 0.0
+
+NY Ser, raRK: 15 13 02.3, raDS: 15 13 02.30
+diferença: 0.0
+
+V419 Lyr, raRK: 19 10 13.9, raDS: 19 10 13.90
+diferença: 0.0
+
+CP Dra, raRK: 10 15 39.8, raDS: 10 15 39.80
+diferença: 0.0
+
+TY Vul, raRK: 20 41 44.0, raDS: 20 41 44.
+diferença: 0.0
+
+V503 Cyg, raRK: 20 27 17.4, raDS: 20 27 17.40
+diferença: 0.0
+
+QY Per, raRK: 03 15 36.8, raDS: 03 15 36.8
+diferença: 0.0
+
+EG Aqr, raRK: 23 25 19.2, raDS: 23 25 19.20
+diferença: 0.0
+
+V1251 Cyg, raRK: 21 40 54.4, raDS: 21 40 54.40
+diferença: 0.0
+
+AW Sge, raRK: 19 58 37.1, raDS: 19 58 37.10
+diferença: 0.0
+
+RU Hor, raRK: 02 46 07.5, raDS: 02 46 07.50
+diferença: 0.0
+
+V544 Her, raRK: 16 38 05.4, raDS: 16 38 05.40
+diferença: 0.0
+
+V701 Tau, raRK: 03 44 01.9, raDS: 03 44 01.9
+diferença: 0.0
+
+V551 Sgr, raRK: 18 00 56.5, raDS: 18 00 56.5
+diferença: 0.0
+
+V402 And, raRK: 00 11 07.3, raDS: 00 11 07.3
+diferença: 0.0
+
+EL UMa, raRK: 10 55 07.0, raDS: 10 55 07.00
+diferença: 0.0
+
+DV Dra, raRK: 18 17 23.1, raDS: 18 17 23.10
+diferença: 0.0
+
+DO Vul, raRK: 19 52 10.7, raDS: 19 52 10.7
+diferença: 0.0
+
+HP Lib, raRK: 15 35 53.1, raDS: 15 35 53.10
+diferença: 0.0
+
+U  Sco, raRK: 16 22 30.8, raDS: 16 22 30.81
+diferença: 0.14999999990686774
+
+V726 Sgr, raRK: 18 19 33.7, raDS: 18 19 33.69
+diferença: 0.14999999990686774
+
+EM Cyg, raRK: 19 38 40.1, raDS: 19 38 40.11
+diferença: 0.14999999990686774
+
+V426 Oph, raRK: 18 07 51.7, raDS: 18 07 51.69
+diferença: 0.14999999990686774
+
+V446 Her, raRK: 18 57 21.6, raDS: 18 57 21.61
+diferença: 0.14999999990686774
+
+FO Aqr, raRK: 22 17 55.4, raDS: 22 17 55.39
+diferença: 0.14999999990686774
+
+V542 Cyg, raRK: 19 49 10.5, raDS: 19 49 10.49
+diferença: 0.14999999990686774
+
+V1776 Cyg, raRK: 20 23 30.5, raDS: 20 23 30.51
+diferença: 0.14999999990686774
+
+GS Pav, raRK: 20 08 07.6, raDS: 20 08 07.61
+diferença: 0.14999999990686774
+
+AB Dra, raRK: 19 49 06.5, raDS: 19 49 06.51
+diferença: 0.14999999990686774
+
+AO Psc, raRK: 22 55 18.0, raDS: 22 55 17.99
+diferença: 0.14999999990686774
+
+AX Cap, raRK: 20 08 57.0, raDS: 20 08 57.01
+diferença: 0.14999999990686774
+
+V369 Peg, raRK: 23 03 41.8, raDS: 23 03 41.81
+diferença: 0.14999999990686774
+
+AY Lyr, raRK: 18 44 26.7, raDS: 18 44 26.69
+diferença: 0.14999999990686774
+
+V1047 Aql, raRK: 19 51 31.1, raDS: 19 51 31.11
+diferença: 0.14999999990686774
+
+AO Oct, raRK: 21 05 08.2, raDS: 21 05 08.19
+diferença: 0.14999999990686774
+
+HO Del, raRK: 20 36 55.5, raDS: 20 36 55.51
+diferença: 0.14999999990686774
+
+KV Dra, raRK: 14 50 38.3, raDS: 14 50 38.31
+diferença: 0.14999999990686774
+
+DI UMa, raRK: 09 12 16.2, raDS: 09 12 16.19
+diferença: 0.14999999990686774
+
+EI UMa, raRK: 08 38 22.0, raDS: 08 38 21.99
+diferença: 0.1499999999650754
+
+CZ Ori, raRK: 06 16 43.2, raDS: 06 16 43.21
+diferença: 0.1499999999650754
+
+CN Ori, raRK: 05 52 07.8, raDS: 05 52 07.79
+diferença: 0.1499999999650754
+
+T  Pyx, raRK: 09 04 41.5, raDS: 09 04 41.51
+diferença: 0.1499999999650754
+
+HS Cam, raRK: 07 19 14.5, raDS: 07 19 14.49
+diferença: 0.1499999999650754
+
+EG Cnc, raRK: 08 43 04.0, raDS: 08 43 03.99
+diferença: 0.1499999999650754
+
+GK Per, raRK: 03 31 12.0, raDS: 03 31 12.01
+diferença: 0.14999999999417923
+
+FO Per, raRK: 04 08 35.0, raDS: 04 08 34.99
+diferença: 0.14999999999417923
+
+IW And, raRK: 01 01 08.9, raDS: 01 01 08.91
+diferença: 0.14999999999417923
+
+LX And, raRK: 02 19 44.1, raDS: 02 19 44.09
+diferença: 0.14999999999417923
+
+TT Ari, raRK: 02 06 53.1, raDS: 02 06 53.09
+diferença: 0.14999999999417923
+
+V368 Per, raRK: 02 47 32.6, raDS: 02 47 32.59
+diferença: 0.14999999999417923
+
+UW Tri, raRK: 02 45 17.3, raDS: 02 45 17.29
+diferença: 0.14999999999417923
+
+PX And, raRK: 00 30 05.8, raDS: 00 30 05.81
+diferença: 0.1499999999978172
+
+EN Cet, raRK: 00 27 28.0, raDS: 00 27 28.01
+diferença: 0.1500000000014552
+
+TW Tri, raRK: 01 36 37.0, raDS: 01 36 37.01
+diferença: 0.15000000000873115
+
+X  Ser, raRK: 16 19 17.7, raDS: 16 19 17.71
+diferença: 0.15000000002328306
+
+AT Ara, raRK: 17 30 33.8, raDS: 17 30 33.79
+diferença: 0.15000000002328306
+
+V1309 Ori, raRK: 05 15 41.4, raDS: 05 15 41.41
+diferença: 0.15000000002328306
+
+ST Cha, raRK: 10 47 15.6, raDS: 10 47 15.61
+diferença: 0.15000000002328306
+
+V2540 Oph, raRK: 17 37 34.4, raDS: 17 37 34.41
+diferença: 0.15000000002328306
+
+AH Her, raRK: 16 44 10.0, raDS: 16 44 10.01
+diferença: 0.15000000002328306
+
+V617 Sgr, raRK: 18 07 50.9, raDS: 18 07 50.89
+diferença: 0.15000000002328306
+
+ES Dra, raRK: 15 25 31.8, raDS: 15 25 31.79
+diferença: 0.15000000002328306
+
+VY For, raRK: 03 32 04.6, raDS: 03 32 04.61
+diferença: 0.15000000002328306
+
+LX Ser, raRK: 15 38 00.1, raDS: 15 38 00.09
+diferença: 0.15000000002328306
+
+BP Lyn, raRK: 09 03 08.9, raDS: 09 03 08.89
+diferença: 0.15000000002328306
+
+V999 Sgr, raRK: 18 00 05.6, raDS: 18 00 05.59
+diferença: 0.15000000002328306
+
+V2574 Oph, raRK: 17 38 45.5, raDS: 17 38 45.51
+diferença: 0.15000000002328306
+
+Leo 5, raRK: 10 28 00.1, raDS: 10 28 00.11
+diferença: 0.15000000002328306
+
+IM Eri, raRK: 04 24 41.1, raDS: 04 24 41.11
+diferença: 0.15000000002328306
+
+WX LMi, raRK: 10 26 27.5, raDS: 10 26 27.49
+diferença: 0.15000000002328306
+
+UW Pic, raRK: 05 31 35.6, raDS: 05 31 35.59
+diferença: 0.15000000002328306
+
+EU Cnc, raRK: 08 51 27.2, raDS: 08 51 27.19
+diferença: 0.15000000002328306
+
+V877 Ara, raRK: 17 16 53.9, raDS: 17 16 53.89
+diferença: 0.15000000002328306
+
+BZ Cir, raRK: 14 54 15.2, raDS: 14 54 15.21
+diferença: 0.15000000002328306
+
+BK Lyn, raRK: 09 20 11.2, raDS: 09 20 11.21
+diferença: 0.15000000002328306
+
+V663 Ara, raRK: 16 46 57.7, raDS: 16 46 57.71
+diferença: 0.15000000002328306
+
+V699 Oph, raRK: 16 25 14.8, raDS: 16 25 14.79
+diferença: 0.15000000002328306
+
+GO Com, raRK: 12 56 37.1, raDS: 12 56 37.09
+diferença: 0.15000000002328306
+
+AK Cnc, raRK: 08 55 21.2, raDS: 08 55 21.19
+diferença: 0.15000000002328306
+
+CT Hya, raRK: 08 51 07.4, raDS: 08 51 07.39
+diferença: 0.15000000002328306
+
+EU UMa, raRK: 11 49 55.7, raDS: 11 49 55.71
+diferença: 0.15000000002328306
+
+V2051 Oph, raRK: 17 08 19.1, raDS: 17 08 19.09
+diferença: 0.15000000002328306
+
+FL TrA, raRK: 16 30 36.6, raDS: 16 30 36.61
+diferença: 0.15000000002328306
+
+V630 Cas, raRK: 23 48 51.9, raDS: 23 48 51.91
+diferença: 0.1500000001396984
+
+CI Aql, raRK: 18 52 03.6, raDS: 18 52 03.59
+diferença: 0.1500000001396984
+
+V363 Lyr, raRK: 19 08 51.6, raDS: 19 08 51.59
+diferença: 0.1500000001396984
+
+V795 Cyg, raRK: 19 34 34.1, raDS: 19 34 34.09
+diferença: 0.1500000001396984
+
+V849 Oph, raRK: 18 14 07.3, raDS: 18 14 07.29
+diferença: 0.1500000001396984
+
+V367 Peg, raRK: 22 45 00.7, raDS: 22 45 00.71
+diferença: 0.1500000001396984
+
+V4077 Sgr, raRK: 18 34 39.4, raDS: 18 34 39.41
+diferença: 0.1500000001396984
+
+V1493 Aql, raRK: 19 07 36.9, raDS: 19 07 36.91
+diferença: 0.1500000001396984
+
+QQ Vul, raRK: 20 05 41.9, raDS: 20 05 41.91
+diferença: 0.1500000001396984
+
+V373 Sct, raRK: 18 55 26.7, raDS: 18 55 26.71
+diferença: 0.1500000001396984
+
+V378 Peg, raRK: 23 40 04.3, raDS: 23 40 04.29
+diferença: 0.1500000001396984
+
+MV Lyr, raRK: 19 07 16.3, raDS: 19 07 16.29
+diferença: 0.1500000001396984
+
+V5116 Sgr, raRK: 18 17 50.8, raDS: 18 17 50.79
+diferença: 0.1500000001396984
+
+V550 Cyg, raRK: 20 05 05.2, raDS: 20 05 05.21
+diferença: 0.1500000001396984
+
+V632 Cyg, raRK: 21 36 04.2, raDS: 21 36 04.21
+diferença: 0.1500000001396984
+
+CC Scl, raRK: 23 15 31.9, raDS: 23 15 31.91
+diferença: 0.1500000001396984
+
+WZ Sge, raRK: 20 07 36.4, raDS: 20 07 36.41
+diferença: 0.1500000001396984
+
+CY Lyr, raRK: 18 52 41.4, raDS: 18 52 41.38
+diferença: 0.2999999998137355
+
+LQ Peg, raRK: 21 36 19.1, raDS: 21 36 19.12
+diferença: 0.2999999998137355
+
+V1316 Cyg, raRK: 20 12 13.6, raDS: 20 12 13.62
+diferença: 0.2999999998137355
+
+V972 Oph, raRK: 17 34 44.5, raDS: 17 34 44.48
+diferença: 0.2999999999301508
+
+V5113 Sgr, raRK: 18 10 10.4, raDS: 18 10 10.42
+diferença: 0.2999999999301508
+
+V2214 Oph, raRK: 17 12 01.6, raDS: 17 12 01.58
+diferença: 0.2999999999301508
+
+QZ Ser, raRK: 15 56 54.5, raDS: 15 56 54.48
+diferença: 0.2999999999301508
+
+V884 Her, raRK: 18 02 06.5, raDS: 18 02 06.52
+diferença: 0.2999999999301508
+
+V2301 Oph, raRK: 18 00 35.6, raDS: 18 00 35.58
+diferença: 0.2999999999301508
+
+AB Nor, raRK: 15 49 15.5, raDS: 15 49 15.48
+diferença: 0.2999999999301508
+
+KS UMa, raRK: 10 20 26.5, raDS: 10 20 26.52
+diferença: 0.2999999999301508
+
+GQ Mus, raRK: 11 52 02.5, raDS: 11 52 02.48
+diferença: 0.2999999999301508
+
+V445 Pup, raRK: 07 37 56.9, raDS: 07 37 56.88
+diferença: 0.29999999998835847
+
+Z  Cam, raRK: 08 25 13.2, raDS: 08 25 13.18
+diferença: 0.29999999998835847
+
+T  Aur, raRK: 05 31 59.1, raDS: 05 31 59.12
+diferença: 0.29999999998835847
+
+AT Cnc, raRK: 08 28 36.9, raDS: 08 28 36.92
+diferença: 0.29999999998835847
+
+WX Ari, raRK: 02 47 36.2, raDS: 02 47 36.22
+diferença: 0.29999999998835847
+
+BX Pup, raRK: 07 54 15.6, raDS: 07 54 15.58
+diferença: 0.29999999998835847
+
+UV Gem, raRK: 06 38 44.1, raDS: 06 38 44.12
+diferença: 0.29999999998835847
+
+HV Aur, raRK: 04 53 16.8, raDS: 04 53 16.82
+diferença: 0.29999999998835847
+
+AQ CMi, raRK: 07 14 34.8, raDS: 07 14 34.82
+diferença: 0.29999999998835847
+
+UV Per, raRK: 02 10 08.3, raDS: 02 10 08.32
+diferença: 0.29999999998835847
+
+XZ Eri, raRK: 04 11 25.8, raDS: 04 11 25.78
+diferença: 0.29999999998835847
+
+VX For, raRK: 03 26 45.7, raDS: 03 26 45.72
+diferença: 0.29999999998835847
+
+WX Cet, raRK: 01 17 04.2, raDS: 01 17 04.18
+diferença: 0.29999999998835847
+
+PU CMa, raRK: 06 40 47.7, raDS: 06 40 47.68
+diferença: 0.29999999998835847
+
+KP Cas, raRK: 00 38 54.8, raDS: 00 38 54.78
+diferença: 0.2999999999956344
+
+AR And, raRK: 01 45 03.3, raDS: 01 45 03.28
+diferença: 0.3000000000029104
+
+V  Per, raRK: 02 01 53.9, raDS: 02 01 53.92
+diferença: 0.3000000000029104
+
+WY Tri, raRK: 02 25 00.5, raDS: 02 25 00.48
+diferença: 0.3000000000029104
+
+TY Psc, raRK: 01 25 39.4, raDS: 01 25 39.38
+diferença: 0.3000000000029104
+
+EQ Cet, raRK: 01 28 52.5, raDS: 01 28 52.52
+diferença: 0.3000000000029104
+
+UZ For, raRK: 03 35 28.6, raDS: 03 35 28.62
+diferença: 0.3000000000174623
+
+DX And, raRK: 23 29 46.7, raDS: 23 29 46.68
+diferença: 0.30000000004656613
+
+MU Cen, raRK: 12 12 53.9, raDS: 12 12 53.88
+diferença: 0.30000000004656613
+
+RY Ser, raRK: 17 23 07.2, raDS: 17 23 07.18
+diferença: 0.30000000004656613
+
+V4743 Sgr, raRK: 19 01 09.3, raDS: 19 01 09.32
+diferença: 0.30000000004656613
+
+V1425 Aql, raRK: 19 05 26.7, raDS: 19 05 26.68
+diferença: 0.30000000004656613
+
+RW Sex, raRK: 10 19 56.6, raDS: 10 19 56.62
+diferença: 0.30000000004656613
+
+DO Leo, raRK: 10 40 51.2, raDS: 10 40 51.22
+diferença: 0.30000000004656613
+
+VY Scl, raRK: 23 29 00.5, raDS: 23 29 00.48
+diferença: 0.30000000004656613
+
+HL CMa, raRK: 06 45 17.2, raDS: 06 45 17.22
+diferença: 0.30000000004656613
+
+V895 Cen, raRK: 14 29 27.2, raDS: 14 29 27.22
+diferença: 0.30000000004656613
+
+CG Dra, raRK: 19 07 32.8, raDS: 19 07 32.78
+diferença: 0.30000000004656613
+
+V2306 Cyg, raRK: 19 58 14.5, raDS: 19 58 14.48
+diferença: 0.30000000004656613
+
+V516 Cyg, raRK: 20 47 09.8, raDS: 20 47 09.78
+diferença: 0.30000000004656613
+
+CM Del, raRK: 20 24 56.9, raDS: 20 24 56.92
+diferença: 0.30000000004656613
+
+V447 Lyr, raRK: 19 00 19.9, raDS: 19 00 19.92
+diferença: 0.30000000004656613
+
+V533 Her, raRK: 18 14 20.5, raDS: 18 14 20.48
+diferença: 0.30000000004656613
+
+V751 Cyg, raRK: 20 52 12.8, raDS: 20 52 12.78
+diferença: 0.30000000004656613
+
+V584 Lyr, raRK: 19 10 59.4, raDS: 19 10 59.42
+diferença: 0.30000000004656613
+
+V1668 Cyg, raRK: 21 42 35.2, raDS: 21 42 35.22
+diferença: 0.30000000004656613
+
+OR And, raRK: 23 04 37.4, raDS: 23 04 37.42
+diferença: 0.30000000004656613
+
+QU Vul, raRK: 20 26 46.0, raDS: 20 26 46.02
+diferença: 0.30000000004656613
+
+V1006 Cyg, raRK: 19 48 47.2, raDS: 19 48 47.22
+diferença: 0.30000000004656613
+
+V344 Lyr, raRK: 18 44 39.2, raDS: 18 44 39.18
+diferença: 0.30000000004656613
+
+KK Tel, raRK: 20 28 38.5, raDS: 20 28 38.52
+diferença: 0.30000000004656613
+
+BF Ara, raRK: 17 38 21.3, raDS: 17 38 21.32
+diferença: 0.30000000004656613
+
+V1007 Her, raRK: 17 24 06.3, raDS: 17 24 06.28
+diferença: 0.30000000004656613
+
+RS Car, raRK: 11 08 05.8, raDS: 11 08 05.78
+diferença: 0.30000000004656613
+
+MR Ser, raRK: 15 52 47.2, raDS: 15 52 47.18
+diferença: 0.30000000004656613
+
+DH Aql, raRK: 19 26 10.8, raDS: 19 26 10.82
+diferença: 0.30000000004656613
+
+V630 Cyg, raRK: 21 34 59.2, raDS: 21 34 59.22
+diferença: 0.30000000004656613
+
+IL Vul, raRK: 20 38 32.7, raDS: 20 38 32.72
+diferença: 0.30000000004656613
+
+CF Gru, raRK: 21 41 23.0, raDS: 21 41 22.98
+diferença: 0.30000000004656613
+
+V393 Pav, raRK: 19 57 11.5, raDS: 19 57 11.48
+diferença: 0.30000000004656613
+
+V368 Peg, raRK: 22 58 43.5, raDS: 22 58 43.52
+diferença: 0.30000000004656613
+
+V1195 Oph, raRK: 17 00 21.7, raDS: 17 00 21.68
+diferença: 0.30000000004656613
+
+V436 Cen, raRK: 11 14 00.1, raDS: 11 14 00.12
+diferença: 0.30000000004656613
+
+V4140 Sgr, raRK: 19 58 49.7, raDS: 19 58 49.68
+diferença: 0.30000000004656613
+
+RW UMi, raRK: 16 47 54.8, raDS: 16 47 54.78
+diferença: 0.30000000004656613
+
+V1186 Sco, raRK: 17 12 51.3, raDS: 17 12 51.28
+diferença: 0.30000000004656613
+
+V1017 Sgr, raRK: 18 32 04.5, raDS: 18 32 04.47
+diferença: 0.44999999995343387
+
+V394 CrA, raRK: 18 00 26.0, raDS: 18 00 25.97
+diferença: 0.44999999995343387
+
+V1082 Sgr, raRK: 19 07 21.9, raDS: 19 07 21.87
+diferença: 0.44999999995343387
+
+V442 Cen, raRK: 11 24 51.9, raDS: 11 24 51.93
+diferença: 0.44999999995343387
+
+Q  Cyg, raRK: 21 41 43.9, raDS: 21 41 43.93
+diferença: 0.44999999995343387
+
+V1062 Tau, raRK: 05 02 27.5, raDS: 05 02 27.47
+diferença: 0.44999999995343387
+
+GY Hya, raRK: 14 30 30.5, raDS: 14 30 30.47
+diferença: 0.44999999995343387
+
+EZ Del, raRK: 20 25 22.9, raDS: 20 25 22.93
+diferença: 0.44999999995343387
+
+V3885 Sgr, raRK: 19 47 40.5, raDS: 19 47 40.53
+diferença: 0.44999999995343387
+
+CT Ser, raRK: 15 45 39.1, raDS: 15 45 39.07
+diferença: 0.44999999995343387
+
+LS Peg, raRK: 21 51 57.9, raDS: 21 51 57.93
+diferença: 0.44999999995343387
+
+VW Vul, raRK: 20 57 45.1, raDS: 20 57 45.07
+diferença: 0.44999999995343387
+
+V523 Lyr, raRK: 19 21 07.5, raDS: 19 21 07.53
+diferença: 0.44999999995343387
+
+V500 Aql, raRK: 19 52 28.0, raDS: 19 52 28.03
+diferença: 0.44999999995343387
+
+V2400 Oph, raRK: 17 12 36.4, raDS: 17 12 36.43
+diferença: 0.44999999995343387
+
+HL Aqr, raRK: 22 20 26.9, raDS: 22 20 26.93
+diferença: 0.44999999995343387
+
+V393 Hya, raRK: 11 00 17.5, raDS: 11 00 17.47
+diferença: 0.44999999995343387
+
+Aqr 1, raRK: 22 38 43.8, raDS: 22 38 43.83
+diferença: 0.44999999995343387
+
+DK Lac, raRK: 22 49 47.0, raDS: 22 49 46.97
+diferença: 0.44999999995343387
+
+V4633 Sgr, raRK: 18 21 40.5, raDS: 18 21 40.47
+diferença: 0.44999999995343387
+
+KZ Gem, raRK: 06 53 02.5, raDS: 06 53 02.47
+diferença: 0.44999999995343387
+
+IM Nor, raRK: 15 39 26.5, raDS: 15 39 26.47
+diferença: 0.44999999995343387
+
+V1363 Cyg, raRK: 20 06 11.5, raDS: 20 06 11.53
+diferença: 0.44999999995343387
+
+MN Dra, raRK: 20 23 38.3, raDS: 20 23 38.33
+diferença: 0.44999999995343387
+
+DV Sco, raRK: 16 50 27.9, raDS: 16 50 27.93
+diferença: 0.44999999995343387
+
+GZ Cnc, raRK: 09 15 51.7, raDS: 09 15 51.67
+diferença: 0.44999999995343387
+
+IR Com, raRK: 12 39 32.0, raDS: 12 39 32.03
+diferença: 0.44999999995343387
+
+TU Crt, raRK: 11 03 36.5, raDS: 11 03 36.53
+diferença: 0.44999999995343387
+
+V1974 Cyg, raRK: 20 30 31.7, raDS: 20 30 31.67
+diferença: 0.44999999995343387
+
+CD Ind, raRK: 21 15 41.0, raDS: 21 15 40.97
+diferença: 0.44999999995343387
+
+CE Gru, raRK: 21 37 56.4, raDS: 21 37 56.43
+diferença: 0.44999999995343387
+
+V2527 Oph, raRK: 17 22 04.4, raDS: 17 22 04.37
+diferença: 0.44999999995343387
+
+V1208 Tau, raRK: 04 59 44.0, raDS: 04 59 44.03
+diferença: 0.44999999995343387
+
+RZ Sge, raRK: 20 03 18.5, raDS: 20 03 18.47
+diferença: 0.44999999995343387
+
+SX LMi, raRK: 10 54 30.4, raDS: 10 54 30.43
+diferença: 0.44999999995343387
+
+V611 Her, raRK: 16 44 49.4, raDS: 16 44 49.43
+diferença: 0.44999999995343387
+
+MM Hya, raRK: 09 14 14.0, raDS: 09 14 14.03
+diferença: 0.44999999995343387
+
+FH UMa, raRK: 10 47 09.9, raDS: 10 47 09.93
+diferença: 0.44999999995343387
+
+EV UMa, raRK: 13 07 53.9, raDS: 13 07 53.87
+diferença: 0.44999999995343387
+
+V4738 Sgr, raRK: 20 22 37.5, raDS: 20 22 37.53
+diferença: 0.44999999995343387
+
+AM CVn, raRK: 12 34 54.6, raDS: 12 34 54.63
+diferença: 0.44999999995343387
+
+WW Cet, raRK: 00 11 24.8, raDS: 00 11 24.77
+diferença: 0.4500000000007276
+
+V723 Cas, raRK: 01 05 05.4, raDS: 01 05 05.37
+diferença: 0.4500000000043656
+
+TX Col, raRK: 05 43 20.2, raDS: 05 43 20.23
+diferença: 0.45000000001164153
+
+HZ Pup, raRK: 08 03 22.8, raDS: 08 03 22.83
+diferença: 0.45000000001164153
+
+BI Ori, raRK: 05 23 51.8, raDS: 05 23 51.77
+diferença: 0.45000000001164153
+
+SS Aur, raRK: 06 13 22.4, raDS: 06 13 22.43
+diferença: 0.45000000001164153
+
+V405 Aur, raRK: 05 57 59.3, raDS: 05 57 59.27
+diferença: 0.45000000001164153
+
+V1193 Ori, raRK: 05 16 26.7, raDS: 05 16 26.67
+diferença: 0.45000000001164153
+
+RR Pic, raRK: 06 35 36.1, raDS: 06 35 36.07
+diferença: 0.45000000001164153
+
+KQ Mon, raRK: 07 31 21.1, raDS: 07 31 21.13
+diferença: 0.45000000001164153
+
+PV Per, raRK: 02 42 53.5, raDS: 02 42 53.47
+diferença: 0.45000000001164153
+
+V1212 Tau, raRK: 03 51 57.0, raDS: 03 51 56.97
+diferença: 0.45000000001164153
+
+CG CMa, raRK: 07 04 05.2, raDS: 07 04 05.23
+diferença: 0.45000000001164153
+
+FY Per, raRK: 04 41 56.6, raDS: 04 41 56.63
+diferença: 0.45000000004074536
+
+V1059 Sgr, raRK: 19 01 50.4, raDS: 19 01 50.43
+diferença: 0.4500000000698492
+
+TT Crt, raRK: 11 34 47.2, raDS: 11 34 47.17
+diferença: 0.4500000000698492
+
+V1039 Cen, raRK: 13 55 41.2, raDS: 13 55 41.23
+diferença: 0.4500000000698492
+
+FO Aql, raRK: 19 16 38.2, raDS: 19 16 38.17
+diferença: 0.4500000000698492
+
+V697 Sco, raRK: 17 51 21.8, raDS: 17 51 21.83
+diferença: 0.4500000000698492
+
+OY Ara, raRK: 16 40 50.3, raDS: 16 40 50.27
+diferença: 0.4500000000698492
+
+AM Her, raRK: 18 16 13.3, raDS: 18 16 13.33
+diferença: 0.4500000000698492
+
+V516 Lyr, raRK: 19 20 35.7, raDS: 19 20 35.67
+diferença: 0.4500000000698492
+
+AN UMa, raRK: 11 04 25.7, raDS: 11 04 25.67
+diferença: 0.4500000000698492
+
+V660 Her, raRK: 17 42 09.2, raDS: 17 42 09.17
+diferença: 0.4500000000698492
+
+V359 Cen, raRK: 11 58 15.3, raDS: 11 58 15.33
+diferença: 0.4500000000698492
+
+V1113 Cyg, raRK: 19 22 42.1, raDS: 19 22 42.07
+diferença: 0.4500000000698492
+
+TV Crv, raRK: 12 20 24.2, raDS: 12 20 24.17
+diferença: 0.4500000000698492
+
+V585 Lyr, raRK: 19 13 58.4, raDS: 19 13 58.43
+diferença: 0.4500000000698492
+
+GG Leo, raRK: 10 15 34.7, raDS: 10 15 34.67
+diferença: 0.4500000000698492
+
+V407 Vul, raRK: 19 14 26.1, raDS: 19 14 26.07
+diferença: 0.4500000000698492
+
+DO Aql, raRK: 19 31 25.9, raDS: 19 31 25.87
+diferença: 0.4500000001862645
+
+TY PsA, raRK: 22 49 39.9, raDS: 22 49 39.87
+diferença: 0.4500000001862645
+
+V2069 Cyg, raRK: 21 23 44.8, raDS: 21 23 44.84
+diferença: 0.5999999998603016
+
+V838 Her, raRK: 18 46 31.5, raDS: 18 46 31.46
+diferença: 0.5999999998603016
+
+V587 Lyr, raRK: 19 17 26.5, raDS: 19 17 26.46
+diferença: 0.5999999998603016
+
+V1315 Aql, raRK: 19 13 54.5, raDS: 19 13 54.54
+diferença: 0.5999999998603016
+
+V603 Aql, raRK: 18 48 54.6, raDS: 18 48 54.64
+diferença: 0.5999999998603016
+
+V1141 Aql, raRK: 19 37 09.8, raDS: 19 37 09.84
+diferença: 0.5999999998603016
+
+BF Eri, raRK: 04 39 29.9, raDS: 04 39 29.94
+diferença: 0.5999999999476131
+
+RU LMi, raRK: 10 02 07.5, raDS: 10 02 07.46
+diferença: 0.5999999999767169
+
+AG Hya, raRK: 09 50 29.8, raDS: 09 50 29.76
+diferença: 0.5999999999767169
+
+UX UMa, raRK: 13 36 41.0, raDS: 13 36 40.96
+diferença: 0.5999999999767169
+
+UZ Ser, raRK: 18 11 24.9, raDS: 18 11 24.86
+diferença: 0.5999999999767169
+
+V1043 Cen, raRK: 13 13 17.1, raDS: 13 13 17.14
+diferença: 0.5999999999767169
+
+LZ Mus, raRK: 11 56 09.0, raDS: 11 56 08.96
+diferença: 0.5999999999767169
+
+X  Leo, raRK: 09 51 01.5, raDS: 09 51 01.46
+diferença: 0.5999999999767169
+
+KR Aur, raRK: 06 15 43.9, raDS: 06 15 43.94
+diferença: 0.5999999999767169
+
+V4742 Sgr, raRK: 18 02 21.9, raDS: 18 02 21.86
+diferença: 0.5999999999767169
+
+V442 Oph, raRK: 17 32 15.1, raDS: 17 32 15.14
+diferença: 0.5999999999767169
+
+CI Gem, raRK: 06 30 05.9, raDS: 06 30 05.86
+diferença: 0.5999999999767169
+
+DD Cir, raRK: 14 23 23.5, raDS: 14 23 23.46
+diferença: 0.5999999999767169
+
+ST LMi, raRK: 11 05 39.8, raDS: 11 05 39.76
+diferença: 0.5999999999767169
+
+QW Ser, raRK: 15 26 14.0, raDS: 15 26 13.96
+diferença: 0.5999999999767169
+
+PU Per, raRK: 02 42 16.1, raDS: 02 42 16.14
+diferença: 0.5999999999767169
+
+HV Vir, raRK: 13 21 03.2, raDS: 13 21 03.16
+diferença: 0.5999999999767169
+
+V574 Pup, raRK: 07 41 53.6, raDS: 07 41 53.56
+diferença: 0.5999999999767169
+
+V803 Cen, raRK: 13 23 44.5, raDS: 13 23 44.54
+diferença: 0.5999999999767169
+
+ES Cet, raRK: 02 00 52.2, raDS: 02 00 52.24
+diferença: 0.5999999999912689
+
+V592 Cas, raRK: 00 20 52.2, raDS: 00 20 52.24
+diferença: 0.5999999999985448
+
+V452 Cas, raRK: 00 52 18.1, raDS: 00 52 18.06
+diferença: 0.5999999999985448
+
+LL And, raRK: 00 41 51.5, raDS: 00 41 51.46
+diferença: 0.5999999999985448
+
+FO And, raRK: 01 15 32.1, raDS: 01 15 32.14
+diferença: 0.6000000000058208
+
+PQ And, raRK: 02 29 29.5, raDS: 02 29 29.54
+diferença: 0.6000000000058208
+
+UY Pup, raRK: 07 46 31.2, raDS: 07 46 31.24
+diferença: 0.6000000000349246
+
+V363 Aur, raRK: 05 33 33.5, raDS: 05 33 33.46
+diferença: 0.6000000000349246
+
+HQ Mon, raRK: 07 11 33.7, raDS: 07 11 33.74
+diferença: 0.6000000000349246
+
+BV Pup, raRK: 07 49 05.3, raDS: 07 49 05.26
+diferença: 0.6000000000349246
+
+BH Lyn, raRK: 08 22 36.0, raDS: 08 22 36.04
+diferença: 0.6000000000349246
+
+XX Tau, raRK: 05 19 24.5, raDS: 05 19 24.46
+diferença: 0.6000000000349246
+
+RS Cae, raRK: 04 53 25.5, raDS: 04 53 25.46
+diferença: 0.6000000000349246
+
+V368 Aql, raRK: 19 26 34.4, raDS: 19 26 34.44
+diferença: 0.6000000000931323
+
+RU Peg, raRK: 22 14 02.6, raDS: 22 14 02.56
+diferença: 0.6000000000931323
+
+V392 Hya, raRK: 10 58 56.4, raDS: 10 58 56.44
+diferença: 0.6000000000931323
+
+V2274 Cyg, raRK: 20 07 17.9, raDS: 20 07 17.94
+diferença: 0.6000000000931323
+
+V433 Ara, raRK: 17 00 06.1, raDS: 17 00 06.06
+diferença: 0.6000000000931323
+
+VZ Aqr, raRK: 21 30 24.6, raDS: 21 30 24.64
+diferença: 0.6000000000931323
+
+VZ Scl, raRK: 23 50 09.2, raDS: 23 50 09.24
+diferença: 0.6000000000931323
+
+V823 Cyg, raRK: 20 01 49.3, raDS: 20 01 49.26
+diferença: 0.6000000000931323
+
+DM Lyr, raRK: 18 58 44.4, raDS: 18 58 44.44
+diferença: 0.6000000002095476
+
+BT Mon, raRK: 06 43 47.2, raDS: 06 43 47.25
+diferença: 0.75
+
+V792 Cyg, raRK: 19 31 01.0, raDS: 19 31 00.95
+diferença: 0.75
+
+PQ Aql, raRK: 19 53 06.6, raDS: 19 53 06.65
+diferença: 0.75
+
+AH Eri, raRK: 04 22 38.1, raDS: 04 22 38.05
+diferença: 0.75
+
+V344 Ori, raRK: 06 15 19.0, raDS: 06 15 18.95
+diferença: 0.75
+
+HR Del, raRK: 20 42 20.4, raDS: 20 42 20.35
+diferença: 0.75
+
+AM Cas, raRK: 02 26 23.4, raDS: 02 26 23.45
+diferença: 0.75
+
+V842 Cen, raRK: 14 35 52.6, raDS: 14 35 52.55
+diferença: 0.75
+
+DN Gem, raRK: 06 54 54.4, raDS: 06 54 54.35
+diferença: 0.75
+
+DM Gem, raRK: 06 44 12.1, raDS: 06 44 12.15
+diferença: 0.75
+
+V589 Her, raRK: 16 22 07.2, raDS: 16 22 07.15
+diferença: 0.75
+
+GX Cas, raRK: 00 49 01.5, raDS: 00 49 01.55
+diferença: 0.75
+
+YZ Cnc, raRK: 08 10 56.6, raDS: 08 10 56.65
+diferença: 0.75
+
+EK UMa, raRK: 10 51 35.2, raDS: 10 51 35.15
+diferença: 0.75
+
+HS Vir, raRK: 13 43 38.4, raDS: 13 43 38.45
+diferença: 0.75
+
+RZ Leo, raRK: 11 37 22.3, raDS: 11 37 22.25
+diferença: 0.75
+
+TT Boo, raRK: 14 57 44.7, raDS: 14 57 44.75
+diferença: 0.75
+
+CC Cnc, raRK: 08 36 19.2, raDS: 08 36 19.15
+diferença: 0.75
+
+FQ Mon, raRK: 07 16 41.2, raDS: 07 16 41.25
+diferença: 0.75
+
+V1504 Cyg, raRK: 19 28 56.5, raDS: 19 28 56.45
+diferença: 0.75
+
+V1159 Ori, raRK: 05 28 59.5, raDS: 05 28 59.55
+diferença: 0.75
+
+V1454 Cyg, raRK: 19 53 38.5, raDS: 19 53 38.45
+diferença: 0.75
+
+PT And, raRK: 00 40 24.4, raDS: 00 40 24.35
+diferença: 0.75
+
+CI Gru, raRK: 21 33 06.8, raDS: 21 33 06.85
+diferença: 0.75
+
+V592 Her, raRK: 16 30 56.5, raDS: 16 30 56.45
+diferença: 0.75
+
+V358 Lyr, raRK: 18 59 33.0, raDS: 18 59 32.95
+diferença: 0.75
+
+V844 Her, raRK: 16 25 01.7, raDS: 16 25 01.75
+diferença: 0.75
+
+PR Her, raRK: 18 08 04.4, raDS: 18 08 04.45
+diferença: 0.75
+
+CP Eri, raRK: 03 10 32.8, raDS: 03 10 32.75
+diferença: 0.75
+
+V4745 Sgr, raRK: 18 40 02.6, raDS: 18 40 02.55
+diferença: 0.7500000001164153
+
+EY Cyg, raRK: 19 54 36.8, raDS: 19 54 36.74
+diferença: 0.8999999999068677
+
+UU Aqr, raRK: 22 09 05.7, raDS: 22 09 05.76
+diferença: 0.8999999999068677
+
+UU Aql, raRK: 19 57 18.7, raDS: 19 57 18.76
+diferença: 0.8999999999068677
+
+V992 Sco, raRK: 17 07 17.5, raDS: 17 07 17.44
+diferença: 0.8999999999068677
+
+V405 Vul, raRK: 19 53 05.0, raDS: 19 53 04.94
+diferença: 0.8999999999068677
+
+V349 Pav, raRK: 20 08 55.8, raDS: 20 08 55.86
+diferença: 0.8999999999068677
+
+VY Aqr, raRK: 21 12 09.2, raDS: 21 12 09.26
+diferença: 0.8999999999068677
+
+KX Aql, raRK: 19 33 53.7, raDS: 19 33 53.64
+diferença: 0.8999999999068677
+
+WX Pyx, raRK: 08 33 05.8, raDS: 08 33 05.74
+diferença: 0.8999999999650754
+
+GY Cnc, raRK: 09 09 50.6, raDS: 09 09 50.54
+diferença: 0.8999999999650754
+
+MN Hya, raRK: 09 29 07.1, raDS: 09 29 07.04
+diferença: 0.8999999999650754
+
+SW UMa, raRK: 08 36 42.8, raDS: 08 36 42.74
+diferença: 0.8999999999650754
+
+RW Tri, raRK: 02 25 36.1, raDS: 02 25 36.16
+diferença: 0.8999999999941792
+
+AY Psc, raRK: 01 36 55.4, raDS: 01 36 55.46
+diferença: 0.8999999999941792
+
+V400 Per, raRK: 03 07 38.3, raDS: 03 07 38.24
+diferença: 0.8999999999941792
+
+SV Ari, raRK: 03 25 03.4, raDS: 03 25 03.34
+diferença: 0.8999999999941792
+
+V709 Cas, raRK: 00 28 48.9, raDS: 00 28 48.84
+diferença: 0.9000000000014552
+
+RX And, raRK: 01 04 35.6, raDS: 01 04 35.54
+diferença: 0.9000000000014552
+
+BL Hyi, raRK: 01 41 00.3, raDS: 01 41 00.24
+diferença: 0.9000000000087311
+
+SY Cnc, raRK: 09 01 03.4, raDS: 09 01 03.34
+diferença: 0.9000000000232831
+
+QZ Aur, raRK: 05 28 34.0, raDS: 05 28 34.06
+diferença: 0.9000000000232831
+
+V347 Pup, raRK: 06 10 33.6, raDS: 06 10 33.66
+diferença: 0.9000000000232831
+
+TW Vir, raRK: 11 45 21.1, raDS: 11 45 21.16
+diferença: 0.9000000000232831
+
+V380 Oph, raRK: 17 50 13.7, raDS: 17 50 13.64
+diferença: 0.9000000000232831
+
+V4579 Sgr, raRK: 18 03 37.9, raDS: 18 03 37.84
+diferença: 0.9000000000232831
+
+LY Hya, raRK: 13 31 53.8, raDS: 13 31 53.86
+diferença: 0.9000000000232831
+
+VZ Pyx, raRK: 08 59 19.9, raDS: 08 59 19.84
+diferença: 0.9000000000232831
+
+CP Pup, raRK: 08 11 46.0, raDS: 08 11 46.06
+diferença: 0.9000000000232831
+
+FS Aur, raRK: 05 47 48.3, raDS: 05 47 48.36
+diferença: 0.9000000000232831
+
+V425 Cas, raRK: 23 03 46.6, raDS: 23 03 46.66
+diferença: 0.9000000001396984
+
+V1494 Aql, raRK: 19 23 05.4, raDS: 19 23 05.33
+diferença: 1.0499999998137355
+
+CP Cru, raRK: 12 10 31.4, raDS: 12 10 31.33
+diferença: 1.0499999999301508
+
+V795 Her, raRK: 17 12 56.1, raDS: 17 12 56.17
+diferença: 1.0499999999301508
+
+DM Dra, raRK: 15 34 12.1, raDS: 15 34 12.17
+diferença: 1.0499999999301508
+
+BC UMa, raRK: 11 52 15.9, raDS: 11 52 15.83
+diferença: 1.0499999999301508
+
+MM Sco, raRK: 17 30 45.3, raDS: 17 30 45.23
+diferença: 1.0499999999301508
+
+AC Cnc, raRK: 08 44 27.2, raDS: 08 44 27.13
+diferença: 1.0499999999883585
+
+PQ Gem, raRK: 07 51 17.4, raDS: 07 51 17.33
+diferença: 1.0499999999883585
+
+AR Cnc, raRK: 09 22 07.5, raDS: 09 22 07.57
+diferença: 1.0499999999883585
+
+U  Gem, raRK: 07 55 05.3, raDS: 07 55 05.23
+diferença: 1.0499999999883585
+
+LS Cam, raRK: 05 57 24.0, raDS: 05 57 23.93
+diferença: 1.0499999999883585
+
+SU UMa, raRK: 08 12 28.2, raDS: 08 12 28.27
+diferença: 1.0499999999883585
+
+BZ UMa, raRK: 08 53 44.1, raDS: 08 53 44.17
+diferença: 1.0499999999883585
+
+HT Cam, raRK: 07 57 01.3, raDS: 07 57 01.37
+diferença: 1.0499999999883585
+
+CV Hyi, raRK: 01 32 42.0, raDS: 01 32 42.07
+diferença: 1.0499999999883585
+
+CM Phe, raRK: 00 21 33.1, raDS: 00 21 33.17
+diferença: 1.0500000000029104
+
+BO Cet, raRK: 02 06 39.2, raDS: 02 06 39.27
+diferença: 1.0500000000029104
+
+KV And, raRK: 02 17 13.8, raDS: 02 17 13.87
+diferença: 1.0500000000320142
+
+V841 Oph, raRK: 16 59 30.3, raDS: 16 59 30.37
+diferença: 1.0500000000465661
+
+PW Vul, raRK: 19 26 05.1, raDS: 19 26 05.03
+diferença: 1.0500000000465661
+
+IP Peg, raRK: 23 23 08.6, raDS: 23 23 08.53
+diferença: 1.0500000000465661
+
+LN UMa, raRK: 10 04 34.7, raDS: 10 04 34.63
+diferença: 1.0500000000465661
+
+V1101 Aql, raRK: 20 13 04.0, raDS: 20 13 04.07
+diferença: 1.0500000000465661
+
+DY Pup, raRK: 08 13 48.4, raDS: 08 13 48.47
+diferença: 1.0500000000465661
+
+DP Leo, raRK: 11 17 16.0, raDS: 11 17 15.93
+diferença: 1.0500000000465661
+
+DW Cnc, raRK: 07 58 53.1, raDS: 07 58 53.03
+diferença: 1.0500000000465661
+
+RZ LMi, raRK: 09 51 49.0, raDS: 09 51 48.93
+diferença: 1.0500000000465661
+
+GW Lib, raRK: 15 19 55.5, raDS: 15 19 55.43
+diferença: 1.0500000000465661
+
+EP Dra, raRK: 19 07 06.1, raDS: 19 07 06.18
+diferença: 1.1999999998370185
+
+V365 Car, raRK: 11 03 15.9, raDS: 11 03 15.82
+diferença: 1.1999999999534339
+
+V794 Aql, raRK: 20 17 34.0, raDS: 20 17 33.92
+diferença: 1.1999999999534339
+
+V1432 Aql, raRK: 19 40 11.5, raDS: 19 40 11.42
+diferença: 1.1999999999534339
+
+HU Aqr, raRK: 21 07 58.3, raDS: 21 07 58.22
+diferença: 1.1999999999534339
+
+VV Pup, raRK: 08 15 06.7, raDS: 08 15 06.78
+diferença: 1.1999999999534339
+
+V485 Cen, raRK: 12 57 23.3, raDS: 12 57 23.22
+diferença: 1.1999999999534339
+
+CR Boo, raRK: 13 48 55.3, raDS: 13 48 55.22
+diferença: 1.1999999999534339
+
+HH Cnc, raRK: 09 16 50.7, raDS: 09 16 50.78
+diferença: 1.2000000000116415
+
+CW Mon, raRK: 06 36 54.5, raDS: 06 36 54.58
+diferença: 1.2000000000116415
+
+LW Cam, raRK: 07 04 09.9, raDS: 07 04 09.98
+diferença: 1.2000000000116415
+
+AQ Eri, raRK: 05 06 13.0, raDS: 05 06 13.08
+diferença: 1.2000000000116415
+
+IX Dra, raRK: 18 12 31.4, raDS: 18 12 31.48
+diferença: 1.2000000000698492
+
+WY Sge, raRK: 19 32 43.8, raDS: 19 32 43.88
+diferença: 1.2000000001862645
+
+EI Psc, raRK: 23 29 54.3, raDS: 23 29 54.21
+diferença: 1.3499999998603016
+
+HY Eri, raRK: 05 01 46.3, raDS: 05 01 46.39
+diferença: 1.349999999976717
+
+V381 Vel, raRK: 10 16 58.9, raDS: 10 16 58.99
+diferença: 1.349999999976717
+
+IR Gem, raRK: 06 47 34.6, raDS: 06 47 34.69
+diferença: 1.349999999976717
+
+UZ Boo, raRK: 14 44 01.3, raDS: 14 44 01.21
+diferença: 1.349999999976717
+
+TZ Per, raRK: 02 13 51.0, raDS: 02 13 50.91
+diferença: 1.3500000000058208
+
+KT Per, raRK: 01 37 08.7, raDS: 01 37 08.79
+diferença: 1.3500000000058208
+
+IX Vel, raRK: 08 15 18.9, raDS: 08 15 18.99
+diferença: 1.3500000000349246
+
+V436 Car, raRK: 07 44 57.9, raDS: 07 44 57.99
+diferença: 1.3500000000349246
+
+KO Vel, raRK: 10 15 58.4, raDS: 10 15 58.31
+diferença: 1.3500000000931323
+
+CH UMa, raRK: 10 07 00.6, raDS: 10 07 00.69
+diferença: 1.3500000000931323
+
+V1500 Cyg, raRK: 21 11 36.6, raDS: 21 11 36.51
+diferença: 1.3500000000931323
+
+V729 Sgr, raRK: 19 16 49.2, raDS: 19 16 49.10
+diferença: 1.4999999998835847
+
+SS Cyg, raRK: 21 42 42.7, raDS: 21 42 42.80
+diferença: 1.5
+
+TW Pic, raRK: 05 34 50.7, raDS: 05 34 50.60
+diferença: 1.5
+
+XY Ari, raRK: 02 56 08.2, raDS: 02 56 08.1
+diferença: 1.5
+
+V705 Cas, raRK: 23 41 47.3, raDS: 23 41 47.20
+diferença: 1.5
+
+V345 Pav, raRK: 19 35 43.0, raDS: 19 35 42.90
+diferença: 1.5
+
+PY Per, raRK: 02 50 00.1, raDS: 02 50 00.
+diferença: 1.5
+
+EF Tuc, raRK: 00 01 55.0, raDS: 00 01 55.10
+diferença: 1.5
+
+V2289 Cyg, raRK: 19 34 36.1, raDS: 19 34 36.20
+diferença: 1.5
+
+V388 Peg, raRK: 21 57 32.4, raDS: 21 57 32.30
+diferença: 1.5
+
+V351 Pup, raRK: 08 11 38.3, raDS: 08 11 38.40
+diferença: 1.5
+
+QS Tel, raRK: 19 38 35.7, raDS: 19 38 35.80
+diferença: 1.5
+
+V725 Aql, raRK: 19 56 45.1, raDS: 19 56 45.00
+diferença: 1.5
+
+EF Peg, raRK: 21 15 04.1, raDS: 21 15 04.
+diferença: 1.5
+
+BR Lup, raRK: 15 35 53.1, raDS: 15 35 53.
+diferença: 1.5
+
+FT Cam, raRK: 03 21 14.4, raDS: 03 21 14.30
+diferença: 1.5
+
+VW Hyi, raRK: 04 09 11.3, raDS: 04 09 11.40
+diferença: 1.5
+
+VW CrB, raRK: 16 00 03.8, raDS: 16 00 03.70
+diferença: 1.5
+
+CY UMa, raRK: 10 56 57.1, raDS: 10 56 57.00
+diferença: 1.5
+
+V337 Cyg, raRK: 19 59 52.9, raDS: 19 59 53.
+diferença: 1.5
+
+EK TrA, raRK: 15 14 01.0, raDS: 15 14 00.9
+diferença: 1.5
+
+V496 Aur, raRK: 07 27 52.3, raDS: 07 27 52.20
+diferença: 1.5
+
+V591 Cen, raRK: 12 42 18.0, raDS: 12 42 18.10
+diferença: 1.5
+
+AL Com, raRK: 12 32 25.9, raDS: 12 32 25.80
+diferença: 1.5
+
+V  Sge, raRK: 20 20 14.8, raDS: 20 20 14.69
+diferença: 1.6499999999068677
+
+V1223 Sgr, raRK: 18 55 02.2, raDS: 18 55 02.31
+diferença: 1.6499999999068677
+
+CP Tuc, raRK: 23 15 19.1, raDS: 23 15 18.99
+diferença: 1.6499999999068677
+
+HV And, raRK: 00 40 55.3, raDS: 00 40 55.41
+diferença: 1.6499999999941792
+
+BB Dor, raRK: 05 29 28.7, raDS: 05 29 28.59
+diferença: 1.650000000023283
+
+V516 Pup, raRK: 08 03 45.5, raDS: 08 03 45.61
+diferença: 1.650000000023283
+
+DV UMa, raRK: 09 46 36.7, raDS: 09 46 36.59
+diferença: 1.650000000023283
+
+WW Hor, raRK: 02 36 11.5, raDS: 02 36 11.39
+diferença: 1.650000000023283
+
+CP Lac, raRK: 22 15 41.2, raDS: 22 15 41.09
+diferença: 1.6500000001396984
+
+BV Cen, raRK: 13 31 19.6, raDS: 13 31 19.48
+diferença: 1.7999999999301508
+
+LL Lyr, raRK: 18 35 12.9, raDS: 18 35 12.78
+diferença: 1.7999999999301508
+
+V344 Pav, raRK: 19 16 09.7, raDS: 19 16 09.58
+diferença: 1.7999999999301508
+
+V893 Sco, raRK: 16 15 15.1, raDS: 16 15 14.98
+diferença: 1.7999999999301508
+
+TV Col, raRK: 05 29 25.4, raDS: 05 29 25.52
+diferença: 1.7999999999883585
+
+LU Cam, raRK: 05 58 18.0, raDS: 05 58 17.88
+diferença: 1.7999999999883585
+
+HT Cas, raRK: 01 10 13.0, raDS: 01 10 13.12
+diferença: 1.7999999999956344
+
+AF Cam, raRK: 03 32 15.6, raDS: 03 32 15.48
+diferença: 1.8000000000174623
+
+WX Cen, raRK: 13 12 52.5, raDS: 13 12 52.38
+diferença: 1.8000000000465661
+
+UU Col, raRK: 05 12 13.1, raDS: 05 12 13.22
+diferença: 1.8000000000465661
+
+AD Men, raRK: 06 04 30.9, raDS: 06 04 30.78
+diferença: 1.8000000000465661
+
+V364 Peg, raRK: 21 12 29.7, raDS: 21 12 29.58
+diferença: 1.8000000000465661
+
+OU Vir, raRK: 14 35 00.1, raDS: 14 35 00.22
+diferença: 1.8000000000465661
+
+CI UMa, raRK: 10 18 13.0, raDS: 10 18 13.12
+diferença: 1.8000000000465661
+
+V1025 Cen, raRK: 12 38 16.5, raDS: 12 38 16.38
+diferença: 1.8000000000465661
+
+V2176 Cyg, raRK: 19 27 11.6, raDS: 19 27 11.72
+diferença: 1.8000000000465661
+
+BW Scl, raRK: 23 53 00.7, raDS: 23 53 00.82
+diferença: 1.8000000000465661
+
+MR Vel, raRK: 09 25 45.9, raDS: 09 25 46.03
+diferença: 1.9499999999534339
+
+V731 Cas, raRK: 23 57 00.3, raDS: 23 57 00.17
+diferença: 1.9499999999534339
+
+ER UMa, raRK: 09 47 11.8, raDS: 09 47 11.93
+diferença: 1.9499999999534339
+
+WX Hyi, raRK: 02 09 50.7, raDS: 02 09 50.83
+diferença: 1.9499999999970896
+
+QR And, raRK: 00 19 49.8, raDS: 00 19 49.93
+diferença: 1.9500000000007276
+
+BY Cam, raRK: 05 42 48.9, raDS: 05 42 48.77
+diferença: 1.9500000000116415
+
+EX Dra, raRK: 18 04 14.1, raDS: 18 04 14.23
+diferença: 1.9500000000698492
+
+SS UMi, raRK: 15 51 22.2, raDS: 15 51 22.33
+diferença: 1.9500000000698492
+
+BY Cir, raRK: 14 44 53.6, raDS: 14 44 53.46
+diferença: 2.099999999976717
+
+DQ Her, raRK: 18 07 30.4, raDS: 18 07 30.26
+diferença: 2.099999999976717
+
+DW UMa, raRK: 10 33 53.0, raDS: 10 33 52.86
+diferença: 2.099999999976717
+
+RX Vol, raRK: 08 39 32.3, raDS: 08 39 32.16
+diferença: 2.099999999976717
+
+AR UMa, raRK: 11 15 44.7, raDS: 11 15 44.56
+diferença: 2.1000000000931323
+
+V825 Sco, raRK: 17 49 53.8, raDS: 17 49 53.65
+diferença: 2.25
+
+AH Pic, raRK: 05 57 12.7, raDS: 05 57 12.55
+diferença: 2.25
+
+V630 Sgr, raRK: 18 08 48.4, raDS: 18 08 48.25
+diferença: 2.25
+
+CU Vel, raRK: 08 58 32.9, raDS: 08 58 33.05
+diferença: 2.25
+
+AQ Men, raRK: 05 07 53.6, raDS: 05 07 53.76
+diferença: 2.3999999999650754
+
+TT Tri, raRK: 01 31 59.7, raDS: 01 31 59.86
+diferença: 2.3999999999941792
+
+AE Aqr, raRK: 20 40 09.0, raDS: 20 40 09.16
+diferença: 2.4000000001396984
+
+BE Oct, raRK: 00 00 48.8, raDS: 00 00 48.97
+diferença: 2.5499999999999545
+
+AP Cru, raRK: 12 31 20.6, raDS: 12 31 20.43
+diferença: 2.550000000046566
+
+V1028 Cyg, raRK: 20 00 56.6, raDS: 20 00 56.43
+diferença: 2.550000000046566
+
+AW Gem, raRK: 07 22 40.6, raDS: 07 22 40.78
+diferença: 2.699999999953434
+
+EX Hya, raRK: 12 52 24.4, raDS: 12 52 24.22
+diferença: 2.699999999953434
+
+TU Men, raRK: 04 41 40.7, raDS: 04 41 40.52
+diferença: 2.6999999999825377
+
+V347 Pav, raRK: 18 44 48.3, raDS: 18 44 48.12
+diferença: 2.700000000069849
+
+V1033 Cen, raRK: 11 41 22.9, raDS: 11 41 22.71
+diferença: 2.849999999976717
+
+RX Cha, raRK: 10 36 26.3, raDS: 10 36 26.11
+diferença: 2.849999999976717
+
+KL Dra, raRK: 19 24 38.3, raDS: 19 24 38.1
+diferença: 2.9999999998835847
+
+CN Vel, raRK: 11 02 38.7, raDS: 11 02 38.5
+diferença: 3.0
+
+DO Dra, raRK: 11 43 38.3, raDS: 11 43 38.50
+diferença: 3.0
+
+V834 Cen, raRK: 14 09 07.5, raDS: 14 09 07.30
+diferença: 3.0
+
+EF Eri, raRK: 03 14 13.0, raDS: 03 14 13.26
+diferença: 3.8999999999941792
+
+IY UMa, raRK: 10 43 57.0, raDS: 10 43 56.73
+diferença: 4.049999999930151
+
+QU Car, raRK: 11 05 42.8, raDS: 11 05 42.51
+diferença: 4.349999999976717
+
+OY Car, raRK: 10 06 22.4, raDS: 10 06 22.10
+diferença: 4.5
+
+GR Ori, raRK: 05 21 35.0, raDS: 05 21 35.32
+diferença: 4.7999999999883585
+
+AR Cir, raRK: 14 48 09.2, raDS: 14 48 09.53
+diferença: 4.949999999953434
+
+AH Men, raRK: 06 11 44.1, raDS: 06 11 44.46
+diferença: 5.399999999965075
+
+V1040 Cen, raRK: 11 55 27.1, raDS: 11 55 26.72
+diferença: 5.699999999953434
+
+RR Cha, raRK: 13 26 24.2, raDS: 13 26 23.80
+diferença: 6.0
+
+Z  Cha, raRK: 08 07 28.2, raDS: 08 07 27.77
+diferença: 6.4500000000116415
+
+TU Tri, raRK: 01 39 15.3, raDS: 01 39 15.74
+diferença: 6.599999999991269
+
+V396 Hya, raRK: 13 12 46.9, raDS: 13 12 46.44
+diferença: 6.899999999906868
+
+SS LMi, raRK: 10 34 05.9, raDS: 10 34 05.43
+diferença: 7.050000000046566
+
+GP Com, raRK: 13 05 42.9, raDS: 13 05 42.41
+diferença: 7.349999999976717
+
+U  Leo, raRK: 10 24 03.9, raDS: 10 24 03.3
+diferença: 9.0
+
+V728 Sco, raRK: 17 39 05.6, raDS: 17 39 12.3
+diferença: 100.5
+
