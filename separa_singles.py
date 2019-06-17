@@ -59,7 +59,6 @@ for i in readerRK:
 
 for k in readerDS:
     k[0] = k[0].strip()
-    #k[0] = k[0].replace(' ', '')
     nomesDS.append(k[0])
 
     k[1] = k[1].strip()
@@ -94,39 +93,45 @@ decDS.remove(decDS[0])
 auxDS.remove(auxDS[1])
 auxDS.remove(auxDS[0])
 
-equalsCatalog = open('objects_novaConferencia.csv')   
+equalsCatalog = open('teste.csv')   
 
 readerCat = csv.reader(equalsCatalog)
 
 nomeIguaisRK = []
 nomeIguaisDS = []
-equalsRK = []
-equalsDS = []
+raequalsRK = []
+raequalsDS = []
+decequalsRK = []
+decequalsDS =  []
+
 
 
 for k in readerCat:
     nomeIguaisRK.append(k[0].strip())
+    raequalsRK.append(k[1].strip())
+    decequalsRK.append(k[2].strip())
+
     nomeIguaisDS.append(k[3].strip())
-    equalsRK.append(k[1].strip())
-    equalsDS.append(k[4].strip())
+    raequalsDS.append(k[4].strip())
+    decequalsDS.append(k[5].strip())
 
 s1 = 0
 s2 = 0
-
-for i in range(len(raDS)):
-    if raDS[i] not in equalsDS:
+    
+for i in range(len(raDS)):        
+    if decDS[i] not in decequalsDS:
         auxDS[i] = ', '.join(auxDS[i])
         s1 +=1
-        print(f'{nomesDS[i]}, {raDS[i]}, {decDS[i]}, {auxDS[i]}')
+        print(f' , , , , , , , , , , {nomesDS[i]}, {raDS[i]}, {decDS[i]}, {auxDS[i]}, 0, , http://simbad.u-strasbg.fr/simbad/sim-coo?Coord={raDS[i]}++{decDS[i]}&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
 
-print('\n\n')
+#print('\n\n')
 
 for i in range(len(raRK)):
-    if raRK[i] not in equalsRK:
+    if raRK[i] not in raequalsRK:
         auxRK[i] =', '.join(auxRK[i])
         s2+=1
-        #print(f'{nomesRK[i]}, {raRK[i]}, {decRK[i]}, {auxRK[i]}')
-    
+        #print(f'{nomesRK[i]}, {raRK[i]}, {decRK[i]}, {auxRK[i]}, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 0, ,  http://simbad.u-strasbg.fr/simbad/sim-coo?Coord={raRK[i]}++{decRK[i]}&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
+
 
 print(f'solteiros DS {s1}\nsolteiros RK {s2}')
 

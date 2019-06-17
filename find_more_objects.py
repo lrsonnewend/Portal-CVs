@@ -132,12 +132,12 @@ for i in range(len(nomesRK)):
             valorRA = abs(float(ra_arcsecRK) - float(ra_arcsecDS))
             valorDEC = abs(float(dec_arcsecRK) - float(dec_arcsecDS))
 
-            if valorRA < 10 or valorDEC < 10:
-                print(f'Objeto RK: {nomesRK[i]}\t{raRK[i]}\t{decRK[i]}\nObjeto DS: {nomesDS[j]}\t{raDS[j]}\t{decDS[j]}\ndiferenca RA: {valorRA}\ndiferenca DEC: {valorDEC}\n\n')
-                break
-            '''elif valorRA < 20 and valorDEC < 20:
+            '''if valorRA < 20 and valorDEC < 20:
                 print(f'Objeto RK: {nomesRK[i]}\t{raRK[i]}\t{decRK[i]}\nObjeto DS: {nomesDS[j]}\t{raDS[j]}\t{decDS[j]}\ndiferenca RA: {valorRA}\ndiferenca DEC: {valorDEC}\n\n')
                 break'''
+            if valorRA < 40 and valorDEC < 40:
+                print(f'Objeto RK: {nomesRK[i]}\t{raRK[i]}\t{decRK[i]}\nObjeto DS: {nomesDS[j]}\t{raDS[j]}\t{decDS[j]}\ndiferenca RA: {valorRA}\ndiferenca DEC: {valorDEC}\n\n')
+                break
                 
             '''obj = Objetos(nome, temRK, temDS, valorRA)
             diferencasRA.append(obj)'''

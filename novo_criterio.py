@@ -114,18 +114,18 @@ for j in range(len(nomesRK)):
                 rN+=1 #contador de objetos
                 tempoRArk = ' '.join(raRK[j])#recebe o valor do RA formatado em espaço e sem ponto e vírgula (;)
                 tempoDECrk = ' '.join(decRK[j])#recebe o valor do DEC formatado em espaço e sem ponto e vírgula (;)
-                tempoAuxRK = ',  '.join(auxRK[j])#junta as informações adicionais do objeto separando-as em vírgula (,)
-                
+                tempoAuxRK = ', '.join(auxRK[j])#junta as informações adicionais do objeto separando-as em vírgula (,)
+
                 tempoRAds = ' '.join(raDS[i])#recebe o valor do RA formatado em espaço e sem ponto e vírgula (;)
                 tempoDECds = ' '.join(decDS[i])#recebe o valor do DEC formatado em espaço e sem ponto e vírgula (;)
-                tempoAuxDS = ',  '.join(auxDS[i])#junta as informações adicionais do objeto separando-as em vírgula (,)
-                                                                  
+                tempoAuxDS = ', '.join(auxDS[i])#junta as informações adicionais do objeto separando-as em vírgula (,)
                 #print(f'Objeto RK- pos {j} Objeto DS - pos {i}')
 
                 #armazena em uma variável os dados necessários para montar o arquivo csv (catálogo)
-                print(str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)
-                        +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds))
-                
+                #print(f'{nomesRK[j]}, {tempoRArk}, {tempoDECrk}, {tempoAuxRK}, {nomesDS[i]}, {tempoRAds}, {tempoDECds}, {tempoAuxDS}, 1, http://simbad.u-strasbg.fr/simbad/sim-id?Ident={nomesRK[j]},')
+
+                print(f'{nomesRK[j]}, {tempoRArk}, {tempoDECrk}, {nomesDS[i]}, {tempoRAds}, {tempoDECds}')
+                      
                 '''results = (str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '+str(tempoAuxRK)
                         +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds)+',  '+str(tempoAuxDS)+'  ,  http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[j])
                         +',  http://simbad.u-strasbg.fr/simbad/sim-coo?Coord='+str(tempoRArk)+'++'+str(tempoDECrk)
@@ -136,7 +136,7 @@ for j in range(len(nomesRK)):
                 #resultados.append(results) #adicionando variável ao vetor resultados
 
                 #passa para o próximo objeto
-                break
+                
 
 for j in range(len(nomesRK)):
     for i in range(len(nomesDS)):
@@ -151,7 +151,7 @@ for j in range(len(nomesRK)):
                 
                 tempDrk = decRK[j] #variável temporária recebe DEC do objeto
                 tempDds = decDS[i] #variável temporária recebe DEC do objeto
-
+                
                 ra_arcsecRK = 15*(3600.0*int(tempRK[0])+60.0*int(tempRK[1])+float(tempRK[2])) #transformando coordenada RA em segundos de arco (arcsec)
                 
                 ra_arcsecDS = 15*(3600.0*int(tempDS[0])+60.0*int(tempDS[1])+float(tempDS[2])) #transformando coordenada RA em segundos de arco (arcsec)
@@ -163,23 +163,24 @@ for j in range(len(nomesRK)):
                 #subRA = float(ra_arcsecDS) - float(ra_arcsecRK)
                 #subDEC = float(dec_arcsecDS) - float(dec_arcsecRK)
                 
-                if abs(ra_arcsecRK - ra_arcsecDS) < 5 and abs(dec_arcsecRK - dec_arcsecDS) < 5: #caso a diferença seja menor do que 5 segundos de arco:
+                if abs(ra_arcsecRK - ra_arcsecDS) < 5 and abs(dec_arcsecRK - dec_arcsecDS) < 5: #caso a diferença seja menor do que 20 segundos de arco:
                     
                     rC+=1 #contador de objetos
                     tempoRArk = ' '.join(raRK[j]) #recebe o valor do RA formatado em espaço e sem ponto e vírgula (;)
                     tempoDECrk = ' '.join(decRK[j]) #recebe o valor do DEC formatado em espaço e sem ponto e vírgula (;)
-                    tempoAuxRK = ',  '.join(auxRK[j]) #junta as informações adicionais do objeto separando-as em vírgula (,)
+                    tempoAuxRK = ', '.join(auxRK[j]) #junta as informações adicionais do objeto separando-as em vírgula (,)
                     
                     tempoRAds = ' '.join(raDS[i]) #recebe o valor do RA formatado em espaço e sem ponto e vírgula (;)
                     tempoDECds = ' '.join(decDS[i]) #recebe o valor do DEC formatado em espaço e sem ponto e vírgula (;)
-                    tempoAuxDS = ',  '.join(auxDS[i]) #junta as informações adicionais do objeto separando-as em vírgula (,)                                    
+                    tempoAuxDS = ', '.join(auxDS[i]) #junta as informações adicionais do objeto separando-as em vírgula (,)                                    
 
                     #print(f'Objeto RK- pos {j} Objeto DS - pos {i}')
                     
                     #armazena em uma variável os dados necessários para montar o arquivo csv (catálogo)
-                    print(str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '
-                        +str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds))
-            
+                    #print(f'{nomesRK[j]}, {tempoRArk}, {tempoDECrk}, {tempoAuxRK}, {nomesDS[i]}, {tempoRAds}, {tempoDECds}, {tempoAuxDS}, 0,, http://simbad.u-strasbg.fr/simbad/sim-coo?Coord={tempoRAds}++{tempoDECds}&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
+
+                    print(f'{nomesRK[j]}, {tempoRArk}, {tempoDECrk}, {nomesDS[i]}, {tempoRAds}, {tempoDECds}')
+
                     '''results = (str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '+str(tempoAuxRK)
                     +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds)+',  '+str(tempoAuxDS)+'  ,  http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[j])
                     +',  http://simbad.u-strasbg.fr/simbad/sim-coo?Coord='+str(tempoRArk)+'++'+str(tempoDECrk)
