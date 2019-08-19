@@ -1,0 +1,32 @@
+package scanCSV;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author lucas
+ */
+import java.io.*;
+
+public class leObj {
+
+    public static void main(String[] args) {
+        /*File[] roots = File.listRoots();
+        System.out.println("Root directories in your system are:");
+
+        for (int i = 0; i < roots.length; i++) {
+            System.out.println(roots[i].toString());
+        }*/
+        
+
+    }
+    
+    public String imprimir(){
+        String cwd = System.getProperty("user.dir");
+        return ("Current working directory : " + cwd);
+    }
+}
