@@ -89,8 +89,10 @@ for k in readerDS:
 raRK.remove(raRK[0])
 nomesRK.remove(nomesRK[0])
 decRK.remove(decRK[0])
+auxRK.remove(auxRK[0])
 
-
+auxDS.remove(auxDS[1])
+auxDS.remove(auxDS[0])
 raDS.remove(raDS[1])
 raDS.remove(raDS[0])
 nomesDS.remove(nomesDS[1])
@@ -122,19 +124,8 @@ for j in range(len(nomesRK)):
                 #print(f'Objeto RK- pos {j} Objeto DS - pos {i}')
 
                 #armazena em uma variável os dados necessários para montar o arquivo csv (catálogo)
-                #print(f'{nomesRK[j]}, {tempoRArk}, {tempoDECrk}, {tempoAuxRK}, {nomesDS[i]}, {tempoRAds}, {tempoDECds}, {tempoAuxDS}, 1, http://simbad.u-strasbg.fr/simbad/sim-id?Ident={nomesRK[j]},')
-
-                print(f'{nomesRK[j]}, {tempoRArk}, {tempoDECrk}, {nomesDS[i]}, {tempoRAds}, {tempoDECds}')
+                print(f'{nomesRK[j]}, {tempoRArk}, {tempoDECrk}, {tempoAuxRK}, {tempoRAds}, {tempoDECds}, {tempoAuxDS}, 1, http://simbad.u-strasbg.fr/simbad/sim-id?Ident={nomesRK[j]},')
                       
-                '''results = (str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '+str(tempoAuxRK)
-                        +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds)+',  '+str(tempoAuxDS)+'  ,  http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[j])
-                        +',  http://simbad.u-strasbg.fr/simbad/sim-coo?Coord='+str(tempoRArk)+'++'+str(tempoDECrk)
-                        +'&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')'''
-                                                                                
-                #print(results)
-
-                #resultados.append(results) #adicionando variável ao vetor resultados
-
                 #passa para o próximo objeto
                 
 
@@ -163,7 +154,7 @@ for j in range(len(nomesRK)):
                 #subRA = float(ra_arcsecDS) - float(ra_arcsecRK)
                 #subDEC = float(dec_arcsecDS) - float(dec_arcsecRK)
                 
-                if abs(ra_arcsecRK - ra_arcsecDS) < 5 and abs(dec_arcsecRK - dec_arcsecDS) < 5: #caso a diferença seja menor do que 20 segundos de arco:
+                if abs(ra_arcsecRK - ra_arcsecDS) < 20 and abs(dec_arcsecRK - dec_arcsecDS) < 20: #caso a diferença seja menor do que 20 segundos de arco:
                     
                     rC+=1 #contador de objetos
                     tempoRArk = ' '.join(raRK[j]) #recebe o valor do RA formatado em espaço e sem ponto e vírgula (;)
@@ -178,17 +169,7 @@ for j in range(len(nomesRK)):
                     
                     #armazena em uma variável os dados necessários para montar o arquivo csv (catálogo)
                     #print(f'{nomesRK[j]}, {tempoRArk}, {tempoDECrk}, {tempoAuxRK}, {nomesDS[i]}, {tempoRAds}, {tempoDECds}, {tempoAuxDS}, 0,, http://simbad.u-strasbg.fr/simbad/sim-coo?Coord={tempoRAds}++{tempoDECds}&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
-
-                    print(f'{nomesRK[j]}, {tempoRArk}, {tempoDECrk}, {nomesDS[i]}, {tempoRAds}, {tempoDECds}')
-
-                    '''results = (str(nomesRK[j])+',  '+str(tempoRArk)+',  '+str(tempoDECrk)+',  '+str(tempoAuxRK)
-                    +',  '+str(nomesDS[i])+',  '+str(tempoRAds)+',  '+str(tempoDECds)+',  '+str(tempoAuxDS)+'  ,  http://simbad.u-strasbg.fr/simbad/sim-id?Ident='+str(nomesRK[j])
-                    +',  http://simbad.u-strasbg.fr/simbad/sim-coo?Coord='+str(tempoRArk)+'++'+str(tempoDECrk)
-                    +'&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')'''
-                                                                            
-                    
-                    #resultados.append(results) #adicionando variável ao vetor resultados
-
+                                        
                     #passa para o próximo objeto
                     break
                     
