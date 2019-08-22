@@ -4,6 +4,8 @@
     Author     : lucas
 --%>
 
+<%@page import="java.lang.Math.*"%>
+<%@page import="java.net.*"%>
 <%@page import="java.net.InetAddress"%>
 <%@page import="java.awt.Window"%>
 <%@page import="java.io.*"%>
@@ -61,18 +63,19 @@
                                     <form>
                                         <br>
                                         <%
-                                            
                                             ServletContext context = getServletConfig().getServletContext();
                                             String ip = InetAddress.getLocalHost().getHostAddress();
-                                            
-                                            String path = ip+context.getContextPath() + "/web/data/AllObjects.csv";
-                                            String name = request.getAttribute("name").toString().trim();
+                                            URL caminho = new URL("http://" + ip + ":8080/" + context.getContextPath() + "/data/AllObjects.csv");
+
+                                            String name = request.getAttribute("name").toString().trim().toLowerCase();
                                             String dec = request.getAttribute("dec").toString().trim();
                                             String ra = request.getAttribute("ra").toString().trim();
-                                            
+                                            String arcsec = request.getAttribute("arcsec").toString().trim();
+                                            int segArco = Integer.parseInt(arcsec);
+
                                             //out.print(myBean.searchObj(name, "coord1", "coord2"));
                                             //out.print(path);
-                                            String caminho = new File("data/AllObjects.csv").getPath();
+                                            //String caminho = new File("data/AllObjects.csv").getPath();
                                             BufferedReader contentCSV = null;
                                             String linha = "";
                                             String separa = ",";
@@ -100,12 +103,11 @@
                                             List<String> results = new ArrayList();
 
                                             //String csvFile = dataPath + "AllObjects.csv";
-
                                             try {
-
-                                                contentCSV = new BufferedReader(new FileReader("/home/lucas/cv-portal/web/data/AllObjects.csv"));
-                                                while ((linha = contentCSV.readLine()) != null) {
-                                                    String[] separado = linha.split(",");
+                                                BufferedReader in = new BufferedReader(new InputStreamReader(caminho.openStream()));
+                                                String saidaTexto;
+                                                while ((saidaTexto = in.readLine()) != null) {
+                                                    String[] separado = saidaTexto.split(",");
                                                     List<String> dataLine = new ArrayList<String>(separado.length);
 
                                                     for (String data : separado) {
@@ -138,6 +140,7 @@
                                                     glat.add(dataLine.get(19).trim());
 
                                                 }
+                                                in.close();
 
                                             } catch (FileNotFoundException e) {
                                                 System.out.println("Arquivo não encontrado:\n" + e.getMessage());
@@ -156,117 +159,177 @@
                                                         System.out.println("IO erro:\n" + e.getMessage());
                                                     }
                                                 }
-                                            }                                       
-                                            
-                                         
+                                            }
+
+                                            float difCoordRA1 = 0;
+                                            float difCoordRA2 = 0;
+                                            float difCoordDEC1 = 0;
+                                            float difCoordDEC2 = 0;
+                                            double difRK, difDS;
+
                                             for (int i = 0; i < nomeObj2.size(); i++) {
-                                                if(name.equals("") == false){
+                                                if (name.equals("") == false) {
                                                     if (nomeObj2.get(i).equals(name)) {
                                                         results.add("<label><font face='Arial' size='3'>"
-                                                        + "<br>encontrado em ds<br>Name: </font></label>" + copyNameObj2.get(nomeObj2.indexOf(name))
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Other Name: </font></label>" + otherName.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>RAJ2000: </font></label>" + raObj2.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>DECJ2000: </font></label>" + decObj2.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Type: </font></label>" + typeObj.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Magnitude: </font></label>" + magObjDS.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Outburst: </font></label>" + outburst.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Period: </font></label>" + period.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Galatic Longitude: </font></label>" + glong.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Galatic Latitude: </font></label>" + glat.get(i)
-                                                        + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-id?Ident=\n"
-                                                        + otherName.get(i) + "\n"
-                                                        + "&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id\" target=\"_blank\">\n"
-                                                        + "<font color=\"blue\">View object in SIMBAD\n"
-                                                        + "</font></a><br><br>");
+                                                                + "<br>Encontrado em Downes & Shara<br>Name: </font></label>" + copyNameObj2.get(nomeObj2.indexOf(name))
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Other Name: </font></label>" + otherName.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>RAJ2000: </font></label>" + raObj2.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>DECJ2000: </font></label>" + decObj2.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Type: </font></label>" + typeObj.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Magnitude: </font></label>" + magObjDS.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Outburst: </font></label>" + outburst.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Period: </font></label>" + period.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Galatic Longitude: </font></label>" + glong.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Galatic Latitude: </font></label>" + glat.get(i)
+                                                                + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-id?Ident=\n"
+                                                                + otherName.get(i) + "\n"
+                                                                + "&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id\" target=\"_blank\">\n"
+                                                                + "<font color=\"blue\">View object in SIMBAD\n"
+                                                                + "</font></a>"
+                                                                + "<br><br><a href=https://ui.adsabs.harvard.edu/search/q=" + nomeObj2.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
+                                                                + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
                                                     }
-                                                }
 
-                                                else if(ra.equals("") == false){
-                                                    if(raObj2.get(i).equals(ra)){
+                                                    if (nomeObj.get(i).equals(name)) {
                                                         results.add("<label><font face='Arial' size='3'>"
-                                                        + i + "<br>encontrado em ds<br>Name: </font></label>" + copyNameObj2.get(raObj2.indexOf(ra))
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Other Name: </font></label>" + otherName.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>RAJ2000: </font></label>" + raObj2.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>DECJ2000: </font></label>" + decObj2.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Type: </font></label>" + typeObj.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Magnitude: </font></label>" + magObjDS.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Outburst: </font></label>" + outburst.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Period: </font></label>" + period.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Galatic Longitude: </font></label>" + glong.get(i)
-                                                        + "<label><font face='Arial' size='3'>"
-                                                        + "<br>Galatic Latitude: </font></label>" + glat.get(i)
-                                                        + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-id?Ident=\n"
-                                                        + otherName.get(i) + "\n"
-                                                        + "&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id\" target=\"_blank\">\n"
-                                                        + "<font color=\"blue\">View object in SIMBAD\n"
-                                                        + "</font></a><br><br>");
+                                                                + "<br>Encontrado em Ritter & Kolb<br>Name: </font></label>" + copyNameObj.get(nomeObj.indexOf(name))
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Other Name: </font></label>" + otherName.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>RAJ2000: </font></label>" + raObj.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>DECJ2000: </font></label>" + decObj.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Type: </font></label>" + typeRK.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Magnitude: </font></label>" + magObj.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Outburst: </font></label>" + outburst.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Period: </font></label>" + periodRK.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Galatic Longitude: </font></label>" + glong.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Galatic Latitude: </font></label>" + glat.get(i)
+                                                                + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-id?Ident=\n"
+                                                                + nomeObj.get(i) + "\n"
+                                                                + "&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id\" target=\"_blank\">\n"
+                                                                + "<font color=\"blue\">View object in SIMBAD\n"
+                                                                + "</font></a>"
+                                                                + "<br><br><a href=https://ui.adsabs.harvard.edu/search/q=" + nomeObj.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
+                                                                + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
+                                                    }
+                                                } else if (ra.equals("") == false && dec.equals("") == false) {
+                                                    String sepRA1[] = raObj.get(i).split(" ");
+                                                    String sepDEC1[] = decObj.get(i).split(" ");
+
+                                                    String sepRA2[] = raObj2.get(i).split(" ");
+                                                    String sepDEC2[] = decObj2.get(i).split(" ");
+
+                                                    String sepRAuser[] = ra.split(" ");
+                                                    String sepDECuser[] = dec.split(" ");
+
+                                                    if (sepRA1.length > 2 && sepDEC1.length > 2) {
+                                                        difCoordRA1 = Math.abs(15 * (3600 * Float.parseFloat(sepRAuser[0])
+                                                                + 60 * Float.parseFloat(sepRAuser[1]) + Float.parseFloat(sepRAuser[2])
+                                                                - 3600 * Float.parseFloat(sepRA1[0])
+                                                                + 60 * Float.parseFloat(sepRA1[1]) + Float.parseFloat(sepRA1[2])));
+
+                                                        difCoordDEC1 = Math.abs((3600 * Float.parseFloat(sepDECuser[0])
+                                                                + 60 * Float.parseFloat(sepDECuser[1]) + Float.parseFloat(sepDECuser[2])
+                                                                - 3600 * Float.parseFloat(sepDEC1[0])
+                                                                + 60 * Float.parseFloat(sepDEC1[1]) + Float.parseFloat(sepDEC1[2])));
+
+                                                        if (sepRA2.length > 2 && sepDEC2.length > 2) {
+
+                                                            difCoordRA2 = Math.abs(15 * (3600 * Float.parseFloat(sepRA2[0])
+                                                                    + 60 * Float.parseFloat(sepRA2[1]) + Float.parseFloat(sepRA2[2])
+                                                                    - 3600 * Float.parseFloat(sepRAuser[0])
+                                                                    + 60 * Float.parseFloat(sepRAuser[1]) + Float.parseFloat(sepRAuser[2])));
+
+                                                            difCoordDEC2 = Math.abs((3600 * Float.parseFloat(sepDECuser[0])
+                                                                    + 60 * Float.parseFloat(sepDECuser[1]) + Float.parseFloat(sepDECuser[2])
+                                                                    - 3600 * Float.parseFloat(sepDEC2[0])
+                                                                    + 60 * Float.parseFloat(sepDEC2[1]) + Float.parseFloat(sepDEC2[2])));
+                                                        }
+
+                                                        difRK = Math.sqrt(difCoordRA1 + difCoordDEC1);
+                                                        difDS = Math.sqrt(difCoordRA2 + difCoordDEC2);
+
+                                                        if (difRK < segArco) {
+                                                            results.add("<label><font face='Arial' size='3'>"
+                                                                    + i + "<br>Encontrado em DS<br>Name: </font></label>" + copyNameObj.get(raObj.indexOf(ra))
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Other Name: </font></label>" + otherName.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>RAJ2000: </font></label>" + raObj.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>DECJ2000: </font></label>" + decObj.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Type: </font></label>" + typeObj.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Magnitude: </font></label>" + magObjDS.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Outburst: </font></label>" + outburst.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Period: </font></label>" + period.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Galatic Longitude: </font></label>" + glong.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Galatic Latitude: </font></label>" + glat.get(i)
+                                                                    + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-id?Ident=\n"
+                                                                    + otherName.get(i) + "\n"
+                                                                    + "&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id\" target=\"_blank\">\n"
+                                                                    + "<font color=\"blue\">View object in SIMBAD\n"
+                                                                    + "</font></a><br><br>");
+                                                        } else if (difDS < segArco) {
+                                                            results.add("<label><font face='Arial' size='3'>"
+                                                                    + "<br>Encontrado em Downes & Shara<br>Name: </font></label>" + copyNameObj2.get(nomeObj2.indexOf(name))
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Other Name: </font></label>" + otherName.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>RAJ2000: </font></label>" + raObj2.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>DECJ2000: </font></label>" + decObj2.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Type: </font></label>" + typeObj.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Magnitude: </font></label>" + magObjDS.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Outburst: </font></label>" + outburst.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Period: </font></label>" + period.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Galatic Longitude: </font></label>" + glong.get(i)
+                                                                    + "<label><font face='Arial' size='3'>"
+                                                                    + "<br>Galatic Latitude: </font></label>" + glat.get(i)
+                                                                    + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-id?Ident=\n"
+                                                                    + otherName.get(i) + "\n"
+                                                                    + "&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id\" target=\"_blank\">\n"
+                                                                    + "<font color=\"blue\">View object in SIMBAD\n"
+                                                                    + "</font></a>"
+                                                                    + "<br><br><a href=https://ui.adsabs.harvard.edu/search/q=" + nomeObj2.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
+                                                                    + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
+                                                        }
                                                     }
                                                 }
+                                            }
 
-                                                    /*else if (nomeObj.get(i).equals(name)) {
-                                                        out.print("<label><font face='Arial' size='3'>"
-                                                            + i + "<br>encontrado em rk<br>Name: </font></label>" + copyNameObj.get(nomeObj.indexOf(name))
-                                                            + "<label><font face='Arial' size='3'>"
-                                                            + "<br>Other Name: </font></label>" + otherName.get(i)
-                                                            + "<label><font face='Arial' size='3'>"
-                                                            + "<br>RAJ2000: </font></label>" + raObj.get(i)
-                                                            + "<label><font face='Arial' size='3'>"
-                                                            + "<br>DECJ2000: </font></label>" + decObj.get(i)
-                                                            + "<label><font face='Arial' size='3'>"
-                                                            + "<br>Type: </font></label>" + typeRK.get(i)
-                                                            + "<label><font face='Arial' size='3'>"
-                                                            + "<label><font face='Arial' size='3'>"
-                                                            + "<br>Magnitude: </font></label>" + magObj.get(i)
-                                                            + "<br>Outburst: </font></label>" + outburst.get(i)
-                                                            + "<label><font face='Arial' size='3'>"
-                                                            + "<br>Period: </font></label>" + periodRK.get(i)
-                                                            + "<label><font face='Arial' size='3'>"
-                                                            + "<br>Galatic Longitude: </font></label>" + glong.get(i)
-                                                            + "<label><font face='Arial' size='3'>"
-                                                            + "<br>Galatic Latitude: </font></label>" + glat.get(i)
-                                                            + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-id?Ident=\n"
-                                                            + nomeObj.get(i) + "\n"
-                                                            + "&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id\" target=\"_blank\">\n"
-                                                            + "<font color=\"blue\">View object in SIMBAD\n"
-                                                            + "</font></a><br><br>");                                             
+                                            for (int i = 0; i < results.size(); i++) {
+                                                out.print(results.get(i));
+                                            }
 
-                                                    }*/
-                                                    
-                                                }
-                                                
-                                                for(int i = 0; i < results.size(); i++)
-                                                    out.print(results.get(i));
-                                                
-                                                results.clear();
-                                                
-                                                
-                                                                                         
-                                            
+                                            results.clear();
 
-                                            /*String aux = "";
-                                            int tamAux = 0;
-                                            aux = results.toString();
-                                            tamAux = results.size();*/
-
-                                            
-                                            
                                         %>
 
 

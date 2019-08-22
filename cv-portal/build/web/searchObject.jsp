@@ -58,11 +58,29 @@
                                             <label for="sCoord">
                                                 <font size="4.5" face="Arial">Coordinates</font></label>
                                             <br>
+
                                             <font size="4.5" face="Arial">RA </font>
                                             <input type="text" name="ra" id="sCoord"> hh mm ss.ss
 
-                                            &nbsp;&nbsp;<font size="4.5" face="Arial">DEC</font>
+                                            <br><br>
+
+                                            <font size="4.5" face="Arial">DEC</font>
                                             <input type="text" name="dec" id="sCoord"> +/-dd mm ss.ss
+                                            
+                                            <br>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <font size="4.5" face="Arial">radius</font>
+                                            <input type="Number" name="arcsec" id="sCoord"  value="5" size="13" min="5" max="20" step="1">arc sec
                                         </p>
                                         <br>
                                         <input type="submit" value="Search object" >
