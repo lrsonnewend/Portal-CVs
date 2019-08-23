@@ -59,28 +59,17 @@
                                                 <font size="4.5" face="Arial">Coordinates</font></label>
                                             <br>
 
-                                            <font size="4.5" face="Arial">RA </font>
-                                            <input type="text" name="ra" id="sCoord"> hh mm ss.ss
-
-                                            <br><br>
-
-                                            <font size="4.5" face="Arial">DEC</font>
+                                            <font size="4" face="Arial">RA </font>
+                                            <input type="text" name="ra" id="sCoord"> hh mm ss.ss                                    
+                                            
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <font size="4" face="Arial">DEC</font>
                                             <input type="text" name="dec" id="sCoord"> +/-dd mm ss.ss
                                             
-                                            <br>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <font size="4.5" face="Arial">radius</font>
-                                            <input type="Number" name="arcsec" id="sCoord"  value="5" size="13" min="5" max="20" step="1">arc sec
+                                            <br><br>
+                                            
+                                            <font size="3" face="Arial">radius</font>
+                                            <input type="text" name="arcsec">arc sec
                                         </p>
                                         <br>
                                         <input type="submit" value="Search object" >
@@ -95,7 +84,7 @@
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <input type="reset" name="breset" value="Reset values">
-                                        <br><br><br><br><strong><a href="index.jsp">Voltar</a></strong>
+                                        <br><br><br><br><strong><a href="index.jsp">Home</a></strong>
                                     </fieldset>
                                     <br>                                    
                                 </form>

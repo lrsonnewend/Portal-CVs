@@ -75,12 +75,12 @@ public class pesquisa extends HttpServlet {
         String name = request.getParameter("name");
         String ra = request.getParameter("ra");
         String dec = request.getParameter("dec");
-        String arcsec = request.getParameter("arcsec");
+        //String arcsec = request.getParameter("arcsec");
 
         request.setAttribute("name", name);
         request.setAttribute("ra", ra);
         request.setAttribute("dec", dec);
-        request.setAttribute("arcsec", arcsec);
+        //request.setAttribute("arcsec", arcsec);
         
         request.getRequestDispatcher("pesquisa.jsp").forward(request, response);
 
