@@ -81,7 +81,7 @@ public class pesquisa extends HttpServlet {
         request.setAttribute("ra", ra);
         request.setAttribute("dec", dec);
         //request.setAttribute("arcsec", arcsec);
-        
+          
         request.getRequestDispatcher("pesquisa.jsp").forward(request, response);
 
     }

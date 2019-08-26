@@ -14,10 +14,6 @@
 <%@page import="java.util.Arrays"%>"
 <%@page import="java.util.List"%>
 
-<jsp:useBean id="myBean" scope="application" class="scanCSV.leObj"/>
-
-<%@page language="Java" import="scanCSV.leObj" %>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -63,7 +59,6 @@
                                     <form>
                                         <br>
                                         <%
-                                            out.print("inicio");
                                             ServletContext context = getServletConfig().getServletContext();
                                             String ip = InetAddress.getLocalHost().getHostAddress();
                                             URL caminho = new URL("http://" + ip + ":8080/" + context.getContextPath() + "/data/AllObjects.csv");
@@ -92,8 +87,7 @@
                                             List<String> distanceRK = new ArrayList();
                                             List<String> fivePer = new ArrayList();
                                             List<String> ninePer = new ArrayList();
-                                            
-                                            
+
                                             List<String> nomeObj2 = new ArrayList();
                                             List<String> raObj2 = new ArrayList();
                                             List<String> decObj2 = new ArrayList();
@@ -103,10 +97,36 @@
                                             List<String> outburst = new ArrayList();
                                             List<String> glat = new ArrayList();
                                             List<String> glong = new ArrayList();
+                                            List<String> pMotionRA1 = new ArrayList();
+                                            List<String> pMotionRA2 = new ArrayList();
+                                            List<String> pMotionDEC1 = new ArrayList();
+                                            List<String> pMotionDEC2 = new ArrayList();
+                                            List<String> epoch = new ArrayList();
+                                            List<String> cluster = new ArrayList();
+                                            List<String> coordRef = new ArrayList();     
+                                            List<String> pMotionRef = new ArrayList();
+                                            List<String> typeRef = new ArrayList();
+                                            List<String> chartRef = new ArrayList();
+                                            List<String> spectRef = new ArrayList();
+                                            List<String> periodRef = new ArrayList();
+                                            List<String> iueDS = new ArrayList();
+                                            List<String> hstDS = new ArrayList();
+                                            List<String> arielDS = new ArrayList();
+                                            List<String> heao1DS = new ArrayList();
+                                            List<String> heao2DS = new ArrayList();
+                                            List<String> exosatDS = new ArrayList();
+                                            List<String> rosatDS = new ArrayList();
+                                            List<String> gingaDS = new ArrayList();
+                                            List<String> ascaDS = new ArrayList();
+                                            List<String> euveDS = new ArrayList();
+
+                                            
 
                                             List<String> copyNameObj2 = new ArrayList();
                                             List<String> magObjDS = new ArrayList();
-                                            List<String> resultsName = new ArrayList();
+                                            List<String> resultsNameRK = new ArrayList();
+                                            List<String> resultsNameDS = new ArrayList();
+
                                             List<String> resultsCoord = new ArrayList();
 
                                             //String csvFile = dataPath + "AllObjects.csv";
@@ -140,15 +160,36 @@
 
                                                     raObj2.add(dataLine.get(11).trim());
                                                     decObj2.add(dataLine.get(12).trim());
-
-                                                    typeObj.add(dataLine.get(20).trim());
-                                                    magObjDS.add(dataLine.get(24).trim());
-
-                                                    otherName.add(dataLine.get(31).trim());
-                                                    period.add(dataLine.get(21).trim());
-                                                    outburst.add(dataLine.get(22).trim());
+                                                    pMotionRA1.add(dataLine.get(13).trim());
+                                                    pMotionRA2.add(dataLine.get(14).trim());
+                                                    pMotionDEC1.add(dataLine.get(15).trim());
+                                                    pMotionDEC2.add(dataLine.get(16).trim());
+                                                    epoch.add(dataLine.get(17).trim());
                                                     glong.add(dataLine.get(18).trim());
                                                     glat.add(dataLine.get(19).trim());
+                                                    typeObj.add(dataLine.get(20).trim());
+                                                    period.add(dataLine.get(21).trim());
+                                                    outburst.add(dataLine.get(22).trim());
+                                                    cluster.add(dataLine.get(23).trim());
+                                                    magObjDS.add(dataLine.get(24).trim());
+                                                    coordRef.add(dataLine.get(25).trim());
+                                                    pMotionRef.add(dataLine.get(26).trim());
+                                                    typeRef.add(dataLine.get(27).trim());
+                                                    chartRef.add(dataLine.get(28).trim());
+                                                    spectRef.add(dataLine.get(29).trim());
+                                                    periodRef.add(dataLine.get(30).trim());
+                                                    otherName.add(dataLine.get(31).trim());
+                                                    iueDS.add(dataLine.get(32).trim());
+                                                    hstDS.add(dataLine.get(33).trim());
+                                                    arielDS.add(dataLine.get(34).trim());
+                                                    heao1DS.add(dataLine.get(35).trim());
+                                                    heao2DS.add(dataLine.get(36).trim());
+                                                    exosatDS.add(dataLine.get(37).trim());
+                                                    rosatDS.add(dataLine.get(38).trim());
+                                                    gingaDS.add(dataLine.get(39).trim());
+                                                    ascaDS.add(dataLine.get(40).trim());
+                                                    euveDS.add(dataLine.get(41).trim());
+                                                    
 
                                                 }
                                                 in.close();
@@ -177,13 +218,11 @@
                                             float difCoordDEC1 = 0;
                                             float difCoordDEC2 = 0;
                                             double difRK, difDS;
-                                            out.print("ENTROU");
 
                                             for (int i = 0; i < nomeObj2.size(); i++) {
                                                 if (name.equals("") == false) {
                                                     if (nomeObj2.get(i).equals(name)) {
-                                                        resultsName.add("<label><font face='Arial' size='3'>"
-                                                                + "<br>Encontrado em Downes & Shara<br>Name: </font></label>" + copyNameObj2.get(nomeObj2.indexOf(name))
+                                                        resultsNameDS.add(copyNameObj2.get(nomeObj2.indexOf(name))
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>Other Name: </font></label>" + otherName.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
@@ -191,9 +230,9 @@
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>DECJ2000: </font></label>" + decObj2.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
-                                                                + "<br>Type: </font></label>" + typeObj.get(i)
+                                                                + "<br>Proper motion (RAJ2000) </font></label>" + pMotionRA1.get(i)+"/"+pMotionRA2.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
-                                                                + "<br>Magnitude: </font></label>" + magObjDS.get(i)
+                                                                + "<br>Proper motion (DECJ2000) </font></label>" + pMotionDEC1.get(i)+"/"+pMotionDEC2.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>Outburst: </font></label>" + outburst.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
@@ -202,27 +241,45 @@
                                                                 + "<br>Galatic Longitude: </font></label>" + glong.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>Galatic Latitude: </font></label>" + glat.get(i)
-                                                                + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-id?Ident=\n"
-                                                                + otherName.get(i) + "\n"
-                                                                + "&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id\" target=\"_blank\">\n"
-                                                                + "<font color=\"blue\">View object in SIMBAD\n"
-                                                                + "</font></a>"
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Epoch: </font></label>" + epoch.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Object type: </font></label>" + typeObj.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                
+                                                                + "<br><br>Coordinate reference:</font></label>" + coordRef.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Proper motion reference:</font></label>" + pMotionRef.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Chart reference: </font></label>" + chartRef.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Type reference: </font></label>" + typeRef.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Period reference: </font></label>" + periodRef.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Spectrum reference:</font></label>" + spectRef.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br><br><i>Space-Based Observations: </font></label>"
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>IUE: </font></label>" + iueDS.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "&nbsp;&nbsp;EXOSAT: </font></label>" + exosatDS.get(i)
                                                                 + "<br><br><a href=https://ui.adsabs.harvard.edu/search/q=" + nomeObj2.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
                                                                 + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
                                                     }
 
                                                     if (nomeObj.get(i).equals(name)) {
-                                                        resultsName.add("<label><font face='Arial' size='4'>"
+                                                        resultsNameRK.add("<label><font face='Arial' size='4'>"
                                                                 + "<br>Encontrado em Ritter & Kolb<br>Name: </font></label>" + copyNameObj.get(nomeObj.indexOf(name))
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>RAJ(2000): </font></label>" + raObj.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>DEJ(2000) </font></label>" + decObj.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
-                                                                + "<br>Obj. type: </font></label>" + typeRK.get(i)+" "+typeRK2.get(i)                                                               
+                                                                + "<br>Obj. type: </font></label>" + typeRK.get(i) + " " + typeRK2.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>Magnitude: </font></label>" + magObj.get(i)
-                                                                + "<label><font face='Arial' size='3'>"                                                               
+                                                                + "<label><font face='Arial' size='3'>"
                                                                 + "<br>Period: </font></label>" + periodRK.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>5%: </font></label>" + fivePer.get(i)
@@ -315,14 +372,26 @@
                                                 }
                                             }
                                             
+                                            if(resultsNameDS.size() == 1){
+                                                for (int i = 0; i < resultsNameDS.size(); i++) {
+                                                    out.print(resultsNameDS.get(i));
+                                                }
+                                            }
                                             
-                                                
-                                                for (int i = 0; i < resultsName.size(); i++)
-                                                    out.print(resultsName.get(i));     
-                                                
-                                                resultsName.clear();
-                                            
+                                            else if(resultsNameDS.size() > 1){
+                                                out.print("<label><font face='Arial' size='4'>Search results</font></label>");
+                                                for (int i = 0; i < resultsNameDS.size(); i++){
+                                                    String splitName[] = resultsNameDS.get(i).split(" ");
+                                                    //out.print("<br><br><a href='singleObject.jsp'target='_blank'>oi</a>");
+                                                    out.print("<br><br>"+splitName[0]);
+                                                    
+                                                    
+                                                }
+                                                    
+                                            }
 
+                                            resultsNameRK.clear();
+                                            resultsNameDS.clear();
 
                                             for (int i = 0; i < resultsCoord.size(); i++) {
                                                 out.print(resultsCoord.get(i));

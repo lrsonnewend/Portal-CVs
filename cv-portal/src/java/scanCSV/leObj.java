@@ -8,9 +8,14 @@ package scanCSV;
 import com.sun.corba.se.spi.presentation.rmi.StubAdapter;
 import java.io.*;
 import static java.lang.System.out;
+import java.net.InetAddress;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -47,19 +52,50 @@ public class leObj {
 
     int count = 0;
 
-    public String searchObj(String name, String coord1, String coord2) {
-         
-        
-        name = name.toLowerCase();
-        String dataPath = "/home/lucas/cv-portal/web/data/"; //caminho local
-        //dataPath = "/home/cv-portal/data/"; //caminho servidor
-        String csvFile = dataPath + "AllObjects.csv";
+    public String searchObj(String name, int flag, int index) throws MalformedURLException, UnknownHostException {
+        String ip = InetAddress.getLocalHost().getHostAddress();
+        URL caminho = new URL("http://" + ip + ":8080/cv-portal/data/AllObjects.csv");
 
+        BufferedReader contentCSV = null;
+        String linha = "";
+        String separa = ",";
+        List<List<String>> csvData = new ArrayList<List<String>>();
+
+        List<String> nomeObj = new ArrayList();
+        List<String> raObj = new ArrayList();
+        List<String> decObj = new ArrayList();
+        List<String> periodRK = new ArrayList();
+        List<String> typeRK = new ArrayList();
+        List<String> typeRK2 = new ArrayList();
+        List<String> copyNameObj = new ArrayList();
+        List<String> magObj = new ArrayList();
+        List<String> distanceRK = new ArrayList();
+        List<String> fivePer = new ArrayList();
+        List<String> ninePer = new ArrayList();
+
+        List<String> nomeObj2 = new ArrayList();
+        List<String> raObj2 = new ArrayList();
+        List<String> decObj2 = new ArrayList();
+        List<String> typeObj = new ArrayList();
+        List<String> otherName = new ArrayList();
+        List<String> period = new ArrayList();
+        List<String> outburst = new ArrayList();
+        List<String> glat = new ArrayList();
+        List<String> glong = new ArrayList();
+
+        List<String> copyNameObj2 = new ArrayList();
+        List<String> magObjDS = new ArrayList();
+        List<String> resultsNameRK = new ArrayList();
+        List<String> resultsNameDS = new ArrayList();
+
+        List<String> resultsCoord = new ArrayList();
+
+        //String csvFile = dataPath + "AllObjects.csv";
         try {
-
-            contentCSV = new BufferedReader(new FileReader(csvFile));
-            while ((linha = contentCSV.readLine()) != null) {
-                String[] separado = linha.split(",");
+            BufferedReader in = new BufferedReader(new InputStreamReader(caminho.openStream()));
+            String saidaTexto;
+            while ((saidaTexto = in.readLine()) != null) {
+                String[] separado = saidaTexto.split(",");
                 List<String> dataLine = new ArrayList<String>(separado.length);
 
                 for (String data : separado) {
@@ -73,7 +109,12 @@ public class leObj {
                 raObj.add(dataLine.get(1).trim());
                 decObj.add(dataLine.get(2).trim());
                 typeRK.add(dataLine.get(3).trim());
+                typeRK2.add(dataLine.get(4).trim());
+                magObj.add(dataLine.get(5).trim());
                 periodRK.add(dataLine.get(6).trim());
+                distanceRK.add(dataLine.get(7).trim());
+                fivePer.add(dataLine.get(8).trim());
+                ninePer.add(dataLine.get(9).trim());
 
                 nomeObj2.add(dataLine.get(10).trim().toLowerCase());
                 copyNameObj2.add(dataLine.get(10).trim());
@@ -82,7 +123,8 @@ public class leObj {
                 decObj2.add(dataLine.get(12).trim());
 
                 typeObj.add(dataLine.get(20).trim());
-                magObj.add(dataLine.get(5).trim());
+                magObjDS.add(dataLine.get(24).trim());
+
                 otherName.add(dataLine.get(31).trim());
                 period.add(dataLine.get(21).trim());
                 outburst.add(dataLine.get(22).trim());
@@ -90,6 +132,7 @@ public class leObj {
                 glat.add(dataLine.get(19).trim());
 
             }
+            in.close();
 
         } catch (FileNotFoundException e) {
             System.out.println("Arquivo não encontrado:\n" + e.getMessage());
@@ -109,7 +152,12 @@ public class leObj {
                 }
             }
         }
-        resultsDS.removeAll(resultsDS);
+        
+        if(flag == 1){
+            for(int i = 0; i < nomeObj.size(); i++){
+                
+            }
+        }
 
         for (int i = 0; i < nomeObj2.size(); i++) {
             if (nomeObj2.get(i).equals(name)) {
