@@ -259,11 +259,27 @@
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>Spectrum reference:</font></label>" + spectRef.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
-                                                                + "<br><br><i>Space-Based Observations: </font></label>"
+                                                                + "<br><br><i>Space-Based Observations: </i></font></label>"
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>IUE: </font></label>" + iueDS.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
-                                                                + "&nbsp;&nbsp;EXOSAT: </font></label>" + exosatDS.get(i)
+                                                                + "&nbsp;&nbsp;&nbsp;EXOSAT: </font></label>" + exosatDS.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>HST: </font></label>" + hstDS.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "&nbsp;&nbsp;&nbsp;ROSAT: </font></label>" + rosatDS.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>HEAO1: </font></label>" + heao1DS.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "&nbsp;&nbsp;&nbsp;GINGA: </font></label>" + gingaDS.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>HEAO2 </font></label>" + heao2DS.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "&nbsp;&nbsp;&nbsp;Ariel 5: </font></label>" + arielDS.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>EUVE: </font></label>" + euveDS.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "&nbsp;&nbsp;&nbsp;ASCA: </font></label>" + ascaDS.get(i)
                                                                 + "<br><br><a href=https://ui.adsabs.harvard.edu/search/q=" + nomeObj2.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
                                                                 + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
                                                     }
