@@ -11,7 +11,7 @@
 <%@page import="java.io.*"%>
 <%@page import="static java.lang.System.out"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="java.util.Arrays"%>"
+<%@page import="java.util.Arrays"%>
 <%@page import="java.util.List"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -41,6 +41,23 @@
         <script src="./js/jquery/jquery-1.9.1.js" type="application/javascript"></script>  
         <script src="./js/jquery/jquery.cookie.js" type="application/javascript"></script>  
         <script src="./js/functions.js" type="application/javascript"></script>
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+        </style>
 
     </head>
     <body>
@@ -66,7 +83,7 @@
                                             String name = request.getAttribute("name").toString().trim().toLowerCase();
                                             String dec = request.getAttribute("dec").toString().trim();
                                             String ra = request.getAttribute("ra").toString().trim();
-                                            //String arcsec = request.getAttribute("arcsec").toString().trim();
+                                            String arcsec = request.getAttribute("arcsec").toString().trim();
                                             //int segArco = Integer.parseInt(arcsec);
                                             //out.print(myBean.searchObj(name, "coord1", "coord2"));
                                             //out.print(path);
@@ -213,18 +230,15 @@
                                                 }
                                             }
 
-                                            float difCoordRA1 = 0;
-                                            float difCoordRA2 = 0;
-                                            float difCoordDEC1 = 0;
-                                            float difCoordDEC2 = 0;
-                                            double difRK, difDS;
-
-                                            for (int i = 0; i < nomeObj2.size(); i++) {
-                                                if (name.equals("") == false) {
+                                           
+                                            
+                                            if (name.equals("") == false) {
+                                                for (int i = 0; i < nomeObj2.size(); i++) {
                                                     if (nomeObj2.get(i).equals(name)) {
-                                                        resultsNameDS.add(copyNameObj2.get(nomeObj2.indexOf(name))
+                                                        resultsNameDS.add("<label><font face='Lucida' size='4'>"+copyNameObj2.get(nomeObj2.indexOf(name))
+                                                                +"</font></label>"
                                                                 + "<label><font face='Arial' size='3'>"
-                                                                + "<br>Other Name: </font></label>" + otherName.get(i)
+                                                                + "<br><br>Other Name: </font></label>" + otherName.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>RAJ2000: </font></label>" + raObj2.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
@@ -246,7 +260,7 @@
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>Object type: </font></label>" + typeObj.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
-                                                                
+
                                                                 + "<br><br>Coordinate reference:</font></label>" + coordRef.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>Proper motion reference:</font></label>" + pMotionRef.get(i)
@@ -285,32 +299,44 @@
                                                     }
 
                                                     if (nomeObj.get(i).equals(name)) {
-                                                        resultsNameRK.add("<label><font face='Arial' size='4'>"
-                                                                + "<br>Encontrado em Ritter & Kolb<br>Name: </font></label>" + copyNameObj.get(nomeObj.indexOf(name))
+                                                        resultsNameRK.add("<label><font face='Lucida' size='4'>"
+                                                                +copyNameObj.get(nomeObj.indexOf(name))
+                                                                +"</font></label>"
                                                                 + "<label><font face='Arial' size='3'>"
-                                                                + "<br>RAJ(2000): </font></label>" + raObj.get(i)
+                                                                + "<br><br>RAJ(2000): </font></label>" + raObj.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
-                                                                + "<br>DEJ(2000) </font></label>" + decObj.get(i)
+                                                                + "<br>DEJ(2000): </font></label>" + decObj.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>Obj. type: </font></label>" + typeRK.get(i) + " " + typeRK2.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>Magnitude: </font></label>" + magObj.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
-                                                                + "<br>Period: </font></label>" + periodRK.get(i)
+                                                                + "<br>Orb. Period: </font></label>" + periodRK.get(i)
+                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<br>Distance: </font></label>" + distanceRK.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>5%: </font></label>" + fivePer.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>95%: </font></label>" + ninePer.get(i)
-                                                                + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-id?Ident=\n"
-                                                                + nomeObj.get(i) + "\n"
-                                                                + "&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id\" target=\"_blank\">\n"
-                                                                + "<font color=\"blue\">View object in SIMBAD\n"
-                                                                + "</font></a>"
+                                                                + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-coo?Coord=\n"
+                                                                +raObj.get(i)+" "+decObj.get(i)+"&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none\n"
+                                                                + "&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=\" target=\"_blank\">\n"                                     
+                                                                + "<font color=\"blue\">View object in SIMBAD\n"+"</font></a>"                                                             
                                                                 + "<br><br><a href=\"https://ui.adsabs.harvard.edu/search/q=" + nomeObj.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
                                                                 + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
                                                     }
-                                                } else if (ra.equals("") == false && dec.equals("") == false) {
-                                                    out.print("entrou<br><br>");
+                                                }
+                                            } 
+                                            else if (ra.equals("") == false && dec.equals("") == false) {
+                                                double difCoordRA1 = 0;
+                                                double difCoordRA2 = 0;
+                                                double difCoordDEC1 = 0;
+                                                double difCoordDEC2 = 0;
+                                                double difRK, difDS;
+                                                
+                                                for (int i = 0; i < raObj2.size(); i++) {
+                                                                                                     
+                                                    
                                                     String sepRA1[] = raObj.get(i).split(" ");
                                                     String sepDEC1[] = decObj.get(i).split(" ");
 
@@ -321,106 +347,96 @@
                                                     String sepDECuser[] = dec.split(" ");
 
                                                     if (sepRA1.length > 2 && sepDEC1.length > 2) {
-                                                        difCoordRA1 = Math.abs(15 * (3600 * Float.parseFloat(sepRAuser[0])
-                                                                + 60 * Float.parseFloat(sepRAuser[1]) + Float.parseFloat(sepRAuser[2]))
-                                                                - 15 * (3600 * Float.parseFloat(sepRA1[0])
-                                                                + 60 * Float.parseFloat(sepRA1[1]) + Float.parseFloat(sepRA1[2])));
+                                                        difCoordRA1 = Math.abs(15 * (3600 * Integer.parseInt(sepRAuser[0])
+                                                                + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2]))
 
-                                                        difCoordDEC1 = Math.abs((3600 * Float.parseFloat(sepDECuser[0])
-                                                                + 60 * Float.parseFloat(sepDECuser[1]) + Float.parseFloat(sepDECuser[2]))
-                                                                - (3600 * Float.parseFloat(sepDEC1[0])
-                                                                + 60 * Float.parseFloat(sepDEC1[1]) + Float.parseFloat(sepDEC1[2])));
+                                                                - 15 * (3600 * Integer.parseInt(sepRA1[0])
+                                                                + 60 * Integer.parseInt(sepRA1[1]) + Double.parseDouble(sepRA1[2])));
 
-                                                        if (sepRA2.length > 2 && sepDEC2.length > 2) {
+                                                        difCoordDEC1 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
+                                                                + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
 
-                                                            difCoordRA2 = Math.abs(15 * (3600 * Float.parseFloat(sepRA2[0])
-                                                                    + 60 * Float.parseFloat(sepRA2[1]) + Float.parseFloat(sepRA2[2]))
-                                                                    - 15 * (3600 * Float.parseFloat(sepRAuser[0])
-                                                                    + 60 * Float.parseFloat(sepRAuser[1]) + Float.parseFloat(sepRAuser[2])));
+                                                                - (3600 * Integer.parseInt(sepDEC1[0])
+                                                                + 60 * Integer.parseInt(sepDEC1[1]) + Double.parseDouble(sepDEC1[2])));
+                                                    }                                        
+                                                    
+                                                    if (sepRA2.length > 2 && sepDEC2.length > 2) {
+                                                        difCoordRA2 = Math.abs(15 * (3600 * Integer.parseInt(sepRA2[0])
+                                                                + 60 * Integer.parseInt(sepRA2[1]) + Double.parseDouble(sepRA2[2]))
+                                                                
+                                                                - 15 * (3600 * Integer.parseInt(sepRAuser[0])
+                                                                + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2])));
 
-                                                            difCoordDEC2 = Math.abs((3600 * Float.parseFloat(sepDECuser[0])
-                                                                    + 60 * Float.parseFloat(sepDECuser[1]) + Float.parseFloat(sepDECuser[2]))
-                                                                    - (3600 * Float.parseFloat(sepDEC2[0])
-                                                                    + 60 * Float.parseFloat(sepDEC2[1]) + Float.parseFloat(sepDEC2[2])));
-                                                        }
+                                                        difCoordDEC2 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
+                                                                + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
+                                                                
+                                                                - (3600 * Integer.parseInt(sepDEC2[0])
+                                                                + 60 * Double.parseDouble(sepDEC2[1]) + Double.parseDouble(sepDEC2[2])));
+                                                    }
 
-                                                        difRK = Math.sqrt(Math.pow(difCoordRA1, 2) + Math.pow(difCoordDEC1, 2));
-                                                        difDS = Math.sqrt(Math.pow(difCoordRA2, 2) + Math.pow(difCoordDEC2, 2));
+                                                    difRK = Math.sqrt(Math.pow(difCoordRA1, 2) + Math.pow(difCoordDEC1, 2));
+                                                    difDS = Math.sqrt(Math.pow(difCoordRA2, 2) + Math.pow(difCoordDEC2, 2));
 
-                                                        if (difRK < 1) {
-                                                            resultsCoord.add("<label><font face='Arial' size='3'>"
-                                                                    + i + "<br><br>Object</font></label>" + copyNameObj.get(raObj.indexOf(ra))
-                                                                    + "<label><font face='Arial' size='3'>"
-                                                                    + "&nbsp;<br>Dif: </font></label>" + difRK);
+                                                    if (Double.parseDouble(arcsec) >= difRK) {
+                                                        resultsCoord.add(copyNameObj.get(i)+"<br>"+"  "+difRK+"<br>"
+                                                        +"  "+"Ritter & Kolb<br>");
 
-                                                        }
+                                                    }
 
-                                                        if (difDS < 1) {
-                                                            resultsCoord.add("<label><font face='Arial' size='3'>"
-                                                                    + "<br>Encontrado em Downes & Shara<br>Name: </font></label>" + copyNameObj2.get(i)
-                                                                    + "<label><font face='Arial' size='3'>"
-                                                                    + "<br>Other Name: </font></label>" + otherName.get(i)
-                                                                    + "<label><font face='Arial' size='3'>"
-                                                                    + "<br>RAJ2000: </font></label>" + raObj2.get(i)
-                                                                    + "<label><font face='Arial' size='3'>"
-                                                                    + "<br>DECJ2000: </font></label>" + decObj2.get(i)
-                                                                    + "<label><font face='Arial' size='3'>"
-                                                                    + "<br>Type: </font></label>" + typeObj.get(i)
-                                                                    + "<label><font face='Arial' size='3'>"
-                                                                    + "<br>Magnitude: </font></label>" + magObjDS.get(i)
-                                                                    + "<label><font face='Arial' size='3'>"
-                                                                    + "<br>Outburst: </font></label>" + outburst.get(i)
-                                                                    + "<label><font face='Arial' size='3'>"
-                                                                    + "<br>Period: </font></label>" + period.get(i)
-                                                                    + "<label><font face='Arial' size='3'>"
-                                                                    + "<br>Galatic Longitude: </font></label>" + glong.get(i)
-                                                                    + "<label><font face='Arial' size='3'>"
-                                                                    + "<br>Galatic Latitude: </font></label>" + glat.get(i)
-                                                                    + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-id?Ident=\n"
-                                                                    + otherName.get(i) + "\n"
-                                                                    + "&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id\" target=\"_blank\">\n"
-                                                                    + "<font color=\"blue\">View object in SIMBAD\n"
-                                                                    + "</font></a>"
-                                                                    + "<br><br><a href=\"https://ui.adsabs.harvard.edu/search/q=" + nomeObj2.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
-                                                                    + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
-                                                        }
+                                                    if (Double.parseDouble(arcsec) >= difDS ) {
+                                                        resultsCoord.add(copyNameObj2.get(i)+"<br>"+"  "+difDS+"<br>"
+                                                        +"  "+"Downes & Shara<br>");
                                                     }
                                                 }
                                             }
+                                        
+                                            
                                             
                                             if(resultsNameDS.size() == 1){
-                                                for (int i = 0; i < resultsNameDS.size(); i++) {
-                                                    out.print(resultsNameDS.get(i));
+                                              for (int i = 0; i < resultsNameDS.size(); i++) {
+                                                   out.print(resultsNameDS.get(i));
                                                 }
                                             }
                                             
                                             else if(resultsNameDS.size() > 1){
                                                 out.print("<label><font face='Arial' size='4'>Search results</font></label>");
                                                 for (int i = 0; i < resultsNameDS.size(); i++){
-                                                    String splitName[] = resultsNameDS.get(i).split(" ");
-                                                    //out.print("<br><br><a href='singleObject.jsp'target='_blank'>oi</a>");
-                                                    out.print("<br><br>"+splitName[0]);
-                                                    
-                                                    
-                                                }
-                                                    
-                                            }
+                                                   String splitName[] = resultsNameDS.get(i).split(" ");
+                                                   //out.print("<br><br><a href='singleObject.jsp'target='_blank'>oi</a>");
+                                                    out.print("<br><br>"+splitName[0]);                                          
+                                                }                                                    
+                                           }
+                                            
+                                            if(resultsNameRK.size() == 1){
+                                                for(int i = 0; i < resultsNameRK.size(); i++)
+                                                    out.print(resultsNameRK.get(i));
+                                          }
 
                                             resultsNameRK.clear();
                                             resultsNameDS.clear();
-
-                                            for (int i = 0; i < resultsCoord.size(); i++) {
-                                                out.print(resultsCoord.get(i));
-                                            }
-
-                                            resultsCoord.clear();
-
-
                                         %>
+                                        
+                                        <% if(resultsCoord.size() >= 1){ %>
+                                        <table>
+                                            <tr>
+                                                <th> Objects </th>
+                                                <th>Arc sec. difference</th>
+                                                <th>Reference</th>
+                                            </tr>
+                                            <%
 
-
-                                        <br><br>
-
+                                                for (int i = 2; i < resultsCoord.size(); i++) { %>
+                                                <% String objSplit[] = resultsCoord.get(i).split("  "); %>
+                                                <tr>
+                                                    <td><% out.print(objSplit[0]); %></td>
+                                                    <td><% out.print(objSplit[1]); %></td>
+                                                    <td><% out.print(objSplit[2]); %></td>
+                                                </tr>
+                                                <% }} resultsCoord.clear(); %>
+                                        </table>
+                                         
+                                        <br>
+                                        
                                         <strong><a href="searchObject.jsp">Search another object</a></strong>
 
                                         <!--RA do objeto
