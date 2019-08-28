@@ -4,6 +4,7 @@
     Author     : lucas
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.lang.Math.*"%>
 <%@page import="java.net.*"%>
 <%@page import="java.net.InetAddress"%>
@@ -12,6 +13,7 @@
 <%@page import="static java.lang.System.out"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Arrays"%>
+<%@page import="java.util.Collections"%>
 <%@page import="java.util.List"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -76,15 +78,18 @@
                                     <form>
                                         <br>
                                         <%
+                                            DecimalFormat fmt = new DecimalFormat("0.00");
+                                            out.print("teste");
                                             ServletContext context = getServletConfig().getServletContext();
                                             String ip = InetAddress.getLocalHost().getHostAddress();
                                             URL caminho = new URL("http://" + ip + ":8080/" + context.getContextPath() + "/data/AllObjects.csv");
-
-                                            String name = request.getAttribute("name").toString().trim().toLowerCase();
+                                            
+                                            String name = request.getAttribute("name").toString().trim().toLowerCase().replaceAll("  ", " ");
                                             String dec = request.getAttribute("dec").toString().trim();
                                             String ra = request.getAttribute("ra").toString().trim();
-                                            String arcsec = request.getAttribute("arcsec").toString().trim();
-                                            //int segArco = Integer.parseInt(arcsec);
+                                            String arcsec = request.getAttribute("arcsec").toString().trim();                                          
+                                            int segArco = Integer.parseInt(arcsec);
+                                            
                                             //out.print(myBean.searchObj(name, "coord1", "coord2"));
                                             //out.print(path);
                                             //String caminho = new File("data/AllObjects.csv").getPath();
@@ -159,8 +164,8 @@
                                                     }
 
                                                     csvData.add(dataLine);
-                                                    nomeObj.add(dataLine.get(0).trim().toLowerCase());
-                                                    copyNameObj.add(dataLine.get(0).trim());
+                                                    nomeObj.add(dataLine.get(0).trim().toLowerCase().replaceAll("  ", " "));
+                                                    copyNameObj.add(dataLine.get(0).trim().replaceAll("  ", " "));
 
                                                     raObj.add(dataLine.get(1).trim());
                                                     decObj.add(dataLine.get(2).trim());
@@ -172,8 +177,8 @@
                                                     fivePer.add(dataLine.get(8).trim());
                                                     ninePer.add(dataLine.get(9).trim());
 
-                                                    nomeObj2.add(dataLine.get(10).trim().toLowerCase());
-                                                    copyNameObj2.add(dataLine.get(10).trim());
+                                                    nomeObj2.add(dataLine.get(10).trim().toLowerCase().replaceAll("  ", " "));
+                                                    copyNameObj2.add(dataLine.get(10).trim().replaceAll("  ", " "));
 
                                                     raObj2.add(dataLine.get(11).trim());
                                                     decObj2.add(dataLine.get(12).trim());
@@ -228,12 +233,10 @@
                                                         System.out.println("IO erro:\n" + e.getMessage());
                                                     }
                                                 }
-                                            }
-
-                                           
+                                            }                    
                                             
                                             if (name.equals("") == false) {
-                                                for (int i = 0; i < nomeObj2.size(); i++) {
+                                                for (int i = 0; i < nomeObj2.size(); i++) {                                                    
                                                     if (nomeObj2.get(i).equals(name)) {
                                                         resultsNameDS.add("<label><font face='Lucida' size='4'>"+copyNameObj2.get(nomeObj2.indexOf(name))
                                                                 +"</font></label>"
@@ -292,8 +295,12 @@
                                                                 + "&nbsp;&nbsp;&nbsp;Ariel 5: </font></label>" + arielDS.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>EUVE: </font></label>" + euveDS.get(i)
-                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<label><font face='Arial' size='3'>"                                                                
                                                                 + "&nbsp;&nbsp;&nbsp;ASCA: </font></label>" + ascaDS.get(i)
+                                                                + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-coo?Coord=\n"
+                                                                +raObj2.get(i)+" "+decObj2.get(i)+"&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none\n"
+                                                                + "&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=\" target=\"_blank\">\n"                                     
+                                                                + "<font color=\"blue\">View object in SIMBAD\n"+"</font></a>" 
                                                                 + "<br><br><a href=https://ui.adsabs.harvard.edu/search/q=" + nomeObj2.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
                                                                 + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
                                                     }
@@ -377,20 +384,18 @@
                                                     difRK = Math.sqrt(Math.pow(difCoordRA1, 2) + Math.pow(difCoordDEC1, 2));
                                                     difDS = Math.sqrt(Math.pow(difCoordRA2, 2) + Math.pow(difCoordDEC2, 2));
 
-                                                    if (Double.parseDouble(arcsec) >= difRK) {
-                                                        resultsCoord.add(copyNameObj.get(i)+"<br>"+"  "+difRK+"<br>"
-                                                        +"  "+"Ritter & Kolb<br>");
+                                                     if (segArco >= difRK) {
+                                                        resultsCoord.add(copyNameObj.get(i)+"<br>"+"  "+difRK+
+                                                        "  "+"Ritter & Kolb<br>");
 
                                                     }
 
-                                                    if (Double.parseDouble(arcsec) >= difDS ) {
-                                                        resultsCoord.add(copyNameObj2.get(i)+"<br>"+"  "+difDS+"<br>"
+                                                    if (segArco >= difDS ) {
+                                                        resultsCoord.add(copyNameObj2.get(i)+"<br>"+"  "+difDS
                                                         +"  "+"Downes & Shara<br>");
                                                     }
                                                 }
-                                            }
-                                        
-                                            
+                                            }                                 
                                             
                                             if(resultsNameDS.size() == 1){
                                               for (int i = 0; i < resultsNameDS.size(); i++) {
@@ -414,23 +419,24 @@
 
                                             resultsNameRK.clear();
                                             resultsNameDS.clear();
+                                           
+                                            
+                                            if(resultsCoord.size() >= 1){
+                                                                                            
+                                            
                                         %>
-                                        
-                                        <% if(resultsCoord.size() >= 1){ %>
                                         <table>
                                             <tr>
                                                 <th> Objects </th>
                                                 <th>Arc sec. difference</th>
                                                 <th>Reference</th>
                                             </tr>
-                                            <%
-
-                                                for (int i = 2; i < resultsCoord.size(); i++) { %>
-                                                <% String objSplit[] = resultsCoord.get(i).split("  "); %>
+                                                <%for (int i = 2; i < resultsCoord.size(); i++) {
+                                                    String objSplit[] = resultsCoord.get(i).split("  "); %>
                                                 <tr>
-                                                    <td><% out.print(objSplit[0]); %></td>
-                                                    <td><% out.print(objSplit[1]); %></td>
-                                                    <td><% out.print(objSplit[2]); %></td>
+                                                    <td> <% out.print(objSplit[0]); %> </td>
+                                                    <td> <% out.print(fmt.format(Double.parseDouble(objSplit[1]))); %> </td>
+                                                    <td> <% out.print(objSplit[2]); %> </td>
                                                 </tr>
                                                 <% }} resultsCoord.clear(); %>
                                         </table>

@@ -45,7 +45,6 @@
                                     <td colspan="7">
                                         <em>Search for objects with only one or all fields</em>
                                     </td>
-
                                     <fieldset><br>
                                         <p>                                   
                                             <label for="sName">
@@ -69,7 +68,7 @@
                                             <br><br>
                                             
                                             <font size="3" face="Arial">radius</font>
-                                            <input type="number" name="arcsec" id="difArc" min="0" max="500" value="5" > arc sec
+                                            <input type="text" name="arcsec" id="sCoord" size="6" value="5"> arc sec
                                         </p>
                                         <br>
                                         <input type="submit" value="Search object" >                                
