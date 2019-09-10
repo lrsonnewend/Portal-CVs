@@ -40,37 +40,16 @@
                     <div id="portal-column-content" class="cell width-3:4 position-1:4">
                         <div id="main-content">    
                             <div id="content">
-                                <h1 class="documentFirstHeading">Object search</h1>
-                                <form method="POST" action="pesquisa">
-                                    <td colspan="7">
-                                        <em>Search for objects with only one or all fields</em>
-                                    </td>
+                                <h1 class="documentFirstHeading">Meet object by name</h1>
+                                <form method="POST" action="pesquisaByName">                                   
                                     <fieldset><br>
-                                        <p>                                   
-                                            <label for="sName">
-                                                <font size="4.5" face="Arial">Object name</font></label>
-                                            <input type="text" name="name" id="sName">
+                                        <p>
+                                            <b><font size="4" face="Arial">Object name: </font></b>
+                                            &nbsp;&nbsp;<input type="text" name="name" id="sName">
 
                                         </p>
                                         <br><br>
-                                        <p>
-                                            <label for="sCoord">
-                                                <font size="4.5" face="Arial">Coordinates</font></label>
-                                            <br>
 
-                                            <font size="4" face="Arial">RA </font>
-                                            <input type="text" name="ra" id="sCoord"> hh mm ss.ss                                    
-                                            
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <font size="4" face="Arial">DEC</font>
-                                            <input type="text" name="dec" id="sCoord"> +/-dd mm ss.ss
-                                            
-                                            <br><br>
-                                            
-                                            <font size="3" face="Arial">radius</font>
-                                            <input type="text" name="arcsec" id="sCoord" size="10" value="5"> arc sec
-                                        </p>
-                                        <br>
                                         <input type="submit" value="Search object" >                                
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <input type="reset" name="breset" value="Reset values">

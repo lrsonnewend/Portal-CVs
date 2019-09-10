@@ -11,10 +11,12 @@
     <head>
         <title>portal-cv</title>
         <meta charset="UTF-8">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link media="screen" href="./css/plone.css" type="text/css" rel="stylesheet" id="plone-css" />    
         <link media="all" href="./css/main.css" type="text/css" rel="stylesheet" id="main-css" />  
         <link media="all" href="./css/style.css" type="text/css" rel="stylesheet" id="style-css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <link media="all" href="./css/css-intranet-inpe.css" rel="stylesheet" id="intranet-css" /> 
         <link media="all" href="./css/css-menu.css" rel="stylesheet" id="menu-css" /> 
@@ -29,7 +31,49 @@
         <script src="./js/jquery/jquery.cookie.js" type="application/javascript"></script>  
         <script src="./js/functions.js" type="application/javascript"></script>
 
+        <style>
+            .dropdown {
+                float: left;
+                overflow: hidden;
+            }
 
+            .dropdown .dropbtn {
+                font-size: 16px;  
+                border: none;
+                outline: none;
+                color: black;
+                padding: 2px 0px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }         
+
+            .dropdown-content {
+                display: none;
+                position: absolute;
+                background-color: #f9f9f9;
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+            .dropdown-content a:hover {
+                background-color: #ddd;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+        </style>
     </head>
     <body>
         <jsp:include page="views/topo.jsp" />
@@ -46,20 +90,29 @@
                                 <fieldset><br><br>                                   
                                     <strong><a href="table.html" target="_blank">
                                             <font size="4.5" face="Arial">
-                                                View catalog 
+                                            View catalog 
                                             </font></a></strong>
-                                            <font size="4.5" face="Arial">
-                                                &nbsp;see all objects and their attributes in the table.
-                                            </font>
+                                    <font size="4" face="Arial">
+                                    &nbsp;see all objects and their attributes in the table.
+                                    </font>
 
                                     <br><br>
-                                   
 
-                                    <strong><a href="searchObject.jsp" target="_blank">
-                                            <font size="4.5" face="Arial">Search object</font></a></strong>
+                                    <div class="dropdown">
+
+                                        <button class="dropbtn">
+                                            <b><font size="4" face="Arial">Search object</font></b>
+
+                                            <i class="fa fa-caret-down"></i>
+                                        </button>
+                                        <div class="dropdown-content">
+                                            <a href="searchObject.jsp" target="_blank">By name</a>
+                                            <a href="searchObjectCoord.jsp" target="_blank">By coordinates</a>
+                                        </div>
+                                    </div>
                                     <font size="4.5" face="Arial">
-                                                &nbsp;search for a specific object in the catalog.
-                                            </font>
+                                    &nbsp;&nbsp;search for a specific object in the catalog.
+                                    </font>
                                 </fieldset>
 
                                 <p>

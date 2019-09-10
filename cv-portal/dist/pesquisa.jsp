@@ -4,6 +4,7 @@
     Author     : lucas
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="java.lang.Math.*"%>
 <%@page import="java.net.*"%>
 <%@page import="java.net.InetAddress"%>
@@ -12,6 +13,7 @@
 <%@page import="static java.lang.System.out"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Arrays"%>
+<%@page import="java.util.Collections"%>
 <%@page import="java.util.List"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -43,19 +45,19 @@
         <script src="./js/functions.js" type="application/javascript"></script>
         <style>
             table {
-              font-family: arial, sans-serif;
-              border-collapse: collapse;
-              width: 100%;
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
             }
 
             td, th {
-              border: 1px solid #dddddd;
-              text-align: left;
-              padding: 8px;
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
             }
 
             tr:nth-child(even) {
-              background-color: #dddddd;
+                background-color: #dddddd;
             }
         </style>
 
@@ -76,20 +78,12 @@
                                     <form>
                                         <br>
                                         <%
-                                            out.print("teste");
                                             ServletContext context = getServletConfig().getServletContext();
                                             String ip = InetAddress.getLocalHost().getHostAddress();
                                             URL caminho = new URL("http://" + ip + ":8080/" + context.getContextPath() + "/data/AllObjects.csv");
-
-                                            String name = request.getAttribute("name").toString().trim().toLowerCase();
-                                            String dec = request.getAttribute("dec").toString().trim();
-                                            String ra = request.getAttribute("ra").toString().trim();
-                                            String arcsec = request.getAttribute("arcsec").toString();
                                             
-                                            int segArco = Integer.parseInt(arcsec);
-                                            //out.print(myBean.searchObj(name, "coord1", "coord2"));
-                                            //out.print(path);
-                                            //String caminho = new File("data/AllObjects.csv").getPath();
+                                            String name = request.getAttribute("name").toString().trim().toLowerCase().replaceAll("  ", " ");
+                                            
                                             BufferedReader contentCSV = null;
                                             String linha = "";
                                             String separa = ",";
@@ -137,9 +131,7 @@
                                             List<String> rosatDS = new ArrayList();
                                             List<String> gingaDS = new ArrayList();
                                             List<String> ascaDS = new ArrayList();
-                                            List<String> euveDS = new ArrayList();
-
-                                            
+                                            List<String> euveDS = new ArrayList();                                           
 
                                             List<String> copyNameObj2 = new ArrayList();
                                             List<String> magObjDS = new ArrayList();
@@ -149,6 +141,7 @@
                                             List<String> resultsCoord = new ArrayList();
 
                                             //String csvFile = dataPath + "AllObjects.csv";
+                                            
                                             try {
                                                 BufferedReader in = new BufferedReader(new InputStreamReader(caminho.openStream()));
                                                 String saidaTexto;
@@ -161,8 +154,8 @@
                                                     }
 
                                                     csvData.add(dataLine);
-                                                    nomeObj.add(dataLine.get(0).trim().toLowerCase());
-                                                    copyNameObj.add(dataLine.get(0).trim());
+                                                    nomeObj.add(dataLine.get(0).trim().toLowerCase().replaceAll("  ", " "));
+                                                    copyNameObj.add(dataLine.get(0).trim().replaceAll("  ", " "));
 
                                                     raObj.add(dataLine.get(1).trim());
                                                     decObj.add(dataLine.get(2).trim());
@@ -174,8 +167,8 @@
                                                     fivePer.add(dataLine.get(8).trim());
                                                     ninePer.add(dataLine.get(9).trim());
 
-                                                    nomeObj2.add(dataLine.get(10).trim().toLowerCase());
-                                                    copyNameObj2.add(dataLine.get(10).trim());
+                                                    nomeObj2.add(dataLine.get(10).trim().toLowerCase().replaceAll("  ", " "));
+                                                    copyNameObj2.add(dataLine.get(10).trim().replaceAll("  ", " "));
 
                                                     raObj2.add(dataLine.get(11).trim());
                                                     decObj2.add(dataLine.get(12).trim());
@@ -207,8 +200,7 @@
                                                     rosatDS.add(dataLine.get(38).trim());
                                                     gingaDS.add(dataLine.get(39).trim());
                                                     ascaDS.add(dataLine.get(40).trim());
-                                                    euveDS.add(dataLine.get(41).trim());
-                                                    
+                                                    euveDS.add(dataLine.get(41).trim());                                             
 
                                                 }
                                                 in.close();
@@ -230,12 +222,10 @@
                                                         System.out.println("IO erro:\n" + e.getMessage());
                                                     }
                                                 }
-                                            }
-
-                                           
+                                            }                    
                                             
                                             if (name.equals("") == false) {
-                                                for (int i = 0; i < nomeObj2.size(); i++) {
+                                                for (int i = 0; i < nomeObj2.size(); i++) {                                                    
                                                     if (nomeObj2.get(i).equals(name)) {
                                                         resultsNameDS.add("<label><font face='Lucida' size='4'>"+copyNameObj2.get(nomeObj2.indexOf(name))
                                                                 +"</font></label>"
@@ -294,8 +284,12 @@
                                                                 + "&nbsp;&nbsp;&nbsp;Ariel 5: </font></label>" + arielDS.get(i)
                                                                 + "<label><font face='Arial' size='3'>"
                                                                 + "<br>EUVE: </font></label>" + euveDS.get(i)
-                                                                + "<label><font face='Arial' size='3'>"
+                                                                + "<label><font face='Arial' size='3'>"                                                                
                                                                 + "&nbsp;&nbsp;&nbsp;ASCA: </font></label>" + ascaDS.get(i)
+                                                                + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-coo?Coord=\n"
+                                                                +raObj2.get(i)+" "+decObj2.get(i)+"&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none\n"
+                                                                + "&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=\" target=\"_blank\">\n"                                     
+                                                                + "<font color=\"blue\">View object in SIMBAD\n"+"</font></a>" 
                                                                 + "<br><br><a href=https://ui.adsabs.harvard.edu/search/q=" + nomeObj2.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
                                                                 + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
                                                     }
@@ -328,125 +322,48 @@
                                                                 + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
                                                     }
                                                 }
-                                            } 
-                                            else if (ra.equals("") == false && dec.equals("") == false) {
-                                                double difCoordRA1 = 0;
-                                                double difCoordRA2 = 0;
-                                                double difCoordDEC1 = 0;
-                                                double difCoordDEC2 = 0;
-                                                double difRK, difDS;
-                                                
-                                                for (int i = 0; i < raObj2.size(); i++) {
-                                                                                                     
-                                                    
-                                                    String sepRA1[] = raObj.get(i).split(" ");
-                                                    String sepDEC1[] = decObj.get(i).split(" ");
-
-                                                    String sepRA2[] = raObj2.get(i).split(" ");
-                                                    String sepDEC2[] = decObj2.get(i).split(" ");
-
-                                                    String sepRAuser[] = ra.split(" ");
-                                                    String sepDECuser[] = dec.split(" ");
-
-                                                    if (sepRA1.length > 2 && sepDEC1.length > 2) {
-                                                        difCoordRA1 = Math.abs(15 * (3600 * Integer.parseInt(sepRAuser[0])
-                                                                + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2]))
-
-                                                                - 15 * (3600 * Integer.parseInt(sepRA1[0])
-                                                                + 60 * Integer.parseInt(sepRA1[1]) + Double.parseDouble(sepRA1[2])));
-
-                                                        difCoordDEC1 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
-                                                                + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
-
-                                                                - (3600 * Integer.parseInt(sepDEC1[0])
-                                                                + 60 * Integer.parseInt(sepDEC1[1]) + Double.parseDouble(sepDEC1[2])));
-                                                    }                                        
-                                                    
-                                                    if (sepRA2.length > 2 && sepDEC2.length > 2) {
-                                                        difCoordRA2 = Math.abs(15 * (3600 * Integer.parseInt(sepRA2[0])
-                                                                + 60 * Integer.parseInt(sepRA2[1]) + Double.parseDouble(sepRA2[2]))
-                                                                
-                                                                - 15 * (3600 * Integer.parseInt(sepRAuser[0])
-                                                                + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2])));
-
-                                                        difCoordDEC2 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
-                                                                + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
-                                                                
-                                                                - (3600 * Integer.parseInt(sepDEC2[0])
-                                                                + 60 * Double.parseDouble(sepDEC2[1]) + Double.parseDouble(sepDEC2[2])));
-                                                    }
-
-                                                    difRK = Math.sqrt(Math.pow(difCoordRA1, 2) + Math.pow(difCoordDEC1, 2));
-                                                    difDS = Math.sqrt(Math.pow(difCoordRA2, 2) + Math.pow(difCoordDEC2, 2));
-
-                                                     if (segArco >= difRK) {
-                                                        resultsCoord.add(copyNameObj.get(i)+"<br>"+"  "+difRK+"<br>"
-                                                        +"  "+"Ritter & Kolb<br>");
-
-                                                    }
-
-                                                    if (segArco >= difDS ) {
-                                                        resultsCoord.add(copyNameObj2.get(i)+"<br>"+"  "+difDS+"<br>"
-                                                        +"  "+"Downes & Shara<br>");
-                                                    }
-                                                }
                                             }
+
+                                            
+                                        if(resultsNameDS.size() == 1){
+                                          for (int i = 0; i < resultsNameDS.size(); i++) {
+                                               out.print(resultsNameDS.get(i));
+                                            }
+                                        }
+
+                                        else if(resultsNameDS.size() > 1){
+                                            out.print("<label><font face='Arial' size='4'>Search results</font></label>");
+                                            for (int i = 0; i < resultsNameDS.size(); i++){
+                                               String splitName[] = resultsNameDS.get(i).split(" ");
+                                               //out.print("<br><br><a href='singleObject.jsp'target='_blank'>oi</a>");
+                                                out.print("<br><br>"+splitName[0]);                                          
+                                            }                                                    
+                                        }
+
+                                        if(resultsNameRK.size() == 1){
+                                            for(int i = 0; i < resultsNameRK.size(); i++)
+                                                out.print(resultsNameRK.get(i));
+                                        }
                                         
-                                            
-                                            
-                                            if(resultsNameDS.size() == 1){
-                                              for (int i = 0; i < resultsNameDS.size(); i++) {
-                                                   out.print(resultsNameDS.get(i));
-                                                }
-                                            }
-                                            
-                                            else if(resultsNameDS.size() > 1){
-                                                out.print("<label><font face='Arial' size='4'>Search results</font></label>");
-                                                for (int i = 0; i < resultsNameDS.size(); i++){
-                                                   String splitName[] = resultsNameDS.get(i).split(" ");
-                                                   //out.print("<br><br><a href='singleObject.jsp'target='_blank'>oi</a>");
-                                                    out.print("<br><br>"+splitName[0]);                                          
-                                                }                                                    
-                                           }
-                                            
-                                            if(resultsNameRK.size() == 1){
-                                                for(int i = 0; i < resultsNameRK.size(); i++)
-                                                    out.print(resultsNameRK.get(i));
-                                          }
+                                        if (resultsNameDS.size() == 0 && resultsNameRK.size() == 0)
+                                            out.print("<font face='Arial' size='4'> Object not found </font>");                           
+                                        
 
-                                            resultsNameRK.clear();
-                                            resultsNameDS.clear();
+                                        resultsNameRK.clear();
+                                        resultsNameDS.clear();
                                         %>
                                         
-                                        <% if(resultsCoord.size() >= 1){ %>
-                                        <table>
-                                            <tr>
-                                                <th> Objects </th>
-                                                <th>Arc sec. difference</th>
-                                                <th>Reference</th>
-                                            </tr>
-                                            <%
-
-                                                for (int i = 2; i < resultsCoord.size(); i++) { %>
-                                                <% String objSplit[] = resultsCoord.get(i).split("  "); %>
-                                                <tr>
-                                                    <td> <% out.print(objSplit[0]); %> </td>
-                                                    <td> <% out.print(objSplit[1]); %> </td>
-                                                    <td> <% out.print(objSplit[2]); %> </td>
-                                                </tr>
-                                                <% }} resultsCoord.clear(); %>
-                                        </table>
-                                         
-                                        <br>
+                                                                                 
+                                        <br><br>
                                         
                                         <strong><a href="searchObject.jsp">Search another object</a></strong>
 
                                         <!--RA do objeto
                                         <input type="text" value="<%=request.getAttribute("ra")%>"<br>
-                            
+
                                         DEC do objeto
                                         <input type="text" value="<%=request.getAttribute("dec")%>"<br>
-                            
+
                                         <input type="button" value="Voltar" onclick="history.back()">
                                         <br><br>
                                         <button><a href="searchObject.jsp">Voltar</a></button>-->
