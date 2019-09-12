@@ -20,6 +20,7 @@
         <div id="table"></div>
 
         <script>
+            //utilizando o framework tabulator para montar o catálogo com todos os objetos.
 
             $("#table").tabulator({
                 layout: "fitColumns",
@@ -80,8 +81,10 @@
                         }},
                     {title: "Link_Coord_SIMBAD", field: "Link_Coord_SIMBAD", width: 600, sorter: "string", formatter: "link", visible: true},
                 ]});
+            
+            $("#table").tabulator("setData", tabledata);
 
-
+            //funções não estão funcionando (possível causa seja a sintaxe da versão do tabulator)
             $("#download-csv").click(function() {
                 $("#table").tabulator("download", "csv", "data.csv");
             });
@@ -90,7 +93,7 @@
                 $("#table").tabulator("download", "json", "data.json");
             });
 
-            $("#table").tabulator("setData", tabledata);
+
 
 
         </script>

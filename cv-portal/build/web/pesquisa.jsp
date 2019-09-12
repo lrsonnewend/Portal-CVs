@@ -22,9 +22,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-
-
-        <title>portal-cv</title>
+        <title>Portal-CV</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -80,9 +78,9 @@
                                     <br>
                                     <%
 
-                                        String name = request.getAttribute("name").toString().trim().toLowerCase().replaceAll("  ", " ");
+                                        String name = request.getAttribute("name").toString().trim().toLowerCase().replaceAll("  ", " "); //recebendo o atributo nome da classe searchObject.jsp
                                         List<String> nomesDS = new ArrayList();
-                                        nomesDS = bean1.pesquisaNomeDS(name);
+                                        nomesDS = bean1.pesquisaNomeDS(name); // a lista recebe como conteúdo o retorno da função na classe leObj.java
 
                                         if (nomesDS.size() == 1) {
                                             for (int i = 0; i < nomesDS.size(); i++) {
@@ -105,19 +103,14 @@
                                                     <input type="hidden" name="dec" value="<%= objSplit[2]%>">
                                                     <% out.print(objSplit[1] + " " + objSplit[2]); %> </td>
 
-                                                <td> <input type="submit" value="Click here"> </td>
+                                                <td> <input type="submit" value="Info"> </td>
                                             </tr>
-                                            <% }%> </table></form> <% }%>
-                                        
-                                    
-                                    
-
-
+                                            <% }
+                                                }%>
+                                        </table>
+                                    </form>
                                     <br><br>
-
                                     <strong><a href="searchObject.jsp">Search another object</a></strong>
-
-
                                 </fieldset>
                                 <p>
                                     <strong>Desenvolvido por <a href="http://www.cea.inpe.br/" title="Acesse COCTI/INPE" target="_blank">CEA/INPE</a></strong>
@@ -133,7 +126,6 @@
             </div>
         </div>
         <div class="clear"><!-- --></div>
-
         <!-- Footer -->
         <jsp:include page="views/rodape.jsp" />
         <!-- /Footer-->

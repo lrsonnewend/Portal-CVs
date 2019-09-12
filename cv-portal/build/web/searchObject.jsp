@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>portalCV</title>
+        <title>Portal-CV</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link media="screen" href="./css/plone.css" type="text/css" rel="stylesheet" id="plone-css" />    
@@ -30,7 +30,7 @@
 
     </head>
     <body>
-        <jsp:include page="views/topo.jsp" />
+        <jsp:include page="views/topo.jsp"/>
         <div id="main" role="main">
             <div id="plone-content">
                 <div id="portal-columns" class="row">
@@ -45,11 +45,9 @@
                                     <em>Identifier</em><br>
                                     <fieldset>
                                         <p>                          
-                                            <br>
-                                            
+                                            <br>                                            
                                             <b><font size="4" face="Arial">Object name: </font></b>
                                             &nbsp;&nbsp;<input type="text" name="name" id="sName">
-
                                         </p>
                                         <br><br>
 
@@ -63,8 +61,6 @@
                                 <p>
                                     <strong>Desenvolvido por <a href="http://www.cea.inpe.br/" title="Acesse COCTI/INPE" target="_blank">CEA/INPE</a></strong>
                                 </p>
-
-
                                 <div class="clear"></div>
                             </div>
                         </div>
@@ -76,7 +72,6 @@
             </div>
         </div>
         <div class="clear"><!-- --></div>
-
         <!-- Footer -->
         <jsp:include page="views/rodape.jsp" />
         <!-- /Footer-->

@@ -7,6 +7,8 @@ INFORMAÇÕES GERAIS DOS CATÁLOGOS:
        Downes & Shara: 1361
        Ritter & Kolb: 1830
 '''   
+
+#Arquivo para encontrar as maiores diferenças entre as coordenadas de ascenção reta (ra) e declinação (dec)
         
 import pandas as pd
 import numpy as np 
@@ -87,15 +89,14 @@ for k in readerDS:
 #removendo headers e colunas sem informações
 raRK.remove(raRK[0])
 raDS.remove(raDS[0])
-#raDS.remove(raDS[1])
+
 nomesRK.remove(nomesRK[0])
 nomesDS.remove(nomesDS[0])
-#nomesDS.remove(nomesDS[1])
+
 decRK.remove(decRK[0])
 decDS.remove(decDS[0])
-#decDS.remove(decDS[1])
 
-   
+#lendo catálogo   
 equalsCatalog = open('Lucas.csv')   
 
 readerCat = csv.reader(equalsCatalog)
@@ -111,6 +112,7 @@ equalsDECds = []
 
 maiorDEC = 0
 
+#tirando espaços extras que sobram em alguns dados da tabela
 for k in readerCat:
     nomesRK.append(k[0].strip())
     nomesDS.append(k[3].strip())
@@ -121,6 +123,8 @@ for k in readerCat:
 
 
 maiorRA = 0
+
+#procurando maior diferença em ascenção reta
 for i in range(len(nomesRK)):
     tempRA1 = equalsRArk[i].split()
     tempRA2 = equalsRAds[i].split()
@@ -135,8 +139,11 @@ for i in range(len(nomesRK)):
         print(f'Maior diferença em RA encontrado: {maiorRA}\n{nomesRK[i]}\n\traRK: {equalsRArk[i]}\n\traDS: {equalsRAds[i]}\n')
 
 print('\n\n') 
+
         
 maiorDEC = 0
+
+#procurando maior diferença em declinação
 for i in range(len(nomesRK)):
     tempRA1 = equalsDECrk[i].split()
     tempRA2 = equalsDECds[i].split()

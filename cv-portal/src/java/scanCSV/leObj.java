@@ -77,12 +77,13 @@ public class leObj {
     List<String> copyResultsRK = new ArrayList();
     List<String> resultsCoord = new ArrayList();
     List<String> singleObjC = new ArrayList();
+    List<String> singleName = new ArrayList();
 
+    //método para ler o arquivo csv com informações dos objetos
     public void readCSV() throws MalformedURLException, UnknownHostException {
-        String ip = InetAddress.getLocalHost().getHostAddress();
-        URL caminho = new URL("http://" + ip + ":8080/cv-portal/data/AllObjects.csv");
+        String ip = InetAddress.getLocalHost().getHostAddress(); //pegando o ip da máquina 
+        URL caminho = new URL("http://" + ip + ":8080/cv-portal/data/AllObjects.csv"); //caminho da aplicação web onde está localizado o arquivo
 
-        //String csvFile = dataPath + "AllObjects.csv";
         try {
             BufferedReader in = new BufferedReader(new InputStreamReader(caminho.openStream()));
             String saidaTexto;
@@ -93,7 +94,8 @@ public class leObj {
                 for (String data : separado) {
                     dataLine.add(data);
                 }
-
+                
+                // populando os vetores com os determinados valores a serem trabalhados
                 csvData.add(dataLine);
                 nomeObj.add(dataLine.get(0).trim().toLowerCase().replaceAll("  ", " "));
                 copyNameObj.add(dataLine.get(0).trim().replaceAll("  ", " "));
@@ -164,12 +166,18 @@ public class leObj {
             }
         }
     }
-
+    
+    
+    //método para pesquisar um objeto pelo nome fornecido
     public List<String> pesquisaNomeDS(String name) throws MalformedURLException, UnknownHostException {
         readCSV();
-
+        
         if (name.equals("") == false) {
             for (int i = 0; i < nomeObj2.size(); i++) {
+                
+                //caso o nome seja igual a um objeto que esteja nos catálogos Downes & Shara e Ritter & Kolb, 
+                //adiciona suas informações ao vetor (prioridade adicionar informações do catálogo de 
+                // Downes & Shara, pois contém mais informações
                 if (nomeObj2.get(i).equals(name) && nomeObj.get(i).equals(name)) {
                     resultsName.add("<label><font face='Lucida' size='4'>"
                             + copyNameObj2.get(nomeObj2.indexOf(name))
@@ -236,10 +244,12 @@ public class leObj {
                             + "<font color=\"blue\">View object in SIMBAD\n" + "</font></a>"
                             + "<br><br><a href=https://ui.adsabs.harvard.edu/search/q=" + nomeObj2.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
                             + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
-
+                    
+                    // cópia dos resultados para serem usados se mais de um objeto for achado com o mesmo nome
                     copyResultsDS.add(copyNameObj2.get(nomeObj2.indexOf(name)) + "<br>" + raObj2.get(i) + "<br>" + decObj2.get(i) + "<br>" + otherName.get(i));
-                }
+                } 
                 
+                //caso o nome seja igual a um objeto que esteja somente no catálogo Ritter & Kolb, adiciona suas informações ao vetor
                 else if (nomeObj.get(i).equals(name)) {
                     resultsName.add("<label><font face='Lucida' size='4'>"
                             + copyNameObj.get(nomeObj.indexOf(name))
@@ -267,7 +277,10 @@ public class leObj {
                             + "<br><br><a href=\"https://ui.adsabs.harvard.edu/search/q=" + nomeObj.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
                             + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
 
-                } else if (nomeObj2.get(i).equals(name)) {
+                } 
+                
+                //caso o nome seja igual a um objeto que esteja somente no catálogo Ritter & Kolb, adiciona suas informações ao vetor
+                else if (nomeObj2.get(i).equals(name)) {
                     resultsName.add("<label><font face='Lucida' size='4'>"
                             + copyNameObj2.get(nomeObj2.indexOf(name))
                             + "</font></label>"
@@ -333,78 +346,90 @@ public class leObj {
                             + "<font color=\"blue\">View object in SIMBAD\n" + "</font></a>"
                             + "<br><br><a href=https://ui.adsabs.harvard.edu/search/q=" + nomeObj2.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
                             + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
-                            
+
                     copyResultsDS.add(copyNameObj2.get(nomeObj2.indexOf(name)) + "<br>" + raObj2.get(i) + "<br>" + decObj2.get(i) + "<br>" + otherName.get(i));
                 }
             }
         }
-        if(resultsName.size() == 1)
-            return resultsName;
         
-        else
+        //se o vetor ter apenas um objeto, será mostrada diretamente a página do objeto
+        if (resultsName.size() == 1) {
+            return resultsName;
+        } 
+        
+        //caso o vetor tenha mais de um objeto, retorna o vetor auxiliar para ser usado 
+        //em uma lista com os objetos que foram encontrados com mesmo nome
+        else {
             return copyResultsDS;
+        }
     }
 
+    //método utilizado para procurar um objeto por meio da coordenada fornecida
     public List<String> leCoord(String ra, String dec, int segArco) throws MalformedURLException, UnknownHostException {
         readCSV();
 
-        if (ra.equals("") == false && dec.equals("") == false) {
-            double difCoordRA1 = 0;
-            double difCoordRA2 = 0;
-            double difCoordDEC1 = 0;
-            double difCoordDEC2 = 0;
-            double difRK, difDS;
+        double difCoordRA1 = -1;
+        double difCoordRA2 = -1;
+        double difCoordDEC1 = -1;
+        double difCoordDEC2 = -1;
+        double difRK, difDS;
 
-            for (int i = 0; i < raObj2.size(); i++) {
+        for (int i = 0; i < raObj2.size(); i++) {
+            
+            //separando as coordenadas para realizar o cálculo de diferencial
+            String sepRA1[] = raObj.get(i).split(" ");
+            String sepDEC1[] = decObj.get(i).split(" ");
 
-                String sepRA1[] = raObj.get(i).split(" ");
-                String sepDEC1[] = decObj.get(i).split(" ");
+            String sepRA2[] = raObj2.get(i).split(" ");
+            String sepDEC2[] = decObj2.get(i).split(" ");
 
-                String sepRA2[] = raObj2.get(i).split(" ");
-                String sepDEC2[] = decObj2.get(i).split(" ");
+            String sepRAuser[] = ra.split(" ");
+            String sepDECuser[] = dec.split(" ");
+            
+            
+            if (sepRA1.length > 2 && sepDEC1.length > 2) {
+                
+                //realizando o cálculo diferencial para RA
+                difCoordRA1 = Math.abs(15 * (3600 * Integer.parseInt(sepRAuser[0])
+                        + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2]))
+                        - 15 * (3600 * Integer.parseInt(sepRA1[0])
+                        + 60 * Integer.parseInt(sepRA1[1]) + Double.parseDouble(sepRA1[2])));
 
-                String sepRAuser[] = ra.split(" ");
-                String sepDECuser[] = dec.split(" ");
-
-                if (sepRA1.length > 2 && sepDEC1.length > 2) {
-                    difCoordRA1 = Math.abs(15 * (3600 * Integer.parseInt(sepRAuser[0])
-                            + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2]))
-                            - 15 * (3600 * Integer.parseInt(sepRA1[0])
-                            + 60 * Integer.parseInt(sepRA1[1]) + Double.parseDouble(sepRA1[2])));
-
-                    difCoordDEC1 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
-                            + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
-                            - (3600 * Integer.parseInt(sepDEC1[0])
-                            + 60 * Integer.parseInt(sepDEC1[1]) + Double.parseDouble(sepDEC1[2])));
-                }
-
-                if (sepRA2.length > 2 && sepDEC2.length > 2) {
-                    difCoordRA2 = Math.abs(15 * (3600 * Integer.parseInt(sepRA2[0])
-                            + 60 * Integer.parseInt(sepRA2[1]) + Double.parseDouble(sepRA2[2]))
-                            - 15 * (3600 * Integer.parseInt(sepRAuser[0])
-                            + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2])));
-
-                    difCoordDEC2 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
-                            + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
-                            - (3600 * Integer.parseInt(sepDEC2[0])
-                            + 60 * Double.parseDouble(sepDEC2[1]) + Double.parseDouble(sepDEC2[2])));
-                }
-
-                difRK = Math.sqrt(Math.pow(difCoordRA1, 2) + Math.pow(difCoordDEC1, 2));
-                difDS = Math.sqrt(Math.pow(difCoordRA2, 2) + Math.pow(difCoordDEC2, 2));
-
-                if (segArco >= difRK) {
-                    resultsCoord.add(copyNameObj.get(i) + "<br>" + difRK
-                            + "<br>" + "Ritter & Kolb");
-
-                }
-
-                if (segArco >= difDS) {
-                    resultsCoord.add(copyNameObj2.get(i) + "<br>" + difDS
-                            + "<br>" + "Downes & Shara");
-                }
+                //realizando o cálculo diferencial para DEC
+                difCoordDEC1 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
+                        + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
+                        - (3600 * Integer.parseInt(sepDEC1[0])
+                        + 60 * Integer.parseInt(sepDEC1[1]) + Double.parseDouble(sepDEC1[2])));
             }
+
+            if (sepRA2.length > 2 && sepDEC2.length > 2) {
+                
+                //realizando o cálculo diferencial para RA
+                difCoordRA2 = Math.abs(15 * (3600 * Integer.parseInt(sepRA2[0])
+                        + 60 * Integer.parseInt(sepRA2[1]) + Double.parseDouble(sepRA2[2]))
+                        - 15 * (3600 * Integer.parseInt(sepRAuser[0])
+                        + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2])));
+
+                //realizando o cálculo diferencial para DEC
+                difCoordDEC2 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
+                        + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
+                        - (3600 * Integer.parseInt(sepDEC2[0])
+                        + 60 * Double.parseDouble(sepDEC2[1]) + Double.parseDouble(sepDEC2[2])));
+            }
+            
+            //cálculo do diferencial
+            difRK = Math.sqrt(Math.pow(difCoordRA1, 2) + Math.pow(difCoordDEC1, 2));
+            difDS = Math.sqrt(Math.pow(difCoordRA2, 2) + Math.pow(difCoordDEC2, 2));
+
+            if (difCoordRA1 == -1 && difCoordRA2 != -1) {
+                if(difDS <= segArco)
+                    resultsCoord.add(copyNameObj2.get(i) + "<br>" + difDS + "<br>" + "Downes & Shara (rk vazio)");                
+                    
+            }          
+            
+
         }
+
         return resultsCoord;
     }
 
@@ -505,78 +530,78 @@ public class leObj {
 
         return singleObjC;
     }
+
+    public List<String> uniqueName(String ra, String dec) throws MalformedURLException, UnknownHostException {
+        readCSV();
+        for (int i = 0; i < nomeObj2.size(); i++) {
+            if (raObj2.get(i).equals(ra) && decObj2.get(i).equals(dec)) {
+                singleName.add("<label><font face='Lucida' size='4'>"
+                        + copyNameObj2.get(i)
+                        + "</font></label>"
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br><br>Other Name: </font></label>" + otherName.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>RA (J2000): </font></label>" + raObj2.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>DEC (J2000): </font></label>" + decObj2.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>Proper motion RA(J2000): </font></label>" + pMotionRA1.get(i) + "/" + pMotionRA2.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>Proper motion DEC(J2000): </font></label>" + pMotionDEC1.get(i) + "/" + pMotionDEC2.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>Outburst: </font></label>" + outburst.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>Period: </font></label>" + period.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>Galatic Longitude: </font></label>" + glong.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>Galatic Latitude: </font></label>" + glat.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>Epoch: </font></label>" + epoch.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>Object type: </font></label>" + typeObj.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br><br>Coordinate reference:</font></label>" + coordRef.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>Proper motion reference:</font></label>" + pMotionRef.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>Chart reference: </font></label>" + chartRef.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>Type reference: </font></label>" + typeRef.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>Period reference: </font></label>" + periodRef.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>Spectrum reference:</font></label>" + spectRef.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br><br><i>Space-Based Observations: </i></font></label>"
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>IUE: </font></label>" + iueDS.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "&nbsp;&nbsp;&nbsp;EXOSAT: </font></label>" + exosatDS.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>HST: </font></label>" + hstDS.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "&nbsp;&nbsp;&nbsp;ROSAT: </font></label>" + rosatDS.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>HEAO1: </font></label>" + heao1DS.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "&nbsp;&nbsp;&nbsp;GINGA: </font></label>" + gingaDS.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>HEAO2 </font></label>" + heao2DS.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "&nbsp;&nbsp;&nbsp;Ariel 5: </font></label>" + arielDS.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "<br>EUVE: </font></label>" + euveDS.get(i)
+                        + "<label><font face='Arial' size='3'>"
+                        + "&nbsp;&nbsp;&nbsp;ASCA: </font></label>" + ascaDS.get(i)
+                        + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-coo?Coord=\n"
+                        + raObj2.get(i) + " " + decObj2.get(i) + "&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none\n"
+                        + "&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=\" target=\"_blank\">\n"
+                        + "<font color=\"blue\">View object in SIMBAD\n" + "</font></a>"
+                        + "<br><br><a href=https://ui.adsabs.harvard.edu/search/q=" + nomeObj2.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
+                        + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
+            }
+        }
+        return singleName;
+    }
 }
-
-
-/*else if (nomeObj.get(i).equals(name)) {
- resultsRK.add("<label><font face='Arial' size='3'>"
- + "encontrado em rk<br>Name: </font></label>" + copyNameObj.get(nomeObj.indexOf(name))
- + "<label><font face='Arial' size='3'>"
- + "<br>Other Name: </font></label>" + otherName.get(i)
- + "<label><font face='Arial' size='3'>"
- + "<br>RAJ2000: </font></label>" + raObj.get(i)
- + "<label><font face='Arial' size='3'>"
- + "<br>DECJ2000: </font></label>" + decObj.get(i)
- + "<label><font face='Arial' size='3'>"
- + "<br>Type: </font></label>" + typeRK.get(i)
- + "<label><font face='Arial' size='3'>"
- + "<br>Outburst: </font></label>" + outburst.get(i)
- + "<label><font face='Arial' size='3'>"
- + "<br>Period: </font></label>" + periodRK.get(i)
- + "<label><font face='Arial' size='3'>"
- + "<br>Galatic Longitude: </font></label>" + glong.get(i)
- + "<label><font face='Arial' size='3'>"
- + "<br>Galatic Latitude: </font></label>" + glat.get(i)
- + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-id?Ident=\n"
- + nomeObj.get(i) + "\n"
- + "&NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id\" target=\"_blank\">\n"
- + "<font color=\"blue\">View object in SIMBAD\n"
- + "</font></a><br><br>");
- }*/
-/*if (nomeObj.contains(name)) {
- return "<label><font face='Arial' size='3'>"
- + "Name: </font></label>" + copyNameObj.get(nomeObj.indexOf(name))
- + "<label><font face='Arial' size='3'>"
- + "<br>Other Name: </font></label>" + otherName.get(nomeObj.indexOf(name))
- + "<label><font face='Arial' size='3'>"
- + "<br>RAJ2000: </font></label>" + raObj.get(nomeObj.indexOf(name))
- + "<label><font face='Arial' size='3'>"
- + "<br>DECJ2000: </font></label>" + decObj.get(nomeObj.indexOf(name))
- + "<label><font face='Arial' size='3'>"
- + "<br>Type: </font></label>" + typeRK.get(nomeObj.indexOf(name))
- + "<label><font face='Arial' size='3'>"
- + "<br>Outburst: </font></label>" + outburst.get(nomeObj.indexOf(name))
- + "<label><font face='Arial' size='3'>"
- + "<br>Period: </font></label>" + period.get(nomeObj.indexOf(name))
- + "<label><font face='Arial' size='3'>"
- + "<br>Galatic Longitude: </font></label>" + glong.get(nomeObj.indexOf(name))
- + "<label><font face='Arial' size='3'>"
- + "<br>Galatic Latitude: </font></label>" + glat.get(nomeObj.indexOf(name));
- }
- if (resultsDS.size() == 0 && resultsRK.size() == 0) {
- return "not found";
- }
-
- if (resultsDS.isEmpty() == false || resultsRK.isEmpty() == false) {
- return resultsDS.toString();
- } 
-        
- else if (resultsDS.isEmpty()) {
- return resultsRK.toString();
- } 
-        
- else {
- return null;
- }
-    
- public String moreInfo(String name) {
- if (nomeObj.contains(name)) {
- return "<label><font face='Arial' size='4'>"
- + "Object Name: </font></label>" + name.toUpperCase()
- + "<label><font face='Arial' size='4'>"
- + "<br> Other Name</font></label>" + otherName.get(nomeObj.indexOf(name));
-
- } else {
- return "nao encontrado";
- }
- }*/

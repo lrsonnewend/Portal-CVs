@@ -91,12 +91,12 @@ for k in readerDS:
 r = 0
 for j in range(len(nomesRK)):
     for i in range(len(nomesDS)):
-        if(nomesDS[i] == nomesRK[j] or nomesDS[i] != nomesRK[j]):
+        if(nomesDS[i] == nomesRK[j] or nomesDS[i] != nomesRK[j]): #verificando o critério de nomes iguais para os dois objetos do catálogo
             if len(raDS[i]) == 3:
                 tempDS = raDS[i]
                 tempRK = raRK[j]
                 
-                if(tempDS[0] == tempRK[0] and tempDS[1] == tempRK[1]):
+                if(tempDS[0] == tempRK[0] and tempDS[1] == tempRK[1]): 
                     if len(raDS[i]) == 3:
                         if abs(float(tempDS[2]) - float(tempRK[2])) < 0.40:
                         

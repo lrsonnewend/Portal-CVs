@@ -132,10 +132,12 @@ for i in range(len(nomesRK)):
             valorRA = abs(float(ra_arcsecRK) - float(ra_arcsecDS))
             valorDEC = abs(float(dec_arcsecRK) - float(dec_arcsecDS))
 
+	
+
             '''if valorRA < 20 and valorDEC < 20:
                 print(f'Objeto RK: {nomesRK[i]}\t{raRK[i]}\t{decRK[i]}\nObjeto DS: {nomesDS[j]}\t{raDS[j]}\t{decDS[j]}\ndiferenca RA: {valorRA}\ndiferenca DEC: {valorDEC}\n\n')
                 break'''
-            if valorRA < 40 and valorDEC < 40:
+            if valorRA < 40 and valorDEC < 40: #mudando o critério para 40 segundos de arco para achar mais objetos.
                 print(f'Objeto RK: {nomesRK[i]}\t{raRK[i]}\t{decRK[i]}\nObjeto DS: {nomesDS[j]}\t{raDS[j]}\t{decDS[j]}\ndiferenca RA: {valorRA}\ndiferenca DEC: {valorDEC}\n\n')
                 break
                 
