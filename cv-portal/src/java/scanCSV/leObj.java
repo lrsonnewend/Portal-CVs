@@ -94,7 +94,7 @@ public class leObj {
                 for (String data : separado) {
                     dataLine.add(data);
                 }
-                
+
                 // populando os vetores com os determinados valores a serem trabalhados
                 csvData.add(dataLine);
                 nomeObj.add(dataLine.get(0).trim().toLowerCase().replaceAll("  ", " "));
@@ -166,20 +166,19 @@ public class leObj {
             }
         }
     }
-    
-    
+
     //método para pesquisar um objeto pelo nome fornecido
     public List<String> pesquisaNomeDS(String name) throws MalformedURLException, UnknownHostException {
         readCSV();
-        
+
         if (name.equals("") == false) {
             for (int i = 0; i < nomeObj2.size(); i++) {
-                
+
                 //caso o nome seja igual a um objeto que esteja nos catálogos Downes & Shara e Ritter & Kolb, 
                 //adiciona suas informações ao vetor (prioridade adicionar informações do catálogo de 
                 // Downes & Shara, pois contém mais informações
                 if (nomeObj2.get(i).equals(name) && nomeObj.get(i).equals(name)) {
-                    resultsName.add("<label><font face='Lucida' size='4'>"
+                    resultsName.add("<label><font face='Lucida' size='6'>"
                             + copyNameObj2.get(nomeObj2.indexOf(name))
                             + "</font></label>"
                             + "<label><font face='Arial' size='3'>"
@@ -244,12 +243,10 @@ public class leObj {
                             + "<font color=\"blue\">View object in SIMBAD\n" + "</font></a>"
                             + "<br><br><a href=https://ui.adsabs.harvard.edu/search/q=" + nomeObj2.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
                             + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
-                    
+
                     // cópia dos resultados para serem usados se mais de um objeto for achado com o mesmo nome
                     copyResultsDS.add(copyNameObj2.get(nomeObj2.indexOf(name)) + "<br>" + raObj2.get(i) + "<br>" + decObj2.get(i) + "<br>" + otherName.get(i));
-                } 
-                
-                //caso o nome seja igual a um objeto que esteja somente no catálogo Ritter & Kolb, adiciona suas informações ao vetor
+                } //caso o nome seja igual a um objeto que esteja somente no catálogo Ritter & Kolb, adiciona suas informações ao vetor
                 else if (nomeObj.get(i).equals(name)) {
                     resultsName.add("<label><font face='Lucida' size='4'>"
                             + copyNameObj.get(nomeObj.indexOf(name))
@@ -277,9 +274,7 @@ public class leObj {
                             + "<br><br><a href=\"https://ui.adsabs.harvard.edu/search/q=" + nomeObj.get(i) + "&sort=date%20desc%2C%20bibcode%20desc&p_=0\" target=\"_blank\">\n"
                             + "<font color=\"blue\">View object in ADS\n" + "</font></a><br><br>");
 
-                } 
-                
-                //caso o nome seja igual a um objeto que esteja somente no catálogo Ritter & Kolb, adiciona suas informações ao vetor
+                } //caso o nome seja igual a um objeto que esteja somente no catálogo Ritter & Kolb, adiciona suas informações ao vetor
                 else if (nomeObj2.get(i).equals(name)) {
                     resultsName.add("<label><font face='Lucida' size='4'>"
                             + copyNameObj2.get(nomeObj2.indexOf(name))
@@ -351,13 +346,11 @@ public class leObj {
                 }
             }
         }
-        
+
         //se o vetor ter apenas um objeto, será mostrada diretamente a página do objeto
         if (resultsName.size() == 1) {
             return resultsName;
-        } 
-        
-        //caso o vetor tenha mais de um objeto, retorna o vetor auxiliar para ser usado 
+        } //caso o vetor tenha mais de um objeto, retorna o vetor auxiliar para ser usado 
         //em uma lista com os objetos que foram encontrados com mesmo nome
         else {
             return copyResultsDS;
@@ -373,63 +366,126 @@ public class leObj {
         double difCoordDEC1 = -1;
         double difCoordDEC2 = -1;
         double difRK, difDS;
-
+        String sepRA2[];
+        String sepDEC2[];
+        String sepRA1[];
+        String sepDEC1[];
+        String sepRAuser[];
+        String sepDECuser[];
         for (int i = 0; i < raObj2.size(); i++) {
-            
-            //separando as coordenadas para realizar o cálculo de diferencial
-            String sepRA1[] = raObj.get(i).split(" ");
-            String sepDEC1[] = decObj.get(i).split(" ");
+            //se os dois catálogos na posiçao do índice i não forem vazios, significa que são
+            //os mesmos objetos numa linha só. Portanto, será exibida a coordenada e o nome do objeto do catálogo Downes e Shara
+            if (raObj.get(i).equals("") == false && raObj2.get(i).equals("") == false) { 
+                sepRA2 = raObj2.get(i).split(" ");
+                sepDEC2 = decObj2.get(i).split(" ");
+                sepRAuser = ra.split(" ");
+                sepDECuser = dec.split(" ");
 
-            String sepRA2[] = raObj2.get(i).split(" ");
-            String sepDEC2[] = decObj2.get(i).split(" ");
+                if (sepRA2.length > 2 && sepDEC2.length > 2) {
+                    //realizando o cálculo diferencial para RA
+                    difCoordRA2 = Math.abs(15 * (3600 * Integer.parseInt(sepRA2[0])
+                            + 60 * Integer.parseInt(sepRA2[1]) + Double.parseDouble(sepRA2[2]))
+                            - 15 * (3600 * Integer.parseInt(sepRAuser[0])
+                            + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2])));
 
-            String sepRAuser[] = ra.split(" ");
-            String sepDECuser[] = dec.split(" ");
-            
-            
-            if (sepRA1.length > 2 && sepDEC1.length > 2) {
+                    //realizando o cálculo diferencial para DEC
+                    difCoordDEC2 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
+                            + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
+                            - (3600 * Integer.parseInt(sepDEC2[0])
+                            + 60 * Double.parseDouble(sepDEC2[1]) + Double.parseDouble(sepDEC2[2])));
+                }
+
+                difDS = Math.sqrt(Math.pow(difCoordRA2, 2) + Math.pow(difCoordDEC2, 2));
                 
-                //realizando o cálculo diferencial para RA
-                difCoordRA1 = Math.abs(15 * (3600 * Integer.parseInt(sepRAuser[0])
-                        + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2]))
-                        - 15 * (3600 * Integer.parseInt(sepRA1[0])
-                        + 60 * Integer.parseInt(sepRA1[1]) + Double.parseDouble(sepRA1[2])));
-
-                //realizando o cálculo diferencial para DEC
-                difCoordDEC1 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
-                        + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
-                        - (3600 * Integer.parseInt(sepDEC1[0])
-                        + 60 * Integer.parseInt(sepDEC1[1]) + Double.parseDouble(sepDEC1[2])));
-            }
-
-            if (sepRA2.length > 2 && sepDEC2.length > 2) {
-                
-                //realizando o cálculo diferencial para RA
-                difCoordRA2 = Math.abs(15 * (3600 * Integer.parseInt(sepRA2[0])
-                        + 60 * Integer.parseInt(sepRA2[1]) + Double.parseDouble(sepRA2[2]))
-                        - 15 * (3600 * Integer.parseInt(sepRAuser[0])
-                        + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2])));
-
-                //realizando o cálculo diferencial para DEC
-                difCoordDEC2 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
-                        + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
-                        - (3600 * Integer.parseInt(sepDEC2[0])
-                        + 60 * Double.parseDouble(sepDEC2[1]) + Double.parseDouble(sepDEC2[2])));
-            }
-            
-            //cálculo do diferencial
-            difRK = Math.sqrt(Math.pow(difCoordRA1, 2) + Math.pow(difCoordDEC1, 2));
-            difDS = Math.sqrt(Math.pow(difCoordRA2, 2) + Math.pow(difCoordDEC2, 2));
-
-            if (difCoordRA1 == -1 && difCoordRA2 != -1) {
-                if(difDS <= segArco)
-                    resultsCoord.add(copyNameObj2.get(i) + "<br>" + difDS + "<br>" + "Downes & Shara (rk vazio)");                
+                if(difDS < segArco)
+                    resultsCoord.add(copyNameObj2.get(i) + "<br>" + difDS + "<br>" + "Downes & Shara");
                     
-            }          
+            }
             
+            else if(raObj.get(i).equals("")){
+                sepRA2 = raObj2.get(i).split(" ");
+                sepDEC2 = decObj2.get(i).split(" ");
+                sepRAuser = ra.split(" ");
+                sepDECuser = dec.split(" ");
+                
+                //verificando se as coordenadas estão completas
+                if (sepRA2.length > 2 && sepDEC2.length > 2) {
+                //realizando o cálculo diferencial para RA
+                    difCoordRA2 = Math.abs(15 * (3600 * Integer.parseInt(sepRA2[0])
+                            + 60 * Integer.parseInt(sepRA2[1]) + Double.parseDouble(sepRA2[2]))
+                            - 15 * (3600 * Integer.parseInt(sepRAuser[0])
+                            + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2])));
 
+                    //realizando o cálculo diferencial para DEC
+                    difCoordDEC2 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
+                            + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
+                            - (3600 * Integer.parseInt(sepDEC2[0])
+                            + 60 * Double.parseDouble(sepDEC2[1]) + Double.parseDouble(sepDEC2[2])));
+                }
+
+                difDS = Math.sqrt(Math.pow(difCoordRA2, 2) + Math.pow(difCoordDEC2, 2));
+                
+                if(difDS < segArco)
+                    resultsCoord.add(copyNameObj2.get(i) + "<br>" + difDS + "<br>" + "Downes & Shara");
+            }
+            
+            else if(raObj2.get(i).equals("")){
+                sepRA1 = raObj.get(i).split(" ");
+                sepDEC1= decObj.get(i).split(" ");
+                sepRAuser = ra.split(" ");
+                sepDECuser = dec.split(" ");
+                
+                //verificando se as coordenadas estão completas
+                if (sepRA1.length > 2 && sepDEC1.length > 2) {
+                //realizando o cálculo diferencial para RA
+                    difCoordRA1 = Math.abs(15 * (3600 * Integer.parseInt(sepRA1[0])
+                            + 60 * Integer.parseInt(sepRA1[1]) + Double.parseDouble(sepRA1[2]))
+                            - 15 * (3600 * Integer.parseInt(sepRAuser[0])
+                            + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2])));
+
+                    //realizando o cálculo diferencial para DEC
+                    difCoordDEC1 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
+                            + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
+                            - (3600 * Integer.parseInt(sepDEC1[0])
+                            + 60 * Double.parseDouble(sepDEC1[1]) + Double.parseDouble(sepDEC1[2])));
+                }
+
+                difRK = Math.sqrt(Math.pow(difCoordRA1, 2) + Math.pow(difCoordDEC1, 2));
+                
+                if(difRK < segArco)
+                    resultsCoord.add(copyNameObj.get(i) + "<br>" + difRK + "<br>" + "Ritter & Kolb");
+            }
         }
 
+//            //separando as coordenadas para realizar o cálculo de diferencial
+//            String sepRA1[] = raObj.get(i).split(" ");
+//            String sepDEC1[] = decObj.get(i).split(" ");
+//
+//            if (sepRA1.length > 2 && sepDEC1.length > 2) {
+//
+//                //realizando o cálculo diferencial para RA
+//                difCoordRA1 = Math.abs(15 * (3600 * Integer.parseInt(sepRAuser[0])
+//                        + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2]))
+//                        - 15 * (3600 * Integer.parseInt(sepRA1[0])
+//                        + 60 * Integer.parseInt(sepRA1[1]) + Double.parseDouble(sepRA1[2])));
+//
+//                //realizando o cálculo diferencial para DEC
+//                difCoordDEC1 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
+//                        + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
+//                        - (3600 * Integer.parseInt(sepDEC1[0])
+//                        + 60 * Integer.parseInt(sepDEC1[1]) + Double.parseDouble(sepDEC1[2])));
+//            }
+//
+//            //cálculo do diferencial
+//            difRK = Math.sqrt(Math.pow(difCoordRA1, 2) + Math.pow(difCoordDEC1, 2));
+//
+//            if (difCoordRA1 == -1 && difCoordRA2 != -1) {
+//                if (difDS <= segArco) {
+//                    resultsCoord.add(copyNameObj2.get(i) + "<br>" + difDS + "<br>" + "Downes & Shara (rk vazio)");
+//                }
+//
+//            }
+//        }
         return resultsCoord;
     }
 

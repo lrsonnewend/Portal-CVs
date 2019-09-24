@@ -44,7 +44,7 @@ Habilite o JavaScript do navegador para que o site funcione corretamente.
     
         <div class="topo-logotipo">
             <div>Instituto Nacional de Pesquisas Espaciais</div>
-            <a href="/" title="Ir para Home">
+            <a href="index.jsp" title="Ir para Home">
                 <span class="portal-title">CV Portal</span>
             </a>
             <div class="ministerio">Ministério da Ciência, Tecnologia, Inovações e Comunicações</div>

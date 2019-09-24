@@ -24,8 +24,8 @@
             }
 
             .send{
-                width: 55%;
-                padding: 8px;
+                width: 53%;
+                padding: 5px;
                 margin: 5px 0 7px 0;
                 border-radius: 2px;
                 background: #f1f1f1;
@@ -49,16 +49,17 @@
                 <input type="checkbox" id="menu-mobile" class="trigger" />              
                 <label for="menu-mobile">Menu <img src="../img/menu.png" alt="Menu" /><span class="clear"><!-- --></span></label>
 
-
-                <ul class="cd-accordion-menu">
-                    <li>
-                        <label for="1" title="Acesse os subitens de Modelo Padrão" class="titulo">Login as administrator</label>
-                    </li>
-                    <li><input type="text" class="login" name="userName" placeholder="username"></li>
-                    <li><input type="password" class="login" name="userPass" placeholder="password"></li>
-                    <input type="submit" class="send" value="Login">
-                    </li>      
-                </ul> 
+                <form method="POST" action="teste.jsp">
+                    <ul class="cd-accordion-menu">
+                        <li>
+                            <label for="1" title="Acesse os subitens de Modelo Padrão" class="titulo">Login as administrator</label>
+                        </li>
+                        <li><input type="text" class="login" name="userName" placeholder="username" required="true"></li>
+                        <li><input type="password" class="login" name="userPass" placeholder="password" required="true"></li>
+                        <input type="submit" class="send" value="Login">
+                        </li>      
+                    </ul>
+                </form>
             </div>
         </div>  
     </body>

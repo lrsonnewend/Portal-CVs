@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>portal-cv</title>
+        <title>Portal-CV</title>
         <meta charset="UTF-8">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,11 +113,13 @@
                                     <font size="4.5" face="Arial">
                                     &nbsp;&nbsp;search for a specific object in the catalog.
                                     </font>
-                                </fieldset>
-
-                                <p>
-                                    <strong>Desenvolvido por <a href="http://www.cea.inpe.br/" title="Acesse COCTI/INPE" target="_blank">CEA/INPE</a></strong>
-                                </p>
+                                </fieldset><br><br>
+                                <div>
+                                    <br>
+                                    <p>
+                                        <strong>Desenvolvido por <a href="http://www.cea.inpe.br/" title="Acesse COCTI/INPE" target="_blank">CEA/INPE</a></strong>
+                                    </p>
+                                </div>
                                 <div class="clear"></div>
                             </div>
                         </div>

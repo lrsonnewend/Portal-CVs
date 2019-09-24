@@ -155,7 +155,7 @@
 
 .tabulator .tabulator-tableHolder {
   position: relative;
-  width: 100%;
+  width: 85%;
   white-space: nowrap;
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
@@ -328,7 +328,7 @@
   margin-left: 80px; }
 
 .tabulator .tabulator-row.tabulator-group.tabulator-group-level-5 .tabulator-arrow {
-  margin-left: 1000px; }
+  margin-left: 100px; }
 
 .tabulator .tabulator-row.tabulator-group .tabulator-arrow {
   display: inline-block;

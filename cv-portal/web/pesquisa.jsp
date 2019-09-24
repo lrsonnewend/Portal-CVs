@@ -73,7 +73,7 @@
                     <div id="portal-column-content" class="cell width-3:4 position-1:4">
                         <div id="main-content">    
                             <div id="content">
-                                <h1 class="documentFirstHeading">Results</h1>
+                                <h1 class="documentFirstHeading">Search results by name</h1>
                                 <fieldset>
                                     <br>
                                     <%
@@ -81,8 +81,11 @@
                                         String name = request.getAttribute("name").toString().trim().toLowerCase().replaceAll("  ", " "); //recebendo o atributo nome da classe searchObject.jsp
                                         List<String> nomesDS = new ArrayList();
                                         nomesDS = bean1.pesquisaNomeDS(name); // a lista recebe como conteúdo o retorno da função na classe leObj.java
-
-                                        if (nomesDS.size() == 1) {
+                                        
+                                        if(nomesDS.size() == 0)
+                                            out.print("Object not found");
+                                        
+                                        else if (nomesDS.size() == 1) {
                                             for (int i = 0; i < nomesDS.size(); i++) {
                                                 out.print(nomesDS.get(i));
                                             }
