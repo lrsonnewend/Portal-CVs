@@ -375,7 +375,7 @@ public class leObj {
         for (int i = 0; i < raObj2.size(); i++) {
             //se os dois catálogos na posiçao do índice i não forem vazios, significa que são
             //os mesmos objetos numa linha só. Portanto, será exibida a coordenada e o nome do objeto do catálogo Downes e Shara
-            if (raObj.get(i).equals("") == false && raObj2.get(i).equals("") == false) { 
+            if (raObj.get(i).equals("") == false && raObj2.get(i).equals("") == false) {
                 sepRA2 = raObj2.get(i).split(" ");
                 sepDEC2 = decObj2.get(i).split(" ");
                 sepRAuser = ra.split(" ");
@@ -396,21 +396,20 @@ public class leObj {
                 }
 
                 difDS = Math.sqrt(Math.pow(difCoordRA2, 2) + Math.pow(difCoordDEC2, 2));
-                
-                if(difDS < segArco)
+
+                if (difDS < segArco) {
                     resultsCoord.add(copyNameObj2.get(i) + "<br>" + difDS + "<br>" + "Downes & Shara");
-                    
-            }
-            
-            else if(raObj.get(i).equals("")){
+                }
+
+            } else if (raObj.get(i).equals("")) {
                 sepRA2 = raObj2.get(i).split(" ");
                 sepDEC2 = decObj2.get(i).split(" ");
                 sepRAuser = ra.split(" ");
                 sepDECuser = dec.split(" ");
-                
+
                 //verificando se as coordenadas estão completas
                 if (sepRA2.length > 2 && sepDEC2.length > 2) {
-                //realizando o cálculo diferencial para RA
+                    //realizando o cálculo diferencial para RA
                     difCoordRA2 = Math.abs(15 * (3600 * Integer.parseInt(sepRA2[0])
                             + 60 * Integer.parseInt(sepRA2[1]) + Double.parseDouble(sepRA2[2]))
                             - 15 * (3600 * Integer.parseInt(sepRAuser[0])
@@ -424,20 +423,20 @@ public class leObj {
                 }
 
                 difDS = Math.sqrt(Math.pow(difCoordRA2, 2) + Math.pow(difCoordDEC2, 2));
-                
-                if(difDS < segArco)
-                    resultsCoord.add(copyNameObj2.get(i) + "<br>" + difDS + "<br>" + "Downes & Shara");
-            }
-            
-            else if(raObj2.get(i).equals("")){
+
+                if (difDS < segArco) {
+                    resultsCoord.add(copyNameObj2.get(i) + "<br>" + difDS + "<br>" + "Downes & Shara"
+                            + "<br>" + raObj2.get(i) + "<br>" + decObj2.get(i));
+                }
+            } else if (raObj2.get(i).equals("")) {
                 sepRA1 = raObj.get(i).split(" ");
-                sepDEC1= decObj.get(i).split(" ");
+                sepDEC1 = decObj.get(i).split(" ");
                 sepRAuser = ra.split(" ");
                 sepDECuser = dec.split(" ");
-                
+
                 //verificando se as coordenadas estão completas
                 if (sepRA1.length > 2 && sepDEC1.length > 2) {
-                //realizando o cálculo diferencial para RA
+                    //realizando o cálculo diferencial para RA
                     difCoordRA1 = Math.abs(15 * (3600 * Integer.parseInt(sepRA1[0])
                             + 60 * Integer.parseInt(sepRA1[1]) + Double.parseDouble(sepRA1[2]))
                             - 15 * (3600 * Integer.parseInt(sepRAuser[0])
@@ -451,143 +450,121 @@ public class leObj {
                 }
 
                 difRK = Math.sqrt(Math.pow(difCoordRA1, 2) + Math.pow(difCoordDEC1, 2));
-                
-                if(difRK < segArco)
-                    resultsCoord.add(copyNameObj.get(i) + "<br>" + difRK + "<br>" + "Ritter & Kolb");
+
+                if (difRK < segArco) {
+                    resultsCoord.add(copyNameObj.get(i) + "<br>" + difRK + "<br>" + "Ritter & Kolb"
+                            + "<br>" + raObj.get(i) + "<br>" + decObj.get(i));
+                }
             }
         }
-
-//            //separando as coordenadas para realizar o cálculo de diferencial
-//            String sepRA1[] = raObj.get(i).split(" ");
-//            String sepDEC1[] = decObj.get(i).split(" ");
-//
-//            if (sepRA1.length > 2 && sepDEC1.length > 2) {
-//
-//                //realizando o cálculo diferencial para RA
-//                difCoordRA1 = Math.abs(15 * (3600 * Integer.parseInt(sepRAuser[0])
-//                        + 60 * Integer.parseInt(sepRAuser[1]) + Double.parseDouble(sepRAuser[2]))
-//                        - 15 * (3600 * Integer.parseInt(sepRA1[0])
-//                        + 60 * Integer.parseInt(sepRA1[1]) + Double.parseDouble(sepRA1[2])));
-//
-//                //realizando o cálculo diferencial para DEC
-//                difCoordDEC1 = Math.abs((3600 * Integer.parseInt(sepDECuser[0])
-//                        + 60 * Integer.parseInt(sepDECuser[1]) + Double.parseDouble(sepDECuser[2]))
-//                        - (3600 * Integer.parseInt(sepDEC1[0])
-//                        + 60 * Integer.parseInt(sepDEC1[1]) + Double.parseDouble(sepDEC1[2])));
-//            }
-//
-//            //cálculo do diferencial
-//            difRK = Math.sqrt(Math.pow(difCoordRA1, 2) + Math.pow(difCoordDEC1, 2));
-//
-//            if (difCoordRA1 == -1 && difCoordRA2 != -1) {
-//                if (difDS <= segArco) {
-//                    resultsCoord.add(copyNameObj2.get(i) + "<br>" + difDS + "<br>" + "Downes & Shara (rk vazio)");
-//                }
-//
-//            }
-//        }
         return resultsCoord;
     }
 
-    public List<String> uniqueObjCoord(String objName, String referenceObj) throws MalformedURLException, UnknownHostException {
+    public List<String> uniqueObjCoord(String objName, String ra, String dec) throws MalformedURLException, UnknownHostException {
         readCSV();
 
-        if (nomeObj2.contains(objName)) {
+        if (nomeObj2.contains(objName) && raObj2.contains(ra) && decObj2.contains(dec)) {
             singleObjC.add("<label><font face='Lucida' size='4'>"
-                    + copyNameObj2.get(nomeObj2.indexOf(objName))
+                    + copyNameObj2.get(nomeObj2.indexOf(ra))
                     + "</font></label>"
                     + "<label><font face='Arial' size='3'>"
-                    + "<br><br>Other Name: </font></label>" + otherName.get(nomeObj2.indexOf(objName))
+                    + "<br><br>Other Name: </font></label>" + otherName.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>RAJ2000: </font></label>" + raObj2.get(nomeObj2.indexOf(objName))
+                    + "<br>RAJ2000: </font></label>" + raObj2.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>DECJ2000: </font></label>" + decObj2.get(nomeObj2.indexOf(objName))
+                    + "<br>DECJ2000: </font></label>" + decObj2.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>Proper motion (RAJ2000) </font></label>" + pMotionRA1.get(nomeObj2.indexOf(objName)) + "/" + pMotionRA2.get(nomeObj2.indexOf(objName))
+                    + "<br>Proper motion (RAJ2000) </font></label>" + pMotionRA1.get(nomeObj2.indexOf(ra)) + "/" + pMotionRA2.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>Proper motion (DECJ2000) </font></label>" + pMotionDEC1.get(nomeObj2.indexOf(objName)) + "/" + pMotionDEC2.get(nomeObj2.indexOf(objName))
+                    + "<br>Proper motion (DECJ2000) </font></label>" + pMotionDEC1.get(nomeObj2.indexOf(ra)) + "/" + pMotionDEC2.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>Outburst: </font></label>" + outburst.get(nomeObj2.indexOf(objName))
+                    + "<br>Outburst: </font></label>" + outburst.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>Period: </font></label>" + period.get(nomeObj2.indexOf(objName))
+                    + "<br>Period: </font></label>" + period.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>Galatic Longitude: </font></label>" + glong.get(nomeObj2.indexOf(objName))
+                    + "<br>Galatic Longitude: </font></label>" + glong.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>Galatic Latitude: </font></label>" + glat.get(nomeObj2.indexOf(objName))
+                    + "<br>Galatic Latitude: </font></label>" + glat.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>Epoch: </font></label>" + epoch.get(nomeObj2.indexOf(objName))
+                    + "<br>Epoch: </font></label>" + epoch.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>Object type: </font></label>" + typeObj.get(nomeObj2.indexOf(objName))
+                    + "<br>Object type: </font></label>" + typeObj.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br><br>Coordinate reference:</font></label>" + coordRef.get(nomeObj2.indexOf(objName))
+                    + "<br><br>Coordinate reference:</font></label>" + coordRef.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>Proper motion reference:</font></label>" + pMotionRef.get(nomeObj2.indexOf(objName))
+                    + "<br>Proper motion reference:</font></label>" + pMotionRef.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>Chart reference: </font></label>" + chartRef.get(nomeObj2.indexOf(objName))
+                    + "<br>Chart reference: </font></label>" + chartRef.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>Type reference: </font></label>" + typeRef.get(nomeObj2.indexOf(objName))
+                    + "<br>Type reference: </font></label>" + typeRef.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>Period reference: </font></label>" + periodRef.get(nomeObj2.indexOf(objName))
+                    + "<br>Period reference: </font></label>" + periodRef.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>Spectrum reference:</font></label>" + spectRef.get(nomeObj2.indexOf(objName))
+                    + "<br>Spectrum reference:</font></label>" + spectRef.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
                     + "<br><br><i>Space-Based Observations: </i></font></label>"
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>IUE: </font></label>" + iueDS.get(nomeObj2.indexOf(objName))
+                    + "<br>IUE: </font></label>" + iueDS.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "&nbsp;&nbsp;&nbsp;EXOSAT: </font></label>" + exosatDS.get(nomeObj2.indexOf(objName))
+                    + "&nbsp;&nbsp;&nbsp;EXOSAT: </font></label>" + exosatDS.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>HST: </font></label>" + hstDS.get(nomeObj2.indexOf(objName))
+                    + "<br>HST: </font></label>" + hstDS.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "&nbsp;&nbsp;&nbsp;ROSAT: </font></label>" + rosatDS.get(nomeObj2.indexOf(objName))
+                    + "&nbsp;&nbsp;&nbsp;ROSAT: </font></label>" + rosatDS.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>HEAO1: </font></label>" + heao1DS.get(nomeObj2.indexOf(objName))
+                    + "<br>HEAO1: </font></label>" + heao1DS.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "&nbsp;&nbsp;&nbsp;GINGA: </font></label>" + gingaDS.get(nomeObj2.indexOf(objName))
+                    + "&nbsp;&nbsp;&nbsp;GINGA: </font></label>" + gingaDS.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>HEAO2 </font></label>" + heao2DS.get(nomeObj2.indexOf(objName))
+                    + "<br>HEAO2 </font></label>" + heao2DS.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "&nbsp;&nbsp;&nbsp;Ariel 5: </font></label>" + arielDS.get(nomeObj2.indexOf(objName))
+                    + "&nbsp;&nbsp;&nbsp;Ariel 5: </font></label>" + arielDS.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "<br>EUVE: </font></label>" + euveDS.get(nomeObj2.indexOf(objName))
+                    + "<br>EUVE: </font></label>" + euveDS.get(nomeObj2.indexOf(ra))
                     + "<label><font face='Arial' size='3'>"
-                    + "&nbsp;&nbsp;&nbsp;ASCA: </font></label>" + ascaDS.get(nomeObj2.indexOf(objName))
+                    + "&nbsp;&nbsp;&nbsp;ASCA: </font></label>" + ascaDS.get(nomeObj2.indexOf(ra))
                     + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-coo?Coord=\n"
-                    + raObj2.get(nomeObj2.indexOf(objName)) + " " + decObj2.get(nomeObj2.indexOf(objName)) + "&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none\n"
-                    + "&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=\" target=\"_blank\">\n"
-                    + "<font color=\"blue\">View object in SIMBAD\n" + "</font></a>");
-
-        } else if (nomeObj.contains(objName)) {
-            singleObjC.add("<label><font face='Lucida' size='4'>"
-                    + copyNameObj.get(nomeObj.indexOf(2))
-                    + "</font></label>"
-                    + "<label><font face='Arial' size='3'>"
-                    + "<br><br>RAJ(2000): </font></label>" + raObj.get(nomeObj.indexOf(objName))
-                    + "<label><font face='Arial' size='3'>"
-                    + "<br>DEJ(2000): </font></label>" + decObj.get(nomeObj.indexOf(objName))
-                    + "<label><font face='Arial' size='3'>"
-                    + "<br>Obj. type: </font></label>" + typeRK.get(nomeObj.indexOf(objName)) + " " + typeRK2.get(nomeObj.indexOf(objName))
-                    + "<label><font face='Arial' size='3'>"
-                    + "<br>Magnitude: </font></label>" + magObj.get(nomeObj.indexOf(objName))
-                    + "<label><font face='Arial' size='3'>"
-                    + "<br>Orb. Period: </font></label>" + periodRK.get(nomeObj.indexOf(objName))
-                    + "<label><font face='Arial' size='3'>"
-                    + "<br>Distance: </font></label>" + distanceRK.get(nomeObj.indexOf(objName))
-                    + "<label><font face='Arial' size='3'>"
-                    + "<br>5%: </font></label>" + fivePer.get(nomeObj.indexOf(objName))
-                    + "<label><font face='Arial' size='3'>"
-                    + "<br>95%: </font></label>" + ninePer.get(nomeObj.indexOf(objName))
-                    + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-coo?Coord=\n"
-                    + raObj.get(nomeObj.indexOf(objName)) + " " + decObj.get(nomeObj.indexOf(objName)) + "&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none\n"
+                    + raObj2.get(nomeObj2.indexOf(ra)) + " " + decObj2.get(nomeObj2.indexOf(ra)) + "&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none\n"
                     + "&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=\" target=\"_blank\">\n"
                     + "<font color=\"blue\">View object in SIMBAD\n" + "</font></a>");
 
         }
+    
 
-        return singleObjC;
-    }
+//    else if(referenceObj.equals (
+//             
+//        "Ritter & Kolb")){
+//            if (nomeObj.contains(objName)) {
+//            singleObjC.add("<label><font face='Lucida' size='4'>"
+//                    + copyNameObj.get(nomeObj.indexOf(2))
+//                    + "</font></label>"
+//                    + "<label><font face='Arial' size='3'>"
+//                    + "<br><br>RAJ(2000): </font></label>" + raObj.get(nomeObj.indexOf(objName))
+//                    + "<label><font face='Arial' size='3'>"
+//                    + "<br>DEJ(2000): </font></label>" + decObj.get(nomeObj.indexOf(objName))
+//                    + "<label><font face='Arial' size='3'>"
+//                    + "<br>Obj. type: </font></label>" + typeRK.get(nomeObj.indexOf(objName)) + " " + typeRK2.get(nomeObj.indexOf(objName))
+//                    + "<label><font face='Arial' size='3'>"
+//                    + "<br>Magnitude: </font></label>" + magObj.get(nomeObj.indexOf(objName))
+//                    + "<label><font face='Arial' size='3'>"
+//                    + "<br>Orb. Period: </font></label>" + periodRK.get(nomeObj.indexOf(objName))
+//                    + "<label><font face='Arial' size='3'>"
+//                    + "<br>Distance: </font></label>" + distanceRK.get(nomeObj.indexOf(objName))
+//                    + "<label><font face='Arial' size='3'>"
+//                    + "<br>5%: </font></label>" + fivePer.get(nomeObj.indexOf(objName))
+//                    + "<label><font face='Arial' size='3'>"
+//                    + "<br>95%: </font></label>" + ninePer.get(nomeObj.indexOf(objName))
+//                    + "<br><br><a href=\"http://simbad.u-strasbg.fr/simbad/sim-coo?Coord=\n"
+//                    + raObj.get(nomeObj.indexOf(objName)) + " " + decObj.get(nomeObj.indexOf(objName)) + "&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none\n"
+//                    + "&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=\" target=\"_blank\">\n"
+//                    + "<font color=\"blue\">View object in SIMBAD\n" + "</font></a>");
+//        }
+//    }
 
-    public List<String> uniqueName(String ra, String dec) throws MalformedURLException, UnknownHostException {
+    return singleObjC ;
+}
+
+public List<String> uniqueName(String ra, String dec) throws MalformedURLException, UnknownHostException {
         readCSV();
         for (int i = 0; i < nomeObj2.size(); i++) {
             if (raObj2.get(i).equals(ra) && decObj2.get(i).equals(dec)) {

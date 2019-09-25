@@ -47,7 +47,7 @@
                     <div id="portal-column-content" class="cell width-3:4 position-1:4">
                         <div id="main-content">    
                             <div id="content">
-                                <h1 class="documentFirstHeading">Results</h1>
+                                <h1 class="documentFirstHeading">Search results by name</h1>
                                 <fieldset>
                                     <form>
                                         <br>

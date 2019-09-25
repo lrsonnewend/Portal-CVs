@@ -62,8 +62,8 @@
                                     <form>
                                         <br>
                                         <%
-                                            String objName = request.getAttribute("objName").toString().trim(); //recebendo o atributo objName do servlet singleCoordinate.java
-                                            String referenceObj = request.getAttribute("referenceObj").toString().trim();//recebendo o atributo referenceObj do servlet singleCoordinate.java
+                                            String objName = request.getAttribute("name").toString().trim().toLowerCase(); //recebendo o atributo objName do servlet singleCoordinate.java
+                                            String referenceObj = request.getAttribute("ref").toString().trim();//recebendo o atributo referenceObj do servlet singleCoordinate.java
                                             
                                             List<String> resultsFinal = new ArrayList();
                                             

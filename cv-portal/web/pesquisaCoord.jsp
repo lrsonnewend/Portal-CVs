@@ -72,7 +72,7 @@
                     <div id="portal-column-content" class="cell width-3:4 position-1:4">
                         <div id="main-content">    
                             <div id="content">
-                                <h1 class="documentFirstHeading">Search results by coordiantes</h1>
+                                <h1 class="documentFirstHeading">Search results by coordinates</h1>
                                 <fieldset>
                                     <br>
                                     <%
@@ -92,7 +92,7 @@
                                         else if (resultsCoord.size() >= 1) {
 
                                     %>
-                                    <form  method="POST" action="singleCoordinate" >                                    
+                                    <form method="POST" action="singleCoordinate">                                    
                                         <table>
                                             <tr>
                                                 <th> Objects </th>
@@ -104,13 +104,33 @@
                                                     String objSplit[] = resultsCoord.get(i).split("<br>"); %>
 
                                             <tr>
-                                                <td> <% out.print(objSplit[0]); %></td>
+                                                <td>
+                                                    <input type="hidden" name="name" value="<%= objSplit[0] %>">
+                                                    <% out.print(objSplit[0]); %>
+                                                </td>
+                                                
                                                 <td> <% out.print(fmt.format(Double.parseDouble(objSplit[1]))); %> </td>
-                                                <td> <% out.print(objSplit[2]); %> </td>
-                                                <td> <input type="submit" value="Info"></td>
+                                                
+                                                <td> 
+                                                    <input type="hidden" name="ref" value="<%= objSplit[2] %>">
+                                                    <% out.print(objSplit[2]); %>
+                                                </td>
+                                                
+                                                <td>
+                                                    <input type="hidden" name="ra" value="<%= objSplit[3] %>"> <!campo não é visível na tabela-->
+                                                    <% out.print(objSplit[3]); %>
+                                                </td>
+                                                
+                                                <td>
+                                                    <input type="hidden" name="dec"value="<%= objSplit[4] %>"> <!campo não é visível na tabela-->
+                                                    <% out.print(objSplit[4]); %>
+                                                </td>
+                                                
+                                                <td><input type="submit" value="Info"></td>
+                                                
+
                                             </tr>
-                                            <% }
-                                                }%>
+                                            <% } }%>
                                         </table>
                                     </form>
                                     <br><br>

@@ -92,7 +92,7 @@
                                         else if (resultsCoord.size() >= 1) {
 
                                     %>
-                                    <form  method="POST" action="singleCoordinate" >                                    
+                                    <form method="POST" action="singleCoordinate">                                    
                                         <table>
                                             <tr>
                                                 <th> Objects </th>
@@ -104,10 +104,19 @@
                                                     String objSplit[] = resultsCoord.get(i).split("<br>"); %>
 
                                             <tr>
-                                                <td> <% out.print(objSplit[0]); %></td>
+                                                <td>
+                                                    <input type="hidden" name="name" value="<%= objSplit[0] %>">
+                                                    <% out.print(objSplit[0]); %>
+                                                </td>
+                                                
                                                 <td> <% out.print(fmt.format(Double.parseDouble(objSplit[1]))); %> </td>
-                                                <td> <% out.print(objSplit[2]); %> </td>
-                                                <td> <input type="submit" value="Info"></td>
+                                                
+                                                <td> 
+                                                    <input type="hidden" name="ref" value="<%= objSplit[2] %>">
+                                                    <% out.print(objSplit[2]); %>
+                                                </td>
+                                                
+                                                <td><input type="submit" value="Info"></td>
                                             </tr>
                                             <% }
                                                 }%>

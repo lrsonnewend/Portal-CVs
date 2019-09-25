@@ -70,13 +70,18 @@ public class singleCoordinate extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        String name = request.getParameter("name");
+        String ref = request.getParameter("ref");
+        String ra = request.getParameter("ref");
+        String dec = request.getParameter("ref");
 
-        String objName = request.getParameter("objName");
-        String referenceObj = request.getParameter("referenceObj");
-
-        request.setAttribute("referenceObj", referenceObj);
-        request.setAttribute("objName", objName);
+                
+        request.setAttribute("ref", ref);
+        request.setAttribute("name", name);
+        request.setAttribute("ra", ra);
+        request.setAttribute("dec", dec);
+        
 
         request.getRequestDispatcher("singleObjCoord.jsp").forward(request, response);
     }
