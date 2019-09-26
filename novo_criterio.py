@@ -105,6 +105,7 @@ decDS.remove(decDS[0])
 #bloco para capturar objetos com o mesmo nome e objetos com coordenadas dentro do critério
 rN = 0
 rC = 0
+vetor = []
 for j in range(len(nomesRK)):
     for i in range(len(nomesDS)):
         nomeTempRK = nomesRK[j].replace(' ','')
@@ -124,12 +125,18 @@ for j in range(len(nomesRK)):
                 #print(f'Objeto RK- pos {j} Objeto DS - pos {i}')
 
                 #armazena em uma variável os dados necessários para montar o arquivo csv (catálogo)
-                print(f'{nomesRK[j]}, {tempoRArk}, {tempoDECrk}, {tempoAuxRK}, {tempoRAds}, {tempoDECds}, {tempoAuxDS}, 1, http://simbad.u-strasbg.fr/simbad/sim-id?Ident={nomesRK[j]},')
+                nomesRK[j].replace('  ', ' ')
+                vetor.append(f'query id {nomesRK[j]}')
                       
                 #passa para o próximo objeto
-                
 
-for j in range(len(nomesRK)):
+vetor = sorted(vetor)
+
+for i in vetor:
+    print(i)
+
+
+'''for j in range(len(nomesRK)):
     for i in range(len(nomesDS)):
         nomeTempRK = nomesRK[j].replace(' ','')
         nomeTempDS = nomesDS[i].replace(' ','')
@@ -176,7 +183,7 @@ for j in range(len(nomesRK)):
              
 print(f'\nquantidade de objetos com o mesmo nome: {rN}')
 print(f'\nquantidade de objetos dentro do critério de coordenada: {rC}')
-print(f'\nTotal: {rN+rC}')
+print(f'\nTotal: {rN+rC}')'''
 
 
     
