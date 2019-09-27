@@ -134,12 +134,12 @@ for i in range(len(nomesRK)):
 
 	
 
-            '''if valorRA < 20 and valorDEC < 20:
-                print(f'Objeto RK: {nomesRK[i]}\t{raRK[i]}\t{decRK[i]}\nObjeto DS: {nomesDS[j]}\t{raDS[j]}\t{decDS[j]}\ndiferenca RA: {valorRA}\ndiferenca DEC: {valorDEC}\n\n')
-                break'''
-            if valorRA < 40 and valorDEC < 40: #mudando o critério para 40 segundos de arco para achar mais objetos.
+            if valorRA < 20 and valorDEC < 20:
                 print(f'Objeto RK: {nomesRK[i]}\t{raRK[i]}\t{decRK[i]}\nObjeto DS: {nomesDS[j]}\t{raDS[j]}\t{decDS[j]}\ndiferenca RA: {valorRA}\ndiferenca DEC: {valorDEC}\n\n')
                 break
+            '''if valorRA < 40 and valorDEC < 40: #mudando o critério para 40 segundos de arco para achar mais objetos.
+                print(f'Objeto RK: {nomesRK[i]}\t{raRK[i]}\t{decRK[i]}\nObjeto DS: {nomesDS[j]}\t{raDS[j]}\t{decDS[j]}\ndiferenca RA: {valorRA}\ndiferenca DEC: {valorDEC}\n\n')
+                break'''
                 
             '''obj = Objetos(nome, temRK, temDS, valorRA)
             diferencasRA.append(obj)'''

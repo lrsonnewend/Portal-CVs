@@ -106,7 +106,7 @@ decDS.remove(decDS[0])
 rN = 0
 rC = 0
 vetor = []
-for j in range(len(nomesRK)):
+'''for j in range(len(nomesRK)):
     for i in range(len(nomesDS)):
         nomeTempRK = nomesRK[j].replace(' ','')
         nomeTempDS = nomesDS[i].replace(' ','')
@@ -128,15 +128,12 @@ for j in range(len(nomesRK)):
                 nomesRK[j].replace('  ', ' ')
                 vetor.append(f'query id {nomesRK[j]}')
                       
-                #passa para o próximo objeto
-
-vetor = sorted(vetor)
-
-for i in vetor:
-    print(i)
+                #passa para o próximo objeto'''
 
 
-'''for j in range(len(nomesRK)):
+
+
+for j in range(len(nomesRK)):
     for i in range(len(nomesDS)):
         nomeTempRK = nomesRK[j].replace(' ','')
         nomeTempDS = nomesDS[i].replace(' ','')
@@ -175,13 +172,19 @@ for i in vetor:
                     #print(f'Objeto RK- pos {j} Objeto DS - pos {i}')
                     
                     #armazena em uma variável os dados necessários para montar o arquivo csv (catálogo)
-                    #print(f'{nomesRK[j]}, {tempoRArk}, {tempoDECrk}, {tempoAuxRK}, {nomesDS[i]}, {tempoRAds}, {tempoDECds}, {tempoAuxDS}, 0,, http://simbad.u-strasbg.fr/simbad/sim-coo?Coord={tempoRAds}++{tempoDECds}&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
+                    vetor.append(f'query id {nomesRK[j]} query coo {tempoRAds} {tempoDECds} radius = 5s [frame=ICRS]')
+                    #, {tempoRArk}, {tempoDECrk}, {tempoAuxRK}, {nomesDS[i]}, {tempoRAds}, {tempoDECds}, {tempoAuxDS}, 0,, http://simbad.u-strasbg.fr/simbad/sim-coo?Coord={tempoRAds}++{tempoDECds}&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
                                         
                     #passa para o próximo objeto
                     break
+
+vetor = sorted(vetor)
+
+for i in vetor:
+    print(i)
                     
              
-print(f'\nquantidade de objetos com o mesmo nome: {rN}')
+'''print(f'\nquantidade de objetos com o mesmo nome: {rN}')
 print(f'\nquantidade de objetos dentro do critério de coordenada: {rC}')
 print(f'\nTotal: {rN+rC}')'''
 

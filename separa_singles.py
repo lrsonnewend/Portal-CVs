@@ -90,7 +90,7 @@ decDS.remove(decDS[0])
 auxDS.remove(auxDS[1])
 auxDS.remove(auxDS[0])
 
-#abrinco arquivo csv e fazendo sua leitura
+#abrindo arquivo csv e fazendo sua leitura
 equalsCatalog = open('teste.csv')   
 
 readerCat = csv.reader(equalsCatalog)
@@ -118,20 +118,27 @@ s2 = 0
 
 #Estruturas For para saber se uma das coordenadas de ambos os catálogos estão no catálogo de objetos iguais.
 #Se não for encontrado, este objeto é considerado sem par.
+vetor = []
 
-for i in range(len(raDS)):        
+'''for i in range(len(raDS)):        
     if decDS[i] not in decequalsDS:
         auxDS[i] = ', '.join(auxDS[i])
         s1 +=1
         print(f' , , , , , , , , , , {nomesDS[i]}, {raDS[i]}, {decDS[i]}, {auxDS[i]}, 0, , http://simbad.u-strasbg.fr/simbad/sim-coo?Coord={raDS[i]}++{decDS[i]}&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
+'''
 
-print('\n\n')
-
+#print('\n\n')
 for i in range(len(raRK)):
     if raRK[i] not in raequalsRK:
         auxRK[i] =', '.join(auxRK[i])
         s2+=1
-        print(f'{nomesRK[i]}, {raRK[i]}, {decRK[i]}, {auxRK[i]}, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 0, ,  http://simbad.u-strasbg.fr/simbad/sim-coo?Coord={raRK[i]}++{decRK[i]}&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
+    vetor.append(f'query coo {raRK[i]} {decRK[i]}  {nomesRK[i]} radius=5s [frame=ICRS]')
+        #, {raRK[i]}, {decRK[i]}, {auxRK[i]}, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 0, ,  http://simbad.u-strasbg.fr/simbad/sim-coo?Coord={raRK[i]}++{decRK[i]}&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
+
+
+vetor = sorted(vetor)
+for i in vetor:
+    print(i)
 
 
 print(f'solteiros DS {s1}\nsolteiros RK {s2}')
