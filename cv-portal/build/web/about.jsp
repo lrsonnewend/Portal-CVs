@@ -50,10 +50,11 @@
 
                                 <p class="mt-2">
                                     CV Portal was developed at the National Institute for Space Research (INPE) by Lucas Sonnewend.
-                                    This project was created with web development languages: JSP, Java, HTML, CSS and JavaScript.
+                                    This project was created with web development languages: Python, JSP, Java, HTML, CSS and JavaScript.
                                     HTML, CSS, JavaScript, and JSP are used to form the scope and style of the system. The Java
-                                    language is used for methods of searching for objects by name and coordinates.
-                                    The <a href="https://getbootstrap.com/" target="_blank">Bootstrap</a> framework is also used for system front end styles.
+                                    language is used for methods of searching for objects by name and coordinates. Python was used 
+                                    to create and manipulate the catalogs that are part of the portal. The <a href="https://getbootstrap.com/" target="_blank">
+                                    Bootstrap</a> framework is also used for system front end styles.
                                 </p>
                                 <p>
                                     The code is available on <a href="https://github.com/lrsonnewend/Portal-CVs" target="_blank">GitHub</a>. We are open to opinions on system development.                                
