@@ -72,7 +72,7 @@
                     <div id="portal-column-content" class="cell width-3:4 position-1:4">
                         <div id="main-content">    
                             <div id="content">
-                                <h1 class="documentFirstHeading">Search results by coordiantes</h1>
+                                <h1 class="documentFirstHeading">Search results by coordinates</h1>
                                 <fieldset>
                                     <br>
                                     <%
@@ -116,14 +116,25 @@
                                                     <% out.print(objSplit[2]); %>
                                                 </td>
                                                 
+                                                <td>
+                                                    <input type="hidden" name="ra" value="<%= objSplit[3] %>"> <!campo não é visível na tabela-->
+                                                </td>
+                                                
+                                                <td>
+                                                    <input type="hidden" name="dec"value="<%= objSplit[4] %>"> <!campo não é visível na tabela-->
+                                                </td>
+                                                
                                                 <td><input type="submit" value="Info"></td>
+                                                
+
                                             </tr>
-                                            <% }
-                                                }%>
+                                            <% } }%>
                                         </table>
                                     </form>
                                     <br><br>
-                                    <strong><a href="searchObjectCoord.jsp">Search another object</a></strong>                                       
+                                    <strong><a href="searchObjectCoord.jsp">Search another object</a></strong>
+                                    <br><br>
+                                    <strong><a href="index.jsp">Home</a></strong>
                                 </fieldset>
                                 <p>
                                     <strong>Desenvolvido por <a href="http://www.cea.inpe.br/" title="Acesse COCTI/INPE" target="_blank">CEA/INPE</a></strong>

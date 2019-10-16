@@ -57,21 +57,24 @@
                     <div id="portal-column-content" class="cell width-3:4 position-1:4">
                         <div id="main-content">    
                             <div id="content">
-                                <h1 class="documentFirstHeading">Results</h1>
+                                <h1 class="documentFirstHeading">Search results by coordinates</h1>
                                 <fieldset>
                                     <form>
                                         <br>
                                         <%
                                             String objName = request.getAttribute("name").toString().trim().toLowerCase(); //recebendo o atributo objName do servlet singleCoordinate.java
                                             String referenceObj = request.getAttribute("ref").toString().trim();//recebendo o atributo referenceObj do servlet singleCoordinate.java
+                                            String ra = request.getAttribute("ra").toString().trim(); //recebendo o atributo ra do servlet singleCoordinate.java
+                                            String dec = request.getAttribute("dec").toString().trim(); //recebendo o atributo dec do servlet singleCoordinate.java
                                             
                                             List<String> resultsFinal = new ArrayList();
-                                            
-                                            resultsFinal = beanC.uniqueObjCoord(objName, referenceObj); // a lista recebe como conteúdo o retorno da função na classe leObj.java
+
+                                            resultsFinal = beanC.uniqueObjCoord(objName, ra, dec); // a lista recebe como conteúdo o retorno da função na classe leObj.java
+                                           
                                             for(int i = 0; i < resultsFinal.size(); i++)
                                                 out.print(resultsFinal.get(i));
                                         %>                                
-                                        <br>
+                                        <br><br>
                                         
                                         <strong><a href="searchObjectCoord.jsp">Search another object</a></strong>                                       
                                     </form>

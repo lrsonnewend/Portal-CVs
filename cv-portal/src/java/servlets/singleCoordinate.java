@@ -73,8 +73,8 @@ public class singleCoordinate extends HttpServlet {
         
         String name = request.getParameter("name");
         String ref = request.getParameter("ref");
-        String ra = request.getParameter("ref");
-        String dec = request.getParameter("ref");
+        String ra = request.getParameter("ra");
+        String dec = request.getParameter("dec");
 
                 
         request.setAttribute("ref", ref);

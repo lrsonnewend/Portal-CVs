@@ -118,12 +118,10 @@
                                                 
                                                 <td>
                                                     <input type="hidden" name="ra" value="<%= objSplit[3] %>"> <!campo não é visível na tabela-->
-                                                    <% out.print(objSplit[3]); %>
                                                 </td>
                                                 
                                                 <td>
                                                     <input type="hidden" name="dec"value="<%= objSplit[4] %>"> <!campo não é visível na tabela-->
-                                                    <% out.print(objSplit[4]); %>
                                                 </td>
                                                 
                                                 <td><input type="submit" value="Info"></td>
@@ -134,7 +132,9 @@
                                         </table>
                                     </form>
                                     <br><br>
-                                    <strong><a href="searchObjectCoord.jsp">Search another object</a></strong>                                       
+                                    <strong><a href="searchObjectCoord.jsp">Search another object</a></strong>
+                                    <br><br>
+                                    <strong><a href="index.jsp">Home</a></strong>
                                 </fieldset>
                                 <p>
                                     <strong>Desenvolvido por <a href="http://www.cea.inpe.br/" title="Acesse COCTI/INPE" target="_blank">CEA/INPE</a></strong>
