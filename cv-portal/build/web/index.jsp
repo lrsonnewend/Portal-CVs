@@ -57,7 +57,7 @@
                                     more recently with desktop publishing software like Aldus PageMaker including versions
                                     of Lorem Ipsum.
                                 </p>
-                                <br><br>
+                                <br><br class="mt-4">
                                 <div>
                                     <p>
                                         <strong>Desenvolvido por <a href="http://www.cea.inpe.br/" title="Acesse COCTI/INPE" target="_blank">CEA/INPE</a></strong>
@@ -78,5 +78,7 @@
         <!-- Footer -->
         <jsp:include page="views/rodape.jsp" />
         <!-- /Footer-->
+
+
     </body>
 </html>

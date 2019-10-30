@@ -27,8 +27,8 @@ noEqualsDS = []
 resultados = []
 
 #abrindo arquivos CSV's
-leituraRK = open('RitKb.csv')
-leituraDS = open('Downes.csv')
+leituraRK = open('/home/lucas/Repositorios/Portal-CVs/files asc/RitKb.csv')
+leituraDS = open('/home/lucas/Repositorios/Portal-CVs/files asc/Downes.csv')
 
 
 #variáveis readerDS e readerRK fazem a leitura dos arquivos CSV's
@@ -98,7 +98,7 @@ other.remove(other[1])
 
 
 #abrindo arquivo csv e fazendo sua leitura
-equalsCatalog = open('teste.csv')   
+equalsCatalog = open('/home/lucas/Repositorios/Portal-CVs/files asc/singlesRK.csv')   
 
 readerCat = csv.reader(equalsCatalog)
 
@@ -127,7 +127,7 @@ s2 = 0
 #Se não for encontrado, este objeto é considerado sem par.
 vetor = []
 
-for i in range(len(raDS)):        
+'''for i in range(len(raDS)):        
     if decDS[i] not in decequalsDS:
         auxDS[i] = ', '.join(auxDS[i])
         s1 +=1
@@ -140,10 +140,10 @@ for i in range(len(raRK)):
     if raRK[i] not in raequalsRK:
         auxRK[i] =', '.join(auxRK[i])
         s2+=1
-    vetor.append(f'query coo {raRK[i]} {decRK[i]}  {nomesRK[i]} radius=5s [frame=ICRS]')
+    vetor.append(f'query coo {raRK[i]} {decRK[i]}  {nomesRK[i]} radius=5s')
         #, {raRK[i]}, {decRK[i]}, {auxRK[i]}, , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , , 0, ,  http://simbad.u-strasbg.fr/simbad/sim-coo?Coord={raRK[i]}++{decRK[i]}&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
 
-'''
+
 vetor = sorted(vetor)
 for i in vetor:
     print(i)

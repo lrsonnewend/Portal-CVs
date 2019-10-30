@@ -25,12 +25,16 @@
 
         <title>portal-cv</title>
         <meta charset="UTF-8">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link media="screen" href="./css/plone.css" type="text/css" rel="stylesheet" id="plone-css" />    
         <link media="all" href="./css/main.css" type="text/css" rel="stylesheet" id="main-css" />  
         <link media="all" href="./css/style.css" type="text/css" rel="stylesheet" id="style-css" />
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
         <link media="all" href="./css/css-intranet-inpe.css" rel="stylesheet" id="intranet-css" /> 
         <link media="all" href="./css/css-menu.css" rel="stylesheet" id="menu-css" /> 
@@ -44,7 +48,7 @@
         <script src="./js/jquery/jquery-1.9.1.js" type="application/javascript"></script>  
         <script src="./js/jquery/jquery.cookie.js" type="application/javascript"></script>  
         <script src="./js/functions.js" type="application/javascript"></script>
-       
+
     </head>
     <body>
         <jsp:include page="views/topo.jsp" />
@@ -66,16 +70,17 @@
                                             String referenceObj = request.getAttribute("ref").toString().trim();//recebendo o atributo referenceObj do servlet singleCoordinate.java
                                             String ra = request.getAttribute("ra").toString().trim(); //recebendo o atributo ra do servlet singleCoordinate.java
                                             String dec = request.getAttribute("dec").toString().trim(); //recebendo o atributo dec do servlet singleCoordinate.java
-                                            
+
                                             List<String> resultsFinal = new ArrayList();
 
                                             resultsFinal = beanC.uniqueObjCoord(objName, ra, dec); // a lista recebe como conteúdo o retorno da função na classe leObj.java
-                                           
-                                            for(int i = 0; i < resultsFinal.size(); i++)
+
+                                            for (int i = 0; i < resultsFinal.size(); i++) {
                                                 out.print(resultsFinal.get(i));
+                                            }
                                         %>                                
                                         <br><br>
-                                        
+
                                         <strong><a href="searchObjectCoord.jsp">Search another object</a></strong>                                       
                                     </form>
                                 </fieldset>

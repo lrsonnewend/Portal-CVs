@@ -26,14 +26,14 @@
                 <label for="1" title="Acesse os subitens de Modelo Padrão" class="titulo">Menu</label>
 
                 <ul>
-                    <li><a href="./" title="Home">Home</a></li>
-                    
-                    <li><a href="#" title="Catalog">View catalog</a></li>
-                    
+                    <li><a  class="nav-link" href="./" title="Home">Home</a></li>
+
+                    <li><a class="nav-link" href="tableObj.jsp" title="Catalog">View catalog</a></li>
+
                     <li>
-                        <div class="dropdown">
-                            <a href="#" data-toggle="dropdown">
-                                Search Object <i class="fas fa-sort-down"></i>
+                        <div class="dropleft">
+                            <a  class="dropdown-toggle" data-toggle="dropdown">
+                                Search object
                             </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="searchObject.jsp">By name</a>
@@ -41,12 +41,36 @@
                             </div>
                         </div>
                     </li>
-                    
-                    <li><a href="#" title="admin">Admin</a></li>
-                    
-                    <li><a href="about.jsp" title="About">About</a></li>
+
+                    <li><a class="nav-link" href="#" data-toggle="modal" data-target="#AdminLogin">Admin</a></li>
+
+                    <li><a  class="nav-link" href="about.jsp" title="About">About</a></li>
                 </ul>
             </li>      
         </ul> 
     </div>
 </div>    
+
+<!-- Modal for login -->
+<div class="modal fade" id="AdminLogin" tabindex="-1" role="dialog" aria-labelledby="centerTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="centerTitle">Sign in as Admin</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="teste.jsp">
+                    <input type="text" name="uname" placeholder="username" class="form-control" style="width: 80%; margin-left: 10%" required="true">
+
+                    <input type="password" name="pass" placeholder="password" class="form-control mt-3" style="width: 80%; margin-left: 10%" required="true">
+
+                    <button type="submit" class="btn btn-info" style="margin-left: 40%">Login</button> 
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

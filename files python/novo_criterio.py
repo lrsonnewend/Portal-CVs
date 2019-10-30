@@ -37,8 +37,8 @@ noEqualsDS = []
 resultados = []
 
 #abrindo arquivos CSV's
-leituraRK = open('RitKb.csv')
-leituraDS = open('Downes.csv')
+leituraRK = open('/home/lucas/Repositorios/Portal-CVs/files asc/RitKb.csv')
+leituraDS = open('/home/lucas/Repositorios/Portal-CVs/files asc/Downes.csv')
 
 
 #variáveis readerDS e readerRK fazem a leitura dos arquivos CSV's
@@ -126,10 +126,9 @@ vetor = []
 
                 #armazena em uma variável os dados necessários para montar o arquivo csv (catálogo)
                 nomesRK[j].replace('  ', ' ')
-                vetor.append(f'query id {nomesRK[j]}')
+                vetor.append(f'query coo {tempoRArk} {tempoDECrk} radius=3s')
                       
                 #passa para o próximo objeto'''
-
 
 
 
@@ -172,7 +171,7 @@ for j in range(len(nomesRK)):
                     #print(f'Objeto RK- pos {j} Objeto DS - pos {i}')
                     
                     #armazena em uma variável os dados necessários para montar o arquivo csv (catálogo)
-                    vetor.append(f'query id {nomesRK[j]} query coo {tempoRAds} {tempoDECds} radius = 5s [frame=ICRS]')
+                    vetor.append(f'query coo {tempoRArk} {tempoDECrk} radius = 5s')
                     #, {tempoRArk}, {tempoDECrk}, {tempoAuxRK}, {nomesDS[i]}, {tempoRAds}, {tempoDECds}, {tempoAuxDS}, 0,, http://simbad.u-strasbg.fr/simbad/sim-coo?Coord={tempoRAds}++{tempoDECds}&CooFrame=FK5&CooEpoch=2000&CooEqui=2000&CooDefinedFrames=none&Radius=5&Radius.unit=arcsec&submit=submit+query&CoordList=')
                                         
                     #passa para o próximo objeto

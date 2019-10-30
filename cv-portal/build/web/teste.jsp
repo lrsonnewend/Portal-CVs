@@ -13,8 +13,8 @@
     </head>
     <body>
         <% 
-            String user = request.getParameter("userName");
-            String pass = request.getParameter("userPass"); 
+            String user = request.getParameter("uname");
+            String pass = request.getParameter("pass"); 
             
             out.print(user+" "+pass);
         
