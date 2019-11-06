@@ -6,7 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
     <head>
         <title>Portal-CV</title>
@@ -22,8 +21,6 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-
         <link media="all" href="./css/css-intranet-inpe.css" rel="stylesheet" id="intranet-css" /> 
         <link media="all" href="./css/css-menu.css" rel="stylesheet" id="menu-css" /> 
         <link media="all" href="./css/css-home.css" rel="stylesheet"/>
@@ -36,10 +33,6 @@
         <script src="./js/jquery/jquery-1.9.1.js" type="application/javascript"></script>  
         <script src="./js/jquery/jquery.cookie.js" type="application/javascript"></script>  
         <script src="./js/functions.js" type="application/javascript"></script>
-
-        <style>
-
-        </style>
     </head>
     <body>
         <jsp:include page="views/topo.jsp" />
@@ -53,51 +46,19 @@
                         <div id="main-content">    
                             <div id="content">
                                 <h1 class="documentFirstHeading">Cataclysmic Variables Portal</h1>
-                                <fieldset>
-                                    <!--                                    <ul class="nav">
-                                                                            <li class="nav-item">
-                                                                                <a class="nav-link active" href="#">Active</a>
-                                                                            </li>
-                                                                            <li class="nav-item">
-                                                                                <a class="nav-link" href="#">Link</a>
-                                                                            </li>
-                                                                            <li class="nav-item">
-                                                                                <a class="nav-link" href="#">Link</a>
-                                                                            </li>
-                                                                            <li class="nav-item">
-                                                                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </fieldset>-->
-                                    <strong><a href="table.html" target="_blank">
-                                            <font size="4.5" face="Arial">
-                                            View catalog 
-                                            </font></a></strong>
-                                    <font size="4" face="Arial">
-                                    &nbsp;see all objects and their attributes in the table.
-                                    </font>
 
-                                    <br><br>
-
-                                    <div class="dropdown">
-
-                                        <button class="dropbtn">
-                                            <b><font size="4" face="Arial">Search object</font></b>
-
-                                            <i class="fa fa-caret-down"></i>
-                                        </button>
-                                        <div class="dropdown-content">
-                                            <a href="searchObject.jsp" target="_blank">By name</a>
-                                            <a href="searchObjectCoord.jsp" target="_blank">By coordinates</a>
-                                        </div>
-                                    </div>
-                                    <font size="4.5" face="Arial">
-                                    &nbsp;&nbsp;search for a specific object in the catalog.
-                                    </font>
-                                </fieldset>
-                                <br><br>
+                                <p class="mt-2">
+                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                    when an unknown printer took a galley of type and scrambled it to make a type 
+                                    specimen book. It has survived not only five centuries, but also the leap into 
+                                    electronic typesetting, remaining essentially unchanged. It was popularised in 
+                                    the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and
+                                    more recently with desktop publishing software like Aldus PageMaker including versions
+                                    of Lorem Ipsum.
+                                </p>
+                                <br><br class="mt-4">
                                 <div>
-                                    <br>
                                     <p>
                                         <strong>Desenvolvido por <a href="http://www.cea.inpe.br/" title="Acesse COCTI/INPE" target="_blank">CEA/INPE</a></strong>
                                     </p>
@@ -117,5 +78,7 @@
         <!-- Footer -->
         <jsp:include page="views/rodape.jsp" />
         <!-- /Footer-->
+
+
     </body>
 </html>

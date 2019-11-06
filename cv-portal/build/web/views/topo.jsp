@@ -3,6 +3,8 @@
     Created on : 12/07/2019, 08:58:16
     Author     : lucas
 --%>
+<%@page import="java.net.URL"%>
+<%@page import="java.net.InetAddress"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <a accesskey="0" href="#content" title="Ir para conteúdo" class="acesso">Ir para conteúdo <span>0</span ></a>
@@ -12,8 +14,13 @@ Habilite o JavaScript do navegador para que o site funcione corretamente.
 
 <jsp:include page="barra-governo.jsp" />
 
+<% 
+    String ip = InetAddress.getLocalHost().getHostAddress(); //pegando o ip da máquina 
+    URL caminho = new URL("http://" + ip + ":8080/cv-portal/img/"); //caminho da aplicação web onde está localizado o arquivo
+%>
+
 <div class="fundo-topo" id="topo">
-	<div class="conteudo-topo">
+    <div class="conteudo-topo">
 
         <ul class="ir-para">
             <li><a accesskey="1" href="#content" title="Ir para conteúdo">Ir para conteúdo <span>1</span ></a></li>
@@ -25,23 +32,23 @@ Habilite o JavaScript do navegador para que o site funcione corretamente.
         <ul class="idioma">
             <li><div id="google_translate_element"></div></li>
         </ul>
-    
+
         <ul class="acessibilidade" >
             <li>
-            	<a href="/navegacao/acessibilidade.php" title="Acesse Acessibilidade">ACESSIBILIDADE</a>
+                <a href="/navegacao/acessibilidade.php" title="Acesse Acessibilidade">ACESSIBILIDADE</a>
             </li>		
             <li>
-            	<input type="checkbox" name="cont" id="contraste" checked="checked" />
+                <input type="checkbox" name="cont" id="contraste" checked="checked" />
                 <label for="contraste" class="contraste">ALTO CONTRASTE</label>                
                 <a class="contraste" id="contraste-link" title="Altere o Contraste">ALTO CONTRASTE</a>
             </li>
             <li>
-            	<a href="/navegacao/mapa-site.php" title="Acesse Mapa do Site">MAPA DO SITE</a>
+                <a href="/navegacao/mapa-site.php" title="Acesse Mapa do Site">MAPA DO SITE</a>
             </li>
         </ul>
-    
+
         <br />
-    
+
         <div class="topo-logotipo">
             <div>Instituto Nacional de Pesquisas Espaciais</div>
             <a href="index.jsp" title="Ir para Home">
@@ -49,53 +56,53 @@ Habilite o JavaScript do navegador para que o site funcione corretamente.
             </a>
             <div class="ministerio">Ministério da Ciência, Tecnologia, Inovações e Comunicações</div>
         </div>
-    
+
         <br/>
-    
+
         <div class="topo-facilidades">    		
-        
-        <div id="portal-searchbox">
-            <form id="nolivesearchGadget_form" action="/busca.php" method="get">
-                <fieldset class="LSBox">                	
-                    <legend class="hiddenStructure">Buscar no Portal</legend>
-                    <label class="hiddenStructure" for="busca">Buscar no Portal</label>
-                    
-                    <input name="q" type="text" size="18" title="Buscar no portal" placeholder="Buscar no Portal" class="searchField" id="busca" value="" />
-                    <span class="buscaerror"></span>
-                    <input id="buscageral" class="searchButton" type="submit" value="Buscar no portal" alt="Buscar no Portal" />
-        
-                </fieldset>
-            </form>        
-        </div>
-        
-        	<div class="clear"><!-- --></div>
+
+            <div id="portal-searchbox">
+                <form id="nolivesearchGadget_form" action="/busca.php" method="get">
+                    <fieldset class="LSBox">                	
+                        <legend class="hiddenStructure">Buscar no Portal</legend>
+                        <label class="hiddenStructure" for="busca">Buscar no Portal</label>
+
+                        <input name="q" type="text" size="18" title="Buscar no portal" placeholder="Buscar no Portal" class="searchField" id="busca" value="" />
+                        <span class="buscaerror"></span>
+                        <input id="buscageral" class="searchButton" type="submit" value="Buscar no portal" alt="Buscar no Portal" />
+
+                    </fieldset>
+                </form>        
+            </div>
+
+            <div class="clear"><!-- --></div>
             <ul>
-                <li><a href="http://www.facebook.com/pages/Instituto-Nacional-de-Pesquisas-Espaciais/124907444261208" title="Acesse Facebook" target="_blank"><img src="img/facebookIcon.png" alt="Facebook"></a></li>
-                <li><a href="https://twitter.com/inpe_mct" title="Acesse Twitter" target="_blank"><img src="img/twitterIcon.png" alt="Twitter"></a></li>
-                <li><a href="http://www.youtube.com/user/inpemct" title="Acesse Youtube" target="_blank"><img src="img/youtubeIcon.png" alt="Youtube"></a></li>
-                <li><a href="/rss.php" title="Acesse RSS" target="_blank"><img src="img/rssIcon.png" alt="RSS"></a></li>
+                <li><a href="http://www.facebook.com/pages/Instituto-Nacional-de-Pesquisas-Espaciais/124907444261208" title="Acesse Facebook" target="_blank"><img src= <% out.print(caminho+"facebookIcon.png"); %> alt="Facebook"></a></li>
+                <li><a href="https://twitter.com/inpe_mct" title="Acesse Twitter" target="_blank"><img src= <% out.print(caminho+"twitterIcon.png"); %> alt="Twitter"></a></li>
+                <li><a href="http://www.youtube.com/user/inpemct" title="Acesse Youtube" target="_blank"><img src= <% out.print(caminho+"youtubeIcon.png"); %> alt="Youtube"></a></li>
+                <li><a href="/rss.php" title="Acesse RSS" target="_blank"><img src= <% out.print(caminho+"rssIcon.png"); %> alt="RSS"></a></li>
             </ul>
         </div>
-        
+
         <div class="clear"><!-- --></div>
-	
-	</div>
+
+    </div>
 
 </div>
 
 
 <div class="faixa-topo">	
-	<div class="conteudo-topo">
+    <div class="conteudo-topo">
         <ul>
-            <li><a href="/" title="Ir para Home"><img src="img/logotipoInpe-menor.png" alt="Imagem do INPE" /><span class="none">INPE</span></a></li>  
+            <li><a href="/" title="Ir para Home"><img src= <% out.print(caminho+"logotipoInpe-menor.png"); %> alt="Imagem do INPE" /><span class="none">INPE</span></a></li>  
             <li><a href="/faq/" title="Acesse Perguntas Frequentes">Perguntas Frequentes</a></li>
             <li><a href="/noticias/" title="Acesse Notícias">Notícias</a></li>
             <li><a href="/dados_abertos/" title="Acesse os Dados Abertos">Dados Abertos</a></li>
             <li><a href="/contato/" title="Acesse o Contato INPE">Contato</a></li>
         </ul>
-        
+
         <div class="clear"><!-- --></div>
-	</div>
+    </div>
 </div>
 
 <!-- VALIDACAO FORMULARIO -->

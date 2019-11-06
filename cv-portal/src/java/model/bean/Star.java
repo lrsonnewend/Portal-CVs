@@ -43,6 +43,4 @@ public class Star {
     public void setDecCat(String dec_cat) {
         this.dec_cat = dec_cat;
     }
-      
-  
 }

@@ -17,6 +17,27 @@ public class StarDAO {
         con = ConnectionFactory.getConnection();
     }
 
+    public boolean createObj(Star star) {
+        String sql = "insert into cataclism (name_cat, ra_cat, dec_cat) values (?, ?, ?)";
+        PreparedStatement stmt = null;
+
+        try {
+            stmt = con.prepareStatement(sql);
+            stmt.setString(1, star.getNameCat());
+            stmt.setString(2, star.getRaCat());
+            stmt.setString(3, star.getDecCat());
+            stmt.executeUpdate();
+            return true;
+
+        } catch (SQLException ex) {
+            System.err.println("Erro ao executar metodo createObj: " + ex);
+            return false;
+
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+    }
+
     public List<Star> SearchNameObject(Star star) {
         String sql = "select * from cataclism where name_cat = ?";
         PreparedStatement stmt = null;
@@ -124,10 +145,10 @@ public class StarDAO {
                 + 60 * Integer.parseInt(sepDECUser[1]) + Double.parseDouble(sepDECUser[2]))
                 - (3600 * Integer.parseInt(sepDECBD[0])
                 + 60 * Integer.parseInt(sepDECBD[1]) + Double.parseDouble(sepDECBD[2])));
-        
+
         //armazenando o valor final da conta
         difSec = Math.sqrt(Math.pow(difRA, 2) + Math.pow(difDEC, 2));
-        
+
         return (difSec < segArco);
     }
 }

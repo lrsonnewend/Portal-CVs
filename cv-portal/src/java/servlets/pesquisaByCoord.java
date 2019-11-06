@@ -81,7 +81,7 @@ public class pesquisaByCoord extends HttpServlet {
         request.setAttribute("dec", dec);        
         request.setAttribute("arcsec", arcsec);        
           
-        request.getRequestDispatcher("pesquisaCoord.jsp").forward(request, response);
+        request.getRequestDispatcher("./viewsPortal/pesquisaCoord.jsp").forward(request, response);
 
     }
 

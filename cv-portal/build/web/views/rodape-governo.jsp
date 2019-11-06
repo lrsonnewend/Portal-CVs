@@ -4,7 +4,16 @@
     Author     : lucas
 --%>
 
+<%@page import="java.net.URL"%>
+<%@page import="java.net.InetAddress"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
+<% 
+    String ip = InetAddress.getLocalHost().getHostAddress(); //pegando o ip da máquina 
+    URL caminho = new URL("http://" + ip + ":8080/cv-portal/img/"); //caminho da aplicação web onde está localizado o arquivo
+%>
+
 <!DOCTYPE html>
 <html>
 
@@ -16,8 +25,8 @@
     <div class="rodope-logo-governo" >    
         <div class="conteudo-rodape">
             <ul>
-                <li><a href="http://www.acessoainformacao.gov.br/" title="Acesso à Informação" target="_blank"><img src="img/acesso-a-infornacao.png" alt="Acesso à Informação"></a></li>
-                <li><a href="http://www.brasil.gov.br/" title="Portal Brasil" target="_blank"><img src="img/brasil.png" alt="Portal Brasil"></a></li>
+                <li><a href="http://www.acessoainformacao.gov.br/" title="Acesso à Informação" target="_blank"><img src= <% out.print(caminho+"acesso-a-infornacao.png"); %> alt="Acesso à Informação"></a></li>
+                <li><a href="http://www.brasil.gov.br/" title="Portal Brasil" target="_blank"><img src= <% out.print(caminho+"brasil.png"); %> alt="Portal Brasil"></a></li>
             </ul>
             <div class="clear"><!-- --></div>
         </div>

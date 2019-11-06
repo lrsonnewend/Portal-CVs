@@ -76,7 +76,7 @@ public class pesquisaByName extends HttpServlet {
 
         request.setAttribute("name", name);        
           
-        request.getRequestDispatcher("pesquisa.jsp").forward(request, response);
+        request.getRequestDispatcher("./viewsPortal/pesquisa.jsp").forward(request, response);
 
     }
 
