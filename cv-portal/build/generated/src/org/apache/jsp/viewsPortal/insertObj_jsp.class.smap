@@ -1,0 +1,16 @@
+SMAP
+insertObj_jsp.java
+JSP
+*S JSP
+*F
++ 0 insertObj.jsp
+viewsPortal/insertObj.jsp
+*L
+5,35:44
+40:79,3
+41,4:82
+45:86,3
+46,47:89
+93:136,3
+94,5:139
+*E
