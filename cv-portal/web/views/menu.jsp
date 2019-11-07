@@ -49,6 +49,10 @@
                             </div>
                         </div>
                     </li>
+                    
+                    <li>
+                        <a class="nav-link" href="<% out.print(caminho+"insertObj.jsp"); %>">Add object to catalog</a>
+                    </li>
 
                     <li><a class="nav-link" href="#" data-toggle="modal" data-target="#AdminLogin">Admin</a></li>
 

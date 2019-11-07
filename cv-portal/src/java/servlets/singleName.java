@@ -74,13 +74,11 @@ public class singleName extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String ra = request.getParameter("ra");
-        String dec = request.getParameter("dec");
+        String nameObj = request.getParameter("nameObj");
         
-        request.setAttribute("ra", ra);
-        request.setAttribute("dec", dec);
+        request.setAttribute("nameObj", nameObj);
 
-        request.getRequestDispatcher("singleObjName.jsp").forward(request, response);
+        request.getRequestDispatcher("./viewsPortal/singleObjName.jsp").forward(request, response);
     }
 
     /**
