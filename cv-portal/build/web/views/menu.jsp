@@ -1,5 +1,8 @@
+
 <%@page import="java.net.URL"%>
+
 <%@page import="java.net.InetAddress"%>
+
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -36,7 +39,7 @@
                 <ul>
                     <li><a  class="nav-link" href=" <% out.print(caminho2); %>" title="Home">Home</a></li>
 
-                    <li><a class="nav-link" href="<% out.print(caminho+"tableObj.jsp"); %>" title="Catalog">View catalog</a></li>
+                    <li><a class="nav-link" href="<% out.print(caminho + "tableObj.jsp"); %>" title="Catalog">View catalog</a></li>
 
                     <li>
                         <div class="dropleft">
@@ -44,19 +47,19 @@
                                 Search object
                             </a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="<% out.print(caminho+"searchObject.jsp"); %>">By name</a>
-                                <a class="dropdown-item" href="<% out.print(caminho+"searchObjectCoord.jsp"); %>">By coordinates</a>
+                                <a class="dropdown-item" href="<% out.print(caminho + "searchObject.jsp"); %>">By name</a>
+                                <a class="dropdown-item" href="<% out.print(caminho + "searchObjectCoord.jsp"); %>">By coordinates</a>
                             </div>
                         </div>
                     </li>
-                    
+
                     <li>
-                        <a class="nav-link" href="<% out.print(caminho+"insertObj.jsp"); %>">Add object to catalog</a>
+                        <a class="nav-link" href="<% out.print(caminho + "insertObj.jsp"); %>">Add object to catalog</a>
                     </li>
 
                     <li><a class="nav-link" href="#" data-toggle="modal" data-target="#AdminLogin">Admin</a></li>
 
-                    <li><a  class="nav-link" href="<% out.print(caminho+"about.jsp"); %>" title="About">About</a></li>
+                    <li><a  class="nav-link" href="<% out.print(caminho + "about.jsp");%>" title="About">About</a></li>
                 </ul>
             </li>      
         </ul> 

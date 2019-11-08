@@ -50,7 +50,30 @@
                                 <h1 class="documentFirstHeading">Cataclysmic register</h1>
                                 <form method="POST" action="./feedbackCreate.jsp">      
                                     <fieldset>
-                                        <div class="form-group mt-3">
+                                        <p class="mt-4">
+                                            In this page, any user can submit one or more objects to the CV Portal.
+                                            The object(s) will be added to the catalog after approval of the portal managers.
+                                        </p>
+                                        <p>
+                                            The submission can be done by filling a form for each object or by submitting a csv in this format:
+                                            <b>Columns</b>
+                                        </p>
+                                        
+                                        <ul>
+                                            <li>
+                                                Object Name 
+                                            </li>
+
+                                            <li>
+                                                RA (J2000) 
+                                            </li>
+
+                                            <li>
+                                                DEC (J2000) 
+                                            </li>
+                                        </ul>
+
+                                        <div class="form-group mt-4">
                                             <label for="ra">Object name</label>
                                             <input type="text" name="nameObj" class="form-control col-md-4"required>                            
                                         </div>
