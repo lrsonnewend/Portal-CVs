@@ -76,52 +76,54 @@
                                     <button id="downloadCSV" class="btn btn-primary">Export for CSV file</button>
                                     <div class="table-responsive mt-4">
 
-                                        <form method="POST" action="singleObjName.jsp">
-                                            <table id="objects" class="table table-striped">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col" title="Sort name" >
-                                                            Object name 
-                                                        </th>
-                                                        <th scope="col" title="Sort RA" >
-                                                            RA 
-                                                        </th>                                              
-                                                        <th scope="col" title="Sort DEC" >
-                                                            DEC 
-                                                        </th>
+                                        <table id="objects" class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" title="Sort name" >
+                                                        Object name 
+                                                    </th>
+                                                    <th scope="col" title="Sort RA" >
+                                                        RA 
+                                                    </th>                                              
+                                                    <th scope="col" title="Sort DEC" >
+                                                        DEC 
+                                                    </th>
 
-                                                        <th scope="col" title="More information" >
-                                                             
-                                                        </th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
+                                                    <th scope="col" title="More information" >
 
-                                                    <% StarDAO sdao = new StarDAO();
-                                                        for (Star s : sdao.getAllObj()) {
-                                                    %>
-                                                    <tr>
-                                                        <td>
-                                                            <input type="hidden" name="nameObj" value=" <% s.getNameCat(); %> ">
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <% StarDAO sdao = new StarDAO();
+                                                    for (Star s : sdao.getAllObj()) {
+                                                %>
+                                                <tr>
+                                                    <td>
+                                                        <form method="POST" action="singleObjName.jsp">
+
+                                                            <input type="hidden" name="nameObj" value="<% out.print(s.getNameCat()); %>">
                                                             <% out.print(s.getNameCat()); %>
-                                                        </td>
+                                                            </td>
 
-                                                        <td>
-                                                            <% out.print(s.getRaCat()); %>
-                                                        </td>
+                                                            <td>
+                                                                <% out.print(s.getRaCat()); %>
+                                                            </td>
 
-                                                        <td>
-                                                            <% out.print(s.getDecCat()); %>
-                                                        </td>
+                                                            <td>
+                                                                <% out.print(s.getDecCat()); %>
+                                                            </td>
 
-                                                        <td>        
-                                                            <input class="btn btn-info" type="submit" value="More info">   
-                                                        </td>
-                                                    </tr> 
-                                                    <% }%>  
-                                                </tbody>
-                                            </table>
-                                        </form>
+                                                            <td>
+                                                                <input class="btn btn-info" type="submit" value="More info">   
+                                                            </td>
+                                                        </form>
+
+                                                </tr> 
+                                                <% }%>  
+                                            </tbody>
+                                        </table>
 
                                     </div> <!-- End of Container -->
 
@@ -147,53 +149,23 @@
         <jsp:include page="../views/rodape.jsp" />
         <!-- /Footer-->
 
-        <!-- datatables js config table -->
 
-        <script>
-            $(document).ready(function() {
-                $('#objects').DataTable({
-                    dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-8 col-md-12'f>>" +
-                            "<'row'<'col-sm-12'tr>>" +
-                            "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-11'p>>",
-                    
-                    buttons: [
-                        'csv'
-                    ],
-                    
-                    columnDefs: [{
-                            orderable: false,
-                            targets: 3
-                        }]
-                });
-                $('.dataTables_length').addClass('bs-select');
-            });
-
-        </script>
-
-
-        <!-- table2csv function download -->
-        <script>
-            $('#downloadCSV').click(function() {
-                $('#objects').table2csv({
-                    separator: ',',
-                    newline: '\n',
-                    excludeColumns: '',
-                    excludeRows: '',
-                    filename: 'objects.csv'
-                });
-            });
-        </script>
 
 
         <!-- SCRIPTS -->
 
         <!-- tabl2csv jquery --> 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
-
         <script src="../node_modules/table2csv/dist/table2csv.min.js"></script> 
 
         <!-- datatables jquery -->
         <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
+
+        <!-- datatables js config table -->
+        <script type="text/javascript" src="../js/datatables_config.js"></script>
+
+        <!-- table2csv function download -->
+        <script type="text/javascript" src="../js/table2csv_config.js"></script>
 
 
     </body>

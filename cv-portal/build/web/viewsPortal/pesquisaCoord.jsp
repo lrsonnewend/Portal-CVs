@@ -35,7 +35,7 @@
 
         <link media="screen" href="./css/plone.css" type="text/css" rel="stylesheet" id="plone-css" />    
         <link media="all" href="./css/main.css" type="text/css" rel="stylesheet" id="main-css" />  
-        <!--        <link media="all" href="./css/style.css" type="text/css" rel="stylesheet" id="style-css" /> -->
+<!--        <link media="all" href="./css/style.css" type="text/css" rel="stylesheet" id="style-css" /> -->
 
         <link media="all" href="./css/css-intranet-inpe.css" rel="stylesheet" id="intranet-css" /> 
         <link media="all" href="./css/css-menu.css" rel="stylesheet" id="menu-css" /> 

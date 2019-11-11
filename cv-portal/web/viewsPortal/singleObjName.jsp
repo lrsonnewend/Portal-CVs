@@ -3,6 +3,8 @@
     Created on : 10/09/2019, 15:01:42
     Author     : lucas
 --%>
+<%@page import="model.bean.Star"%>
+<%@page import="model.dao.StarDAO"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <jsp:useBean id="bean" class="scanCSV.leObj" />
@@ -56,10 +58,44 @@
                                     <form>
                                         <br>
                                         <%
-                                            String nameObj = request.getParameter("nameObj").toString();
+                                            Star objStar = Star.newStar();
+                                            StarDAO sdao = new StarDAO();
 
-                                            out.print(nameObj);
+                                            //recebendo o atributo nome da classe searchObject.jsp
+                                            objStar.setNameCat(request.getParameter("nameObj").toString());
+
+                                            for (Star s : sdao.SearchNameObject(objStar)) {
                                         %>
+
+                                        <div class= "form-group">
+                                            <div>
+                                                <b scope="row">Name: </b>
+                                                <% out.print(s.getNameCat()); %>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <b scope="row">RA (J2000): </b>
+                                                <% out.print(s.getRaCat()); %>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <b scope="row">DEC (J2000): </b>
+                                                <% out.print(s.getDecCat()); %>
+                                            </div>
+
+                                            <div class="mt-4">
+                                                <a href="http://simbad.u-strasbg.fr/simbad/sim-id?Ident=<% out.print(s.getNameCat()); %>
+                                                   &NbIdent=1&Radius=2&Radius.unit=arcmin&submit=submit+id" target="_blank">View object in SIMBAD</a>
+                                            </div>
+
+                                            <div class="mt-3">
+                                                <a href='https://ui.adsabs.harvard.edu/search/q=object:"<% out.print(s.getNameCat().toLowerCase()); %>"' target="_blank">View object in ADS</a>                                            
+                                            </div>
+
+
+                                        </div>
+
+                                        <% }%>
 
                                         <br><br>
                                     </form>
