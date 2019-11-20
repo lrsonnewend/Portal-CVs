@@ -1,3 +1,5 @@
+
+
 package model.dao;
 
 import connection.ConnectionFactory;
@@ -9,21 +11,36 @@ import java.util.ArrayList;
 import java.util.List;
 import model.bean.Star;
 
+/**
+ * Classe responsável pelos metodos de CRUD (create, read, update e delete) no banco de dados.
+ */
+
 public class StarDAO {
 
     private Connection con = null;
+    
+    /**
+     * metodo construtor -> ao ser instanciado, faz uma nova conexao com o banco de dados.
+     */
 
     public StarDAO() {
         con = ConnectionFactory.getConnection();
     }
 
+    /**
+     * 
+     * @param star -> objeto do tipo Star.
+     * @return tipo boolean para saber se o objeto foi cadastrado com sucesso ou nao.
+     */
     public boolean createObj(Star star) {
-        String sql = "insert into cataclism (name_cat, ra_cat, dec_cat) values (?, ?, ?)";
-        PreparedStatement stmt = null;
+        String sql = "insert into cataclism (name_cat, ra_cat, dec_cat) values (?, ?, ?)"; //string com o comando a ser realizado no bd
+        PreparedStatement stmt = null; //recebe o sql e executa no bd
 
         try {
-            stmt = con.prepareStatement(sql);
-            stmt.setString(1, star.getNameCat());
+            stmt = con.prepareStatement(sql); //stmt recebendo o comando sql
+            
+            //passando os parametros de entrada (?) que o usuario inseriu no cadastro. 
+            stmt.setString(1, star.getNameCat()); 
             stmt.setString(2, star.getRaCat());
             stmt.setString(3, star.getDecCat());
             stmt.executeUpdate();
@@ -34,21 +51,28 @@ public class StarDAO {
             return false;
 
         } finally {
-            ConnectionFactory.closeConnection(con, stmt);
+            ConnectionFactory.closeConnection(con, stmt); //fechando conexao com o bd.
         }
     }
+    
+    /**
+     * 
+     * @param star -> objeto do tipo Star
+     * @return retorna o objeto com o nome que foi procurado na pagina searchObject.jsp
+     */
 
     public List<Star> SearchNameObject(Star star) {
-        String sql = "select * from cataclism where name_cat = ?";
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        List<Star> stars = new ArrayList();
+        String sql = "select * from cataclism where name_cat = ?"; //string com o comando a ser realizado no bd
+        PreparedStatement stmt = null; //recebe o sql e executa no bd
+        ResultSet rs = null; //variavel para receber o resultado da busca no banco de dados
+        List<Star> stars = new ArrayList(); //ArrayList do tipo Star 
         try {
 
-            stmt = con.prepareStatement(sql);
-            stmt.setString(1, star.getNameCat());
-            rs = stmt.executeQuery();
-
+            stmt = con.prepareStatement(sql); //stmt recebendo o comando sql
+            stmt.setString(1, star.getNameCat()); //passando o parametro de entrada (? -> name_cat) que o usuario inseriu para busca por nome. 
+            rs = stmt.executeQuery(); //rs recebe o retorno da execucao do metodo executeQuery
+            
+            //populando a tabela stars
             while (rs.next()) {
                 star.setNameCat(rs.getString("name_cat"));
                 star.setRaCat(rs.getString("ra_cat"));
@@ -59,10 +83,15 @@ public class StarDAO {
         } catch (SQLException ex) {
             System.err.println("Erro ao buscar objeto: " + ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            ConnectionFactory.closeConnection(con, stmt, rs); //fechando conexao do bd
         }
         return stars;
     }
+    
+     /**
+      * metodo para listar todos as cataclismicas do banco de dados.
+      * @return lista com todos as cataclismicas
+      */
 
     public List<Star> getAllObj() {
         String sql = "select * from cataclism";
@@ -73,7 +102,8 @@ public class StarDAO {
         try {
             stmt = con.prepareStatement(sql);
             rs = stmt.executeQuery();
-
+            
+            //populando a tabela
             while (rs.next()) {
                 Star star = Star.newStar();
                 star.setId_cat(rs.getInt("id_cat"));
@@ -86,69 +116,36 @@ public class StarDAO {
         } catch (SQLException ex) {
             System.err.println("Erro: " + ex);
         } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
+            ConnectionFactory.closeConnection(con, stmt, rs); //fechando conexao
         }
         return listStars;
     }
 
-    public List<Star> getAllCoord() {
-        String sql = "select name_cat, ra_cat, dec_cat from cataclism";
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
-        List<Star> listCoord = new ArrayList();
+//    public List<Star> getAllCoord() {
+//        String sql = "select name_cat, ra_cat, dec_cat from cataclism";
+//        PreparedStatement stmt = null;
+//        ResultSet rs = null;
+//        List<Star> listCoord = new ArrayList();
+//
+//        try {
+//            stmt = con.prepareStatement(sql);
+//            rs = stmt.executeQuery();
+//
+//            while (rs.next()) {
+//                Star star = Star.newStar();
+//                star.setNameCat(rs.getString("name_cat"));
+//                star.setRaCat(rs.getString("ra_cat"));
+//                star.setDecCat(rs.getString("dec_cat"));
+//
+//                listCoord.add(star);
+//            }
+//        } catch (SQLException ex) {
+//            System.err.println("Erro: " + ex);
+//        } finally {
+//            ConnectionFactory.closeConnection(con, stmt, rs);
+//        }
+//        return listCoord;
+//    }
 
-        try {
-            stmt = con.prepareStatement(sql);
-            rs = stmt.executeQuery();
-
-            while (rs.next()) {
-                Star star = Star.newStar();
-                star.setNameCat(rs.getString("name_cat"));
-                star.setRaCat(rs.getString("ra_cat"));
-                star.setDecCat(rs.getString("dec_cat"));
-
-                listCoord.add(star);
-            }
-        } catch (SQLException ex) {
-            System.err.println("Erro: " + ex);
-        } finally {
-            ConnectionFactory.closeConnection(con, stmt, rs);
-        }
-        return listCoord;
-    }
-
-    //método utilizado para procurar um objeto por meio da coordenada fornecida pelo usuario e as coordenadas do banco de dados.
-    public boolean leCoord(String raBD, String decBD, Star star, int segArco) {
-
-        double difRA, difDEC, difSec;
-        String sepRAUser[];
-        String sepDECUser[];
-
-        String sepRABD[];
-        String sepDECBD[];
-
-        //separando coordenadas para facilitar sua manipulação
-        sepRAUser = star.getRaCat().split(" ");
-        sepDECUser = star.getDecCat().split(" ");
-
-        sepRABD = raBD.split(" ");
-        sepDECBD = decBD.split(" ");
-
-        //realizando o cálculo diferencial para RA
-        difRA = Math.abs(15 * (3600 * Integer.parseInt(sepRAUser[0])
-                + 60 * Integer.parseInt(sepRAUser[1]) + Double.parseDouble(sepRAUser[2]))
-                - (15 * (3600 * Integer.parseInt(sepRABD[0])
-                + 60 * Integer.parseInt(sepRABD[1]) + Double.parseDouble(sepRABD[2]))));
-
-        //realizando o cálculo diferencial para DEC
-        difDEC = Math.abs((3600 * Integer.parseInt(sepDECUser[0])
-                + 60 * Integer.parseInt(sepDECUser[1]) + Double.parseDouble(sepDECUser[2]))
-                - (3600 * Integer.parseInt(sepDECBD[0])
-                + 60 * Integer.parseInt(sepDECBD[1]) + Double.parseDouble(sepDECBD[2])));
-
-        //armazenando o valor final da conta
-        difSec = Math.sqrt(Math.pow(difRA, 2) + Math.pow(difDEC, 2));
-
-        return (difSec < segArco);
-    }
+    
 }

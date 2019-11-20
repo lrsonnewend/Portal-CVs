@@ -4,9 +4,13 @@
     Author     : lucas
 --%>
 
+<%@page import="model.dao.SubUserDAO"%>
+<%@page import="model.bean.SubmitUser"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.dao.StarDAO" %>
 <%@page import="model.bean.Star" %>
+
+<!-- página que irá exibir uma mensagem para o usuário após ele submeter um novo objeto.-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -52,14 +56,16 @@
                             <div id="content">
                                 <p class="mt-2">
                                     <% 
-                                        Star star = Star.newStar();
-                                        StarDAO dao = new StarDAO();
+                                        SubUserDAO dao = new SubUserDAO();
+                                        SubmitUser sub = SubmitUser.newSubmit();
                                         
-                                        star.setNameCat(request.getParameter("nameObj").toString());
-                                        star.setRaCat(request.getParameter("raObj").toString());
-                                        star.setDecCat(request.getParameter("decObj").toString());
+                                        sub.setNomeUser(request.getParameter("nameUser").toString());
+                                        sub.setEmailUser(request.getParameter("emailUser").toString());
+                                        sub.setObjSubmit(request.getParameter("nameObj").toString());
+                                        sub.setRaSubmit(request.getParameter("raObj").toString());
+                                        sub.setDecSubmit(request.getParameter("decObj").toString());
                                         
-                                        if(dao.createObj(star))
+                                        if(dao.createSub(sub))
                                             out.print("The data relating to the object for registration were sent to the page administrator"
                                                     + "for review and may soon be available in our catalog. Thank you for contributing to CV Portal");
                                         

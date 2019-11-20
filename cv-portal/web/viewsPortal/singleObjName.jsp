@@ -3,6 +3,10 @@
     Created on : 10/09/2019, 15:01:42
     Author     : lucas
 --%>
+
+<!-- página que retorna um objeto que é selecionado por meio de um click na tabela 
+    quando há mais de um objeto pesquisado com nome igual -->
+
 <%@page import="model.bean.Star"%>
 <%@page import="model.dao.StarDAO"%>
 <%@page import="java.util.List"%>
@@ -123,5 +127,7 @@
         <!-- Footer -->
         <jsp:include page="../views/rodape.jsp" />
         <!-- /Footer-->
+        
+
     </body>
 </html>

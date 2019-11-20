@@ -4,6 +4,10 @@
     Author     : lucas
 --%>
 
+<!-- página do resultado da pesquisa por coordenada -->
+
+
+<%@page import="model.bean.Calculo"%>
 <%@page import="model.dao.StarDAO" %>
 <%@page import="model.bean.Star" %>
 <%@page import="java.text.DecimalFormat"%>
@@ -35,7 +39,7 @@
 
         <link media="screen" href="./css/plone.css" type="text/css" rel="stylesheet" id="plone-css" />    
         <link media="all" href="./css/main.css" type="text/css" rel="stylesheet" id="main-css" />  
-<!--        <link media="all" href="./css/style.css" type="text/css" rel="stylesheet" id="style-css" /> -->
+        <!--        <link media="all" href="./css/style.css" type="text/css" rel="stylesheet" id="style-css" /> -->
 
         <link media="all" href="./css/css-intranet-inpe.css" rel="stylesheet" id="intranet-css" /> 
         <link media="all" href="./css/css-menu.css" rel="stylesheet" id="menu-css" /> 
@@ -49,6 +53,9 @@
         <script src="./js/jquery/jquery-1.9.1.js" type="application/javascript"></script>  
         <script src="./js/jquery/jquery.cookie.js" type="application/javascript"></script>  
         <script src="./js/functions.js" type="application/javascript"></script>
+
+        <!-- datatables config -->       
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
 
 
     </head>
@@ -66,40 +73,92 @@
                                 <h1 class="documentFirstHeading">Search results by coordinates</h1>
                                 <fieldset>
                                     <br>
-                                    <%
-                                        Star star = Star.newStar();
-                                        StarDAO dao = new StarDAO();
 
-                                        DecimalFormat fmt = new DecimalFormat("0.00"); //formatação para numeros serem exibidos com apenas duas casa decimais
+                                    <button id="downloadCSV" class="btn btn-primary">Export for CSV file</button>
+                                    <div class="table-responsive mt-4">
 
-                                        String dec = request.getAttribute("dec").toString().trim(); //recebe o atributo dec da classe searchObjectCoord.jsp
-                                        String ra = request.getAttribute("ra").toString().trim();//recebe o atributo ra da classe searchObjectCoord.jsp
-                                        String arcsec = request.getAttribute("arcsec").toString().trim();//recebe o atributo arcsec da classe searchObjectCoord.jsp
-                                        star.setRaCat(ra);
-                                        star.setDecCat(dec);
+                                        <%
+                                            Star star = Star.newStar();
+                                            StarDAO dao = new StarDAO();
+                                            Calculo calc = new Calculo();
 
-                                        int segArco = Integer.parseInt(arcsec);
-                                        int c = 0;
-                                        List<Star> resultsCoord = new ArrayList();
+                                            DecimalFormat fmt = new DecimalFormat("0.00"); //formatação para numeros serem exibidos com apenas duas casa decimais
 
-                                        resultsCoord = dao.getAllCoord();
+                                            star.setDecCat(request.getAttribute("dec").toString().trim()); //recebe o atributo dec da classe searchObjectCoord.jsp
+                                            star.setRaCat(request.getAttribute("ra").toString().trim());//recebe o atributo ra da classe searchObjectCoord.jsp
 
-                                        for (Star s : resultsCoord) {
-                                            if (dao.leCoord(s.getRaCat(), s.getDecCat(), star, segArco)) {
+                                            String arcsec = request.getAttribute("arcsec").toString().trim();//recebe o atributo arcsec da classe searchObjectCoord.jsp
 
-                                                out.println("Object: " + s.getNameCat() + "<br>");
-                                                out.println("RA:  " + s.getRaCat() + "<br>");
-                                                out.println("DEC: " + s.getDecCat() + "<br><br>");
-                                            } else {
-                                                c += 1;
+                                            int segArco = Integer.parseInt(arcsec);
+                                            int c = 0;
+
+                                            List<Star> resultsCoord = new ArrayList();
+                                            List<Star> coordinates = new ArrayList();
+
+                                            coordinates = dao.getAllObj();
+
+                                            for (Star s : coordinates) {
+                                                if (calc.leCoord(s.getRaCat(), s.getDecCat(), star, segArco)) {
+                                                    resultsCoord.add(s);
+                                                } else {
+                                                    c += 1;
+                                                }
                                             }
-                                        }
+                                        %>
+                                        <table id="objects" class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" title="Sort name" >
+                                                        Object name 
+                                                    </th>
+                                                    <th scope="col" title="Sort RA" >
+                                                        RA 
+                                                    </th>                                              
+                                                    <th scope="col" title="Sort DEC" >
+                                                        DEC 
+                                                    </th>
 
-                                        if (c == resultsCoord.size()) {
-                                            out.print("Object not found.");
-                                        }
+                                                    <th scope="col" title="More information" >
 
-                                    %>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                                <%
+                                                    if (resultsCoord.size() > 0) {
+                                                        for (Star s : resultsCoord) {
+                                                %>
+                                                <tr>
+                                                    <td>
+                                                        <form method="POST" action="./viewsPortal/singleObjName.jsp">
+
+                                                            <input type="hidden" name="nameObj" value="<% out.print(s.getNameCat()); %>">
+                                                            <% out.print(s.getNameCat()); %>
+                                                            </td>
+
+                                                            <td>
+                                                                <% out.print(s.getRaCat()); %>
+                                                            </td>
+
+                                                            <td>
+                                                                <% out.print(s.getDecCat()); %>
+                                                            </td>
+
+                                                            <td>
+                                                                <input class="btn btn-primary" type="submit" value="More info">
+                                                            </td>
+                                                        </form>
+
+                                                </tr> 
+                                                <% }
+                                                    } else {
+                                                        out.print("Object not found.");
+                                                    }%>
+                                            </tbody>
+                                        </table>
+
+                                    </div> <!-- End of Container -->
 
                                     <br><br>
                                     <a href="./viewsPortal/searchObjectCoord.jsp"><button class="btn btn-info">Search another object</button></a>
@@ -124,5 +183,21 @@
         <!-- Footer -->
         <jsp:include page="../views/rodape.jsp" />
         <!-- /Footer-->
+
+        <!-- SCRIPTS -->
+
+<!--         tabl2csv jquery  -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+        <script src="./node_modules/table2csv/dist/table2csv.min.js"></script> 
+
+<!--         datatables jquery -->
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.js"></script>
+
+<!--         datatables js config table -->
+        <script type="text/javascript" src="./js/datatables_config.js"></script>
+
+<!--         table2csv function download -->
+        <script type="text/javascript" src="./js/table2csv_config.js"></script>
+
     </body>
 </html>

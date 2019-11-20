@@ -21,8 +21,12 @@
 <%@page import="java.util.List"%>
 <jsp:useBean id="bean" class="model.dao.StarDAO" />
 
+<!-- pagina que carrega o catálogo com todos os objetos cadastrados no banco de dados -->
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
+
 <html>
     <head>
         <title>Portal-CV</title>

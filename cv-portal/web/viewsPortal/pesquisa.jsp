@@ -4,6 +4,8 @@
     Author     : lucas
 --%>
 
+<!-- página do resultado de pesquisa por nome -->
+
 <%@page import="javax.sound.midi.SysexMessage"%>
 <%@page import="scanCSV.leObj"%>
 <%@page import="model.dao.StarDAO" %>
@@ -141,5 +143,7 @@
         <!-- Footer -->
         <jsp:include page="../views/rodape.jsp" />
         <!-- /Footer-->
+        
+        
     </body>
 </html>

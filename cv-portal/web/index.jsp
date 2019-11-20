@@ -4,6 +4,8 @@
     Author     : lucas
 --%>
 
+<!-- arquivo principal - é carregado ao executar o projeto -->
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

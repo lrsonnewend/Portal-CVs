@@ -4,6 +4,8 @@
     Author     : lucas
 --%>
 
+<!-- Página para o usuário submeter um novo objeto -->
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -58,7 +60,7 @@
                                             The submission can be done by filling a form for each object or by submitting a csv in this format:
                                             <b>Columns</b>
                                         </p>
-                                        
+
                                         <ul>
                                             <li>
                                                 Object Name 
@@ -72,9 +74,28 @@
                                                 DEC (J2000) 
                                             </li>
                                         </ul>
+                                        <br>
+
+                                        <h3 style="color: #9aa6a6">-- User --</h3>
+
 
                                         <div class="form-group mt-4">
-                                            <label for="ra">Object name</label>
+                                            <label for="ra">Name</label>
+                                            <input type="text" name="nameUser" class="form-control col-md-4"required>                            
+                                        </div>
+
+
+                                        <div class="form-group mt-4">
+                                            <label for="ra">Email</label>
+                                            <input type="text" name="emailUser" class="form-control col-md-4" placeholder="" required>                            
+                                        </div>
+                                        <div class="mt-4"></div>
+                                        <hr> 
+
+                                        <h3 class="mt-4" style="color: #9aa6a6">-- Object --</h3>
+
+                                        <div class="form-group mt-4">
+                                            <label for="ra">Name</label>
                                             <input type="text" name="nameObj" class="form-control col-md-4"required>                            
                                         </div>
 

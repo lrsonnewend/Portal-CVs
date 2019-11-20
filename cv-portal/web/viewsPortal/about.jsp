@@ -4,9 +4,10 @@
     Author     : lucas
 --%>
 
+<!-- página Sobre do portal -->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
+
 <html>
     <head>
         <title>Portal-CV</title>

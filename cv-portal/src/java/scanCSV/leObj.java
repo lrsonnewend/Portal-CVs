@@ -14,7 +14,10 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- *
+ * Classe inicialmente utilizada para manipulacao dos dados
+ * A classe que está sendo utilizada com as mesmas funcoes 
+ * é a StarDAO, com metodos que pegam informacoes do objeto
+ * direto do banco de dados
  * @author lucas
  */
 public class leObj {

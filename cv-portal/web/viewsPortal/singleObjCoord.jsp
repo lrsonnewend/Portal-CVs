@@ -4,6 +4,8 @@
     Author     : lucas
 --%>
 
+<!-- página que retorna um objeto que é selecionado por meio de um click na tabela 
+    quando há mais de um objeto achado na pesquisa por coordenada -->
 
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="java.lang.Math.*"%>
