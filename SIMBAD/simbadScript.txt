@@ -1,0 +1,8 @@
+echo My first Simbad4 script
+format object form1 "%IDLIST(1) :RA: %COO(A)                                               :DEC: %COO(D)                                         "
+query id am her
+query id tuc
+query id J2044-0459
+format display
+
+
